@@ -1,6 +1,6 @@
 # Pipeline — making 8–10 minute motion-graphics YouTube videos, free and unlimited
 
-This is the standing workflow for long-form videos in this repo, built on the research in [YOUTUBE-HYPERFRAMES-PLAYBOOK.md](YOUTUBE-HYPERFRAMES-PLAYBOOK.md) and proven end-to-end in the 30s smoke test [`f1-brazil-2026-pipeline/`](f1-brazil-2026-pipeline/). Free and unlimited means: everything renders **locally** with the open-source HyperFrames CLI (Apache-2.0) and tools you already have — no HeyGen account, no credits, no metered services, as many renders as you like.
+This is the standing workflow for long-form videos in this repo, built on the research in [YOUTUBE-HYPERFRAMES-PLAYBOOK.md](YOUTUBE-HYPERFRAMES-PLAYBOOK.md). Free and unlimited means: everything renders **locally** with the open-source HyperFrames CLI (Apache-2.0) and tools you already have — no HeyGen account, no credits, no metered services, as many renders as you like.
 
 ## Deliverable targets
 
@@ -63,7 +63,7 @@ Rules learned the hard way (see `skills/hyperframes/references/format.md`):
 5. **Voice, free two ways** (write it fluent and direct: short declaratives, minimal comma-chains, one idea per breath — read it aloud before recording; ~1.15× rate keeps energy without rushing):
    - This machine/session: the assistant's built-in voice generation (voice-01 is the house narrator), clip per line, placed with `data-start` + `data-playback-rate="1.15"`. Free, no account.
    - Any normal workstation: **Kokoro-82M on-device** — `npx hyperframes tts "line" --voice am_adam -o assets/voice/01.wav` (needs `kokoro-onnx` + `soundfile` and, on first run, network access to GitHub release assets; point `HYPERFRAMES_PYTHON` at a venv that has the packages). Never HeyGen sign-in unless the user wants the Free plan's 3 min/month Voice Turbo.
-6. **Assemble** — one composition per act; mount in `index.html`; dead-centre layout; prism/marker/count-up/progress techniques from the Playbook (registry-derived, vendored). For driver/team content prefer **racing-tire driver chips**: inline SVG discs — rubber body with dashed tread ring, team-colour sidewall stripe, glossy team-colour radial-gradient rim with inner barrel ring and specular, 3-letter code in Anton italic (dim the chip at the story's start, brighten it at the payoff; winner gets a yellow drop-shadow halo) — over text-only driver references. F1 broadcast palette: McLaren #FF8000, Red Bull #3671C6, Mercedes #27F4D2.
+6. **Assemble** — one composition per act; mount in `index.html`; dead-centre layout; prism/marker/count-up/progress techniques from the Playbook (registry-derived, vendored). For recurring visual-motif needs (e.g., country/team/actor discs), prefer **iconic inline-SVG chips** — a bold outer ring, brand-colour fill, 3-letter code in Anton italic — over text-only references (dim the chip at the story's start, brighten it at the payoff; a yellow drop-shadow halo marks the winner/protagonist).
 7. **Gates** — `npx hyperframes lint` (0 errors; reassess warnings each video) → `npx hyperframes snapshot --at <act key moments>` → view the contact sheet → fix → re-snapshot.
 8. **Render** — `npx hyperframes render -o renders/<name>.mp4 --quality delivery`. Expect roughly 1–2.5 min per 30 s of 1080p30 on one core — budget 25–50 min for a full video; iterate on `--quality draft` first.
 9. **Verify** — ffprobe (codec/fps/resolution/duration), `ebur128` LUFS, frame extraction at every act cut (`-ss` before `-i`, compare md5s of successive seconds to catch boundary bugs), spot-listen with sound off/on/muted.
@@ -95,7 +95,7 @@ Caveat: model downloads (Kokoro, Parakeet, Whisper, MusicGen weights) come from 
 | 4 | 45–75 s | Act IV | consequences, human stakes |
 | 5 | 15–30 s | End card | mark + line + CTA, hold 2–3 s |
 
-(For F1-style recaps: Prologue storm/grid → start → climb → flag → aftermath, as in `f1-brazil-2026-story/`.)
+(For explainer-style arcs: Hook question → context → the three culprits/mechanisms → a real-world microcosm → the numbers → what's next → takeaway rules.)
 
 ## Verification checklist before commit
 

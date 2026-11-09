@@ -64,3 +64,8 @@ User feedback addressed: (a) not enough slides / too much dead air, (b) VO volum
 - Dynamism: every act now carries continuous motion (Ken Burns photos, spinning glow ring, S-curve SVG with traveling ANT/NOR dots + spark burst at the spin, sliding VO-synced act beats, kicker shimmer, constructors' banner pop, crowned double-champions card); no act is a static hold. Act count 8 → 10; grid/senna/result beats re-timed to land on the spoken words.
 - SRT sidecar regenerated to the new script/timeline (cue = host slot + local start; duration = raw/1.15).
 - Verification: lint 0 errors; frames extracted per act; EBU R128 −16.8 LUFS; −1.0 dBFS true peak; 120.000s.
+
+## v8 — Channel pivot: F1 removed; economics-education rebrand (2026-11-09)
+
+All F1 projects (`f1-brazil-2026`, `f1-brazil-2026-story`, `f1-brazil-2026-pipeline`, `f1-brazil-2026-2min`, including renders and sources) were deleted from the working tree at the channel owner's direction; restore only via git history (tags gone, commits remain). PIPELINE.md and YOUTUBE-HYPERFRAMES-PLAYBOOK.md were scrubbed of F1-specific references; the generic 8–10 min HyperFrames workflow stands. README rebuilt around the economics-education channel.
+New deliverables: `econ-channel/BRAND.md` (niche analysis + 3 brand options) and `econ-channel/EP01-STORYBOARD.md` (8:00 episode storyboard, no motion graphics yet — pending owner review).

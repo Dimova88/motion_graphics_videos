@@ -1,30 +1,22 @@
 # motion_graphics_videos
 
-Motion-graphics videos built with [HyperFrames](https://github.com/heygen-com/hyperframes) (HTML + CSS + GSAP compositions rendered headlessly to MP4).
+Motion-graphics videos for an **economics-education YouTube channel**, built with [HyperFrames](https://github.com/heygen-com/hyperframes) (HTML + CSS + GSAP compositions rendered headlessly to MP4). Every video pairs verified real-world data with the strict dead-centre layout and sub-composition architecture in [PIPELINE.md](PIPELINE.md).
 
-## Videos
+## Status
 
-| Project | Length | Description |
-| --- | --- | --- |
-| [`f1-brazil-2026/`](f1-brazil-2026/) | 30s | **v1 — narrated recap** of the **2026 Formula 1 São Paulo Grand Prix** (Interlagos, 08.11.2026): Norris converts pole to victory, Verstappen charges from P21 to P2, Hadjar secures a Red Bull double podium. |
-| [`f1-brazil-2026-story/`](f1-brazil-2026-story/) | 30s | **v2 — story-driven recap** of the same race: five-act narrative arc (Prologue → Epilogue), storyteller voiceover (voice-01), prism title treatment, marker-underline emphasis, seamless scrolling wire ticker, film grain + cinematic grade. |
-| [`f1-brazil-2026-pipeline/`](f1-brazil-2026-pipeline/) | 30s | **v3 — pipeline test** for the new 8–10 min YouTube workflow: sub-composition architecture (`compositions/`, one file per act), **strictly dead-centre layout** (every motion-graphic element column+row centred in 1920×1080), local narration + registry-derived prism/marker techniques. See [PIPELINE.md](PIPELINE.md). |
-| [`f1-brazil-2026-2min/`](f1-brazil-2026-2min/) | 2min | **v7 — long-form cut** of the 2026 São Paulo GP through the [pipeline](PIPELINE.md): ten dead-centred acts (storm → the champion's backstory → grid → lights out → lap 20, the Senna S → the charge → the flag → final classification → double champions), storyteller VO covering the full runtime (voice-01 @1.15, loudness-normalised), racing-tire driver chips, facts fully verified (Antonelli crowned at Mexico City, Mercedes constructors' champions at Interlagos), YouTube `.srt` sidecar. |
+Channel pivot (2026-11-09): the previous F1 content was removed at the channel owner's direction; the repo is being rebuilt around economics explainers with current, sourced examples. See [CHECKPOINTS.md](CHECKPOINTS.md).
 
-Rendered videos are committed: [`f1-brazil-2026/renders/f1-brazil-2026-race-recap.mp4`](f1-brazil-2026/renders/f1-brazil-2026-race-recap.mp4) (12 MB), [`f1-brazil-2026-story/renders/f1-brazil-2026-race-recap-story.mp4`](f1-brazil-2026-story/renders/f1-brazil-2026-race-recap-story.mp4) (13 MB) and [`f1-brazil-2026-pipeline/renders/f1-brazil-2026-pipeline-test.mp4`](f1-brazil-2026-pipeline/renders/f1-brazil-2026-pipeline-test.mp4) (3.2 MB), [`f1-brazil-2026-2min/renders/f1-brazil-2026-2min.mp4`](f1-brazil-2026-2min/renders/f1-brazil-2026-2min.mp4) (14 MB, captions: [`f1-brazil-2026-2min.srt`](f1-brazil-2026-2min/renders/f1-brazil-2026-2min.srt)). All 1920×1080@30 H.264/AAC. See [CHECKPOINTS.md](CHECKPOINTS.md) for restore points.
+- Brand options and niche analysis: [`econ-channel/BRAND.md`](econ-channel/BRAND.md)
+- First episode storyboard (8:00, no motion graphics yet): [`econ-channel/EP01-STORYBOARD.md`](econ-channel/EP01-STORYBOARD.md)
 
-### Rebuilding a video
+## Workflow
 
-Each project folder is a self-contained HyperFrames composition. You need Node.js 22+, FFmpeg on `PATH`, and a Chrome/Chromium executable (set `HYPERFRAMES_BROWSER_PATH` if Chrome is not auto-detected):
+Each episode is a self-contained HyperFrames composition. You need Node.js 22+, FFmpeg on `PATH`, and a Chrome/Chromium executable (set `HYPERFRAMES_BROWSER_PATH` if Chrome is not auto-detected):
 
 ```bash
-cd f1-brazil-2026
+cd <episode>
 npx hyperframes lint      # validate the composition
 npx hyperframes render     # writes renders/<name>.mp4
 ```
 
-Fonts (Anton, Archivo, Archivo Black) and SFX-free voiceover clips are vendored under `assets/`, so builds are deterministic and offline.
-
-## Long-form workflow
-
-For 8–10 minute motion-graphics videos (dead-centre 1920×1080 layout, sub-composition architecture, free/unlimited local stack), see [PIPELINE.md](PIPELINE.md) — researched and verified end-to-end in [`f1-brazil-2026-pipeline/`](f1-brazil-2026-pipeline/) (v3, 30s). The free/unlimited tooling research behind it lives in [YOUTUBE-HYPERFRAMES-PLAYBOOK.md](YOUTUBE-HYPERFRAMES-PLAYBOOK.md).
+Fonts and tooling are vendored locally, so builds are deterministic and offline. See [PIPELINE.md](PIPELINE.md) for the full workflow and [YOUTUBE-HYPERFRAMES-PLAYBOOK.md](YOUTUBE-HYPERFRAMES-PLAYBOOK.md) for the long-form/VO research.

@@ -45,7 +45,7 @@ See `skills/hyperframes/references/story.md` in the repo for the full method.
 
 - **`coleam00/hyperframes-ai-video-generation`** — "topic prompt → polished vertical YouTube Short": researches the topic, drafts narration, **Kokoro (free) or ElevenLabs** TTS, edits `index.html`, runs `lint` + `inspect`, opens a preview; render is a manual step. Brands are cloned and re-skinned templates; one command per brand (`archon workflow run create-classic-short`).
 - **`sanky369/yt-hyperframes-agent`** — turns a long recording into a tight YouTube edit: probe duration → detect silences → transcribe (Whisper) → AI (or offline `--ai none --transcribe none`) builds an edit decision list → prune keep-segments → chapter cards + captions → render. People review the plan, then render `--quality high`.
-- **Registry blocks** people remix instead of designing from scratch: `yt-logo-intro`, `yt-lower-third`, `yt-prism-title` (chromatic offset titles), `news-ticker` (scrolling wire), `mk-progress-stat`, `hw-title` (marker underline), `logo-outro`. `npx hyperframes add <slug>` — free, Apache-2.0; if the CDN hosts are blocked, fetch the block HTML via `api.github.com` (as we did for the three used in `f1-brazil-2026-story/`).
+- **Registry blocks** people remix instead of designing from scratch: `yt-logo-intro`, `yt-lower-third`, `yt-prism-title` (chromatic offset titles), `news-ticker` (scrolling wire), `mk-progress-stat`, `hw-title` (marker underline), `logo-outro`. `npx hyperframes add <slug>` — free, Apache-2.0; if the CDN hosts are blocked, fetch the block HTML via `api.github.com`.
 
 ## The minimal free & unlimited recipe
 
@@ -77,5 +77,4 @@ Voice without HeyGen: `npx hyperframes tts "line" --voice am_adam -o voice.wav` 
 
 ## Applied in this repo
 
-- `f1-brazil-2026/` — v1 fact-based recap (voice-00).
-- `f1-brazil-2026-story/` — v2 story-driven recap (voice-01): the three-storyline method, five-act structure, registry-derived techniques (prism titles, marker underline, scrolling ticker), narration generated locally (assistant voice tool) and placed as `<audio>` — not a HeyGen service. Restore points in [CHECKPOINTS.md](CHECKPOINTS.md).
+- Earlier F1 examples were removed at the owner's direction (2026-11-09). Techniques that mattered: the three-storyline method, five-act structure, registry-derived techniques (prism titles, marker underline, scrolling ticker), narration generated locally and placed as `<audio>` — not a HeyGen service. History: [CHECKPOINTS.md](CHECKPOINTS.md) and git log.
