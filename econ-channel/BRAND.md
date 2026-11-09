@@ -1,6 +1,6 @@
 # Economy Channel — Marca Personal (rebrand)
 
-_Status: DECISIONS LOCKED 2026-11-09 — Español-first · Opción B (“El Precio de Todo” / “The Price of Everything”) · faceless (VO + motion graphics) · EP01 (¿por qué todo está más caro?, 8:00) aprobado como episodio piloto. Aún no se ha producido ningún gráfico. Handle/tagline final y voz VO pendientes de tu visto bueno en EP01-STORYBOARD.md._
+_Status: BRAND v1 BUILT — see BRAND-FINAL.md (handle check + logo masters + banner + thumbnail formula). Pending: owner sign-off on handle/tagline, then EP01 build._
 
 ## 1. What the niche actually does (2026 benchmark)
 

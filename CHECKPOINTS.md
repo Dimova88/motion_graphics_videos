@@ -72,3 +72,6 @@ New deliverables: `econ-channel/BRAND.md` (niche analysis + 3 brand options) and
 
 ### v8 update — decisions locked (2026-11-09)
 Channel owner decisions: **Español-first · Opción B “El Precio de Todo” (deep green/cream/chalk yellow; chalkboard ledger look) · faceless (VO + motion graphics) · EP01 «¿Por qué todo está más caro?» aprobado como piloto.** BRAND.md and EP01-STORYBOARD.md rewritten to v2 (Spanish, Option B palette, Spanish VO sample lines). No motion graphics produced yet — pending design adjustments from owner review of EP01-STORYBOARD.md. Open items with owner: handle availability, final tagline, ES voice audition choice.
+
+### v8 update 2 — brand v1 built (2026-11-09)
+Handle probe (YouTube, fetch tool): `@elpreciodetodo` TAKEN (pre-existing tiny channel, 6 subs, joined Oct-2025); `@elprecio.detodo`, `@elprecio_detodo`, `@elpreciodetodo_ec` all 404 (available at check time; IG/TikTok/X not verifiable from sandbox). Brand assets generated vector-first: `econ-channel/brand/` (logo-mark/lockup SVG masters + resvg PNG renders: avatar-800, banner-2560x1440, thumbnail-mock, Anton/Archivo TTFs recovered from git history and renamed to clean family names, SIL OFL). Spec + sign-off checklist: `econ-channel/BRAND-FINAL.md`. Pending owner: handle pick, tagline confirm, brand sign-off, then EP01 build.
