@@ -7,7 +7,7 @@
     @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
     @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
     :root {
-      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --papaya: #ff8000;
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --papaya: #ff8000; --rb: #3671c6;
       --prism-r: #ff2a4d; --prism-b: #2a7fff;
       --display: "Anton", "Archivo Black", sans-serif;
       --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
@@ -20,26 +20,39 @@
       font-family: var(--body); color: var(--ink);
     }
     .halo { position: absolute; width: 940px; height: 940px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.07); }
-    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
     .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
 
-    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 158px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; }
+    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 150px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; }
     .prism { position: relative; display: inline-block; line-height: 0.92; }
     .prism .copy { position: absolute; inset: 0; pointer-events: none; }
     .prism .copy.r { color: var(--prism-r); transform: translateX(-6px); opacity: .92; }
     .prism .copy.b { color: var(--prism-b); transform: translateX(6px); opacity: .92; }
     .prism .main { position: relative; color: var(--papaya); text-shadow: 0 12px 70px rgba(255,128,0,0.35); }
 
-    /* marker underline (hw-title technique) */
-    .sub { font-size: 19px; font-weight: 700; letter-spacing: 0.18em; color: #e8e8e2; text-transform: uppercase; }
-    .marker { position: relative; display: inline-block; padding-bottom: 10px; }
-    .marker svg { position: absolute; left: -10px; bottom: -8px; width: calc(100% + 20px); height: 26px; overflow: visible; }
-    .marker path { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; }
+    /* podium chips — P2 VER · P1 NOR · P3 HAD, dead centre */
+    .podium { display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 44px; }
+    .pchip { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .pchip .chip-dot {
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-style: italic; letter-spacing: 0.03em; padding-left: 0.03em;
+      border: 4px solid rgba(255,255,255,0.16);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.5), inset 0 10px 16px rgba(255,255,255,0.30), inset 0 -14px 22px rgba(0,0,0,0.32);
+    }
+    .pchip .chip-dot.redbull { background: radial-gradient(circle at 36% 30%, #639ae0 0%, #3671c6 55%, #1e4f8f 100%); color: #fff; }
+    .pchip .chip-dot.mclaren { background: radial-gradient(circle at 36% 30%, #ffb25e 0%, #ff8000 55%, #d36200 100%); color: #201000; }
+    .pchip.p1 .chip-dot { width: 158px; height: 158px; font-size: 52px; box-shadow: 0 0 0 6px rgba(255,223,0,0.35), 0 18px 54px rgba(255,128,0,0.45), inset 0 10px 16px rgba(255,255,255,0.30), inset 0 -14px 22px rgba(0,0,0,0.32); }
+    .pchip.p2 .chip-dot, .pchip.p3 .chip-dot { width: 118px; height: 118px; font-size: 38px; }
+    .pchip .code-name { font-family: var(--display); font-style: italic; font-size: 26px; letter-spacing: 0.05em; color: #fff; }
+    .pchip .place { font-size: 13px; font-weight: 800; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+    .pchip.p1 .place { color: var(--yellow); }
+
+    .sub { font-size: 16px; font-weight: 800; letter-spacing: 0.3em; color: #c6c6cd; text-transform: uppercase; }
 
     .meta { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .meta .time { font-family: var(--display); font-size: 34px; letter-spacing: 0.06em; color: #fff; font-variant-numeric: tabular-nums; }
-    .checker { width: 760px; height: 12px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 20px 20px; border-radius: 2px; }
-    .endline { font-size: 15px; font-weight: 800; letter-spacing: 0.4em; color: var(--muted); text-transform: uppercase; }
+    .meta .time { font-family: var(--display); font-size: 32px; letter-spacing: 0.06em; color: #fff; font-variant-numeric: tabular-nums; }
+    .checker { width: 700px; height: 12px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 20px 20px; border-radius: 2px; }
+    .endline { font-size: 14px; font-weight: 800; letter-spacing: 0.4em; color: var(--muted); text-transform: uppercase; }
     .endline b { color: #fff; }
   </style>
   <div id="root" data-composition-id="flag" data-width="1920" data-height="1080">
@@ -47,30 +60,36 @@
     <div class="stack">
       <div class="kicker" id="flag-kicker">Act IV — The Flag · Lap 71</div>
       <h1 class="title"><span class="prism" id="flag-prism"><span class="copy r">NORRIS WINS</span><span class="copy b">NORRIS WINS</span><span class="main">NORRIS WINS</span></span></h1>
-      <div class="sub" id="flag-sub">Won from <span class="marker"><em>pole.</em><svg viewBox="0 0 320 26" preserveAspectRatio="none"><path id="flag-marker-path" d="M6 17 C 84 24, 208 9, 314 19" /></svg></span></div>
+
+      <div class="podium">
+        <div class="pchip p2" id="flag-p2"><div class="chip-dot redbull">VER</div><div class="code-name">VER</div><div class="place">P2</div></div>
+        <div class="pchip p1" id="flag-p1"><div class="chip-dot mclaren">NOR</div><div class="code-name">NOR</div><div class="place">P1 · Winner</div></div>
+        <div class="pchip p3" id="flag-p3"><div class="chip-dot redbull">HAD</div><div class="code-name">HAD</div><div class="place">P3</div></div>
+      </div>
+
+      <div class="sub" id="flag-sub">Won from pole</div>
+
       <div class="meta" id="flag-meta">
         <div class="time">1:35:23.504</div>
         <div class="checker" id="flag-checker"></div>
         <div class="endline"><b>F1 São Paulo 2026</b> · Interlagos</div>
       </div>
     </div>
-    <audio id="flag-vo" data-start="0.35" data-duration="2.82" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p5.mp3"></audio>
+    <audio id="flag-vo" data-start="0.35" data-duration="4.47" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p5.mp3"></audio>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    tl.fromTo("#flag-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.25);
-    tl.fromTo("#flag-prism .main", { opacity: 0, filter: "blur(20px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" }, 0.4);
-    tl.fromTo("#flag-prism .copy.r", { opacity: 0, x: -22 }, { opacity: 0.92, x: -6, duration: 0.8, ease: "power2.out" }, 0.4);
-    tl.fromTo("#flag-prism .copy.b", { opacity: 0, x: 22 }, { opacity: 0.92, x: 6, duration: 0.8, ease: "power2.out" }, 0.4);
-    tl.fromTo("#flag-sub", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.95);
-    const marker = document.getElementById("flag-marker-path");
-    const markerLen = marker.getTotalLength();
-    marker.style.strokeDasharray = markerLen;
-    marker.style.strokeDashoffset = markerLen;
-    tl.fromTo(marker, { strokeDashoffset: markerLen }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 1.35);
-    tl.fromTo("#flag-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.6);
-    tl.fromTo("#flag-checker", { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: "power3.out" }, 1.75);
-    tl.fromTo(".halo", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 1.3, ease: "power2.out" }, 0.2);
+    tl.fromTo("#flag-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.2);
+    tl.fromTo("#flag-prism .main", { opacity: 0, filter: "blur(18px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" }, 0.35);
+    tl.fromTo("#flag-prism .copy.r", { opacity: 0, x: -22 }, { opacity: 0.92, x: -6, duration: 0.8, ease: "power2.out" }, 0.35);
+    tl.fromTo("#flag-prism .copy.b", { opacity: 0, x: 22 }, { opacity: 0.92, x: 6, duration: 0.8, ease: "power2.out" }, 0.35);
+    tl.fromTo("#flag-p2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" }, 0.9);
+    tl.fromTo("#flag-p1", { opacity: 0, y: 40, scale: 0.7 }, { opacity: 1, y: -16, scale: 1, duration: 0.65, ease: "back.out(1.7)" }, 1.1);
+    tl.fromTo("#flag-p3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" }, 1.3);
+    tl.fromTo("#flag-sub", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 1.6);
+    tl.fromTo("#flag-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.75);
+    tl.fromTo("#flag-checker", { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: "power3.out" }, 1.9);
+    tl.fromTo(".halo", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 1.3, ease: "power2.out" }, 0.15);
     window.__timelines["flag"] = tl;
   </script>
 </template>

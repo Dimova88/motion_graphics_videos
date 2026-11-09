@@ -15,31 +15,45 @@
     #root {
       position: absolute; inset: 0; overflow: hidden;
       display: flex; align-items: center; justify-content: center; text-align: center;
-      background: radial-gradient(ellipse 1500px 950px at 50% 50%, #0d1f18 0%, #0b0c0f 72%);
+      background: radial-gradient(ellipse 1500px 950px at 50% 50%, #12271f 0%, #0b0c0f 75%);
       font-family: var(--body); color: var(--ink);
     }
     .halo { position: absolute; width: 940px; height: 940px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.07); }
-    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
     .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
 
-    .climb-row { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 56px; }
+    /* team-colour driver chips flanking the position numerals */
+    .climb-row { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 34px; }
+    .chip-dot {
+      width: 96px; height: 96px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-style: italic; font-size: 34px; letter-spacing: 0.03em; padding-left: 0.03em;
+      border: 3px solid rgba(255,255,255,0.16);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.5), inset 0 7px 12px rgba(255,255,255,0.28), inset 0 -10px 16px rgba(0,0,0,0.32);
+    }
+    .chip-dot.redbull { background: radial-gradient(circle at 36% 30%, #639ae0 0%, #3671c6 55%, #1e4f8f 100%); color: #fff; }
+    .chip-dot.dim { opacity: 0.38; filter: saturate(0.6); }
+    .chip-dot.bright { opacity: 1; box-shadow: 0 0 0 5px rgba(255,223,0,0.35), 0 12px 36px rgba(54,113,198,0.55), inset 0 7px 12px rgba(255,255,255,0.28), inset 0 -10px 16px rgba(0,0,0,0.32); }
+
     .pos { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .pos .n { font-family: var(--display); font-size: 170px; line-height: 1; }
-    .pos .cap { font-size: 14px; font-weight: 800; letter-spacing: 0.34em; color: var(--muted); text-transform: uppercase; }
+    .pos .n { font-family: var(--display); font-size: 150px; line-height: 1; }
+    .pos .cap { font-size: 13px; font-weight: 800; letter-spacing: 0.34em; color: var(--muted); text-transform: uppercase; }
     #climb-from .n { color: #fff; }
     #climb-to .n { color: var(--yellow); }
-    .arrow { width: 110px; overflow: visible; }
+    .arrow { width: 104px; overflow: visible; }
     .arrow path { fill: none; stroke: var(--yellow); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
 
     .progress { display: flex; flex-direction: column; gap: 10px; width: 640px; }
     .progress .label { display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; letter-spacing: 0.26em; color: var(--muted); font-weight: 800; text-transform: uppercase; }
+    .progress .label span { display: inline-flex; align-items: center; gap: 10px; }
     .progress .label b { color: var(--yellow); font-size: 15px; letter-spacing: 0.18em; }
+    .dot { width: 14px; height: 14px; border-radius: 50%; background: #3671c6; display: inline-block; box-shadow: inset 0 -3px 5px rgba(0,0,0,.35), inset 0 2px 3px rgba(255,255,255,.35); }
     .track { height: 10px; border-radius: 5px; background: rgba(255,255,255,0.09); overflow: hidden; }
     .fill { height: 100%; width: 0%; border-radius: 5px; background: linear-gradient(90deg, #00a651, #ffdf00); }
 
     .gained { display: flex; align-items: baseline; gap: 18px; }
-    .gained .big { font-family: var(--display); font-style: italic; font-size: 96px; color: var(--yellow); line-height: 1; font-variant-numeric: tabular-nums; }
-    .gained .cap { font-size: 16px; font-weight: 800; letter-spacing: 0.3em; color: var(--ink); text-transform: uppercase; }
+    .gained .big { font-family: var(--display); font-style: italic; font-size: 88px; color: var(--yellow); line-height: 1; font-variant-numeric: tabular-nums; }
+    .gained .cap { font-size: 15px; font-weight: 800; letter-spacing: 0.3em; color: var(--ink); text-transform: uppercase; }
   </style>
   <div id="root" data-composition-id="climb" data-width="1920" data-height="1080">
     <div class="halo"></div>
@@ -47,30 +61,34 @@
       <div class="kicker" id="climb-kicker">Act III — The Climb</div>
 
       <div class="climb-row">
-        <div class="pos" id="climb-from"><div class="n">P21</div><div class="cap">Race start</div></div>
+        <div class="chip-dot redbull dim" id="climb-chip-from">VER</div>
+        <div class="pos" id="climb-from"><div class="n">P21</div><div class="cap">Start</div></div>
         <svg class="arrow" viewBox="0 0 120 60" aria-hidden="true"><path id="climb-arrow-path" d="M8 30 H 96 M 70 10 L 96 30 L 70 50" /></svg>
-        <div class="pos" id="climb-to"><div class="n">P2</div><div class="cap">Race end</div></div>
+        <div class="pos" id="climb-to"><div class="n">P2</div><div class="cap">Finish</div></div>
+        <div class="chip-dot redbull bright" id="climb-chip-to">VER</div>
       </div>
 
       <div class="progress" id="climb-progress">
-        <div class="label"><span>V. Verstappen · 71 laps</span><b>+14.602s</b></div>
+        <div class="label"><span><i class="dot"></i>Max Verstappen · 71 laps</span><b>+14.602s</b></div>
         <div class="track"><div class="fill" id="climb-fill"></div></div>
       </div>
 
       <div class="gained" id="climb-gained"><div class="big" id="climb-counter">+0</div><div class="cap">Places gained</div></div>
     </div>
-    <audio id="climb-vo" data-start="0.4" data-duration="5.04" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p4.mp3"></audio>
+    <audio id="climb-vo" data-start="0.4" data-duration="4.47" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p4.mp3"></audio>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#climb-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.05);
-    tl.fromTo("#climb-from", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, 0.4);
+    tl.fromTo("#climb-chip-from", { opacity: 0, scale: 0.5 }, { opacity: 0.38, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 0.3);
+    tl.fromTo("#climb-from", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, 0.35);
     const arrow = document.getElementById("climb-arrow-path");
     const arrowLen = arrow.getTotalLength();
     arrow.style.strokeDasharray = arrowLen;
     arrow.style.strokeDashoffset = arrowLen;
     tl.fromTo(arrow, { strokeDashoffset: arrowLen }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 0.85);
-    tl.fromTo("#climb-to", { opacity: 0, x: 70, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 1.15);
+    tl.fromTo("#climb-to", { opacity: 0, x: 60, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 1.15);
+    tl.fromTo("#climb-chip-to", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 1.15);
     tl.fromTo("#climb-progress", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 1.3);
     tl.fromTo("#climb-fill", { width: "0%" }, { width: "100%", duration: 2.3, ease: "power2.inOut" }, 1.5);
     tl.fromTo("#climb-gained", { opacity: 0, y: 16, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.5)" }, 1.32);

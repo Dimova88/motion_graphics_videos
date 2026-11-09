@@ -33,7 +33,9 @@ Test of the new free/unlimited YouTube pipeline (see `PIPELINE.md`) on a 30s bri
 - Voice: `voice-01` rate 1.15 (assistant voice tool; Kokoro `hyperframes tts` is the local free path on machines that can reach model hosts — see `YOUTUBE-HYPERFRAMES-PLAYBOOK.md`)
 - New vs v2: **sub-composition architecture** — `index.html` mounts one `compositions/<act>.html` per scene (`data-composition-src`, composition-local timing, `#root` inset:0 flex stage) instead of one monolithic file; **strict dead-centre layout** — every motion-graphic element column+row centred in the 1920×1080 frame (no edge-anchored graphics); halo ring + radial-gradient backdrops
 - Techniques reused/adapted from the registry: `yt-prism-title`, `hw-title` (marker underline draw-on on "P21" and "pole."); climb scene adds an animated P21→P2 arrow + fill bar + `+19` counter; lights scene counts 0→71 laps with five sequential start lights
-- Verification: `lint` 0 errors (5 warnings `nested_media_start_basis_ambiguous` — intentional, timing is composition-local); frames extracted and inspected at act boundaries (lights→climb cut holds a clean hard cut; counter/marker/checker timings confirmed); EBU R128 integrated -16.6 LUFS
+- Visual language: **team-colour driver chips** — glossy circles in the F1 broadcast palette (McLaren #FF8000, Red Bull #3671C6, Mercedes #27F4D2) carrying the 3-letter code (NOR/VER/HAD), dimmed chip at the start and bright chip at the payoff; podium row (P2 VER · P1 NOR elevated · P3 HAD) on the end card
+- Verification: `lint` 0 errors (5 warnings `nested_media_start_basis_ambiguous` — intentional, timing is composition-local); frames extracted at act boundaries; EBU R128 integrated -16.4 LUFS
 - Note: all act elements must carry an entrance tween — a scene's slot holds its final frame and would otherwise pop in static elements raw
+- v4 revision (same day): VO rewritten fluent/direct (no comma-heavy phrasing, e.g. "Interlagos, under a dark sky. Norris has pole."); team chips added to Act I (duel row), Act III (dim→bright flanking P21→P2), Act IV (podium row); TRAP type scaled up
 
 v2 remains intact at commit `711564d`.
