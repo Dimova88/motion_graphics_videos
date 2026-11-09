@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="./assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+      :root {
+        --asphalt: #0b0c0f;
+        --ink: #f4f4f0;
+        --muted: #9a9aa2;
+        --yellow: #ffdf00;
+        --green: #00a651;
+        --papaya: #ff8000;
+        --mercedes: #27f4d2;
+        --redbull: #3671c6;
+        --prism-r: #ff2a4d;
+        --prism-b: #2a7fff;
+        --display: "Anton", "Archivo Black", sans-serif;
+        --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--asphalt); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--asphalt); font-family: var(--body); color: var(--ink); }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="120"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="storm" data-composition-id="storm" data-composition-src="compositions/01-storm.html"
+           data-start="0" data-duration="10.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="grid" data-composition-id="grid" data-composition-src="compositions/02-grid.html"
+           data-start="10.5" data-duration="17.5" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <div id="start" data-composition-id="start" data-composition-src="compositions/03-start.html"
+           data-start="28.0" data-duration="15.0" data-track-index="3" data-width="1920" data-height="1080"></div>
+      <div id="climb" data-composition-id="climb" data-composition-src="compositions/04-climb.html"
+           data-start="43.0" data-duration="26.0" data-track-index="4" data-width="1920" data-height="1080"></div>
+      <div id="flag" data-composition-id="flag" data-composition-src="compositions/05-flag.html"
+           data-start="69.0" data-duration="15.0" data-track-index="5" data-width="1920" data-height="1080"></div>
+      <div id="result" data-composition-id="result" data-composition-src="compositions/06-result.html"
+           data-start="84.0" data-duration="15.0" data-track-index="6" data-width="1920" data-height="1080"></div>
+      <div id="title" data-composition-id="title" data-composition-src="compositions/07-title.html"
+           data-start="99.0" data-duration="14.0" data-track-index="7" data-width="1920" data-height="1080"></div>
+      <div id="end" data-composition-id="end" data-composition-src="compositions/08-end.html"
+           data-start="113.0" data-duration="7.0" data-track-index="8" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

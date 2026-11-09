@@ -1,0 +1,79 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+    :root {
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00;
+      --prism-r: #ff2a4d; --prism-b: #2a7fff;
+      --display: "Anton", "Archivo Black", sans-serif;
+      --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--asphalt); font-family: var(--body); color: var(--ink); }
+    .photo { position: absolute; inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); object-fit: cover; object-position: 50% 58%; opacity: 0.72; }
+    .shade { position: absolute; inset: 0; background: radial-gradient(ellipse 1100px 700px at 50% 52%, rgba(6,7,10,0.10) 0%, rgba(6,7,10,0.55) 78%); }
+    .shade-b { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,7,10,0.88) 0%, rgba(6,7,10,0) 34%); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
+    .kicker { font-weight: 800; font-size: 17px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
+
+    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 190px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; text-shadow: 0 14px 80px rgba(0,0,0,0.75); }
+    .prism { position: relative; display: inline-block; line-height: 0.92; }
+    .prism .copy { position: absolute; inset: 0; pointer-events: none; }
+    .prism .copy.r { color: var(--prism-r); transform: translateX(-6px); opacity: .92; }
+    .prism .copy.b { color: var(--prism-b); transform: translateX(6px); opacity: .92; }
+    .prism .main { position: relative; }
+    .sub { font-size: 17px; font-weight: 700; letter-spacing: 0.24em; color: #d8d8cf; text-transform: uppercase; }
+
+    .rain { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .rain i { position: absolute; top: -200px; width: 3px; border-radius: 3px; background: linear-gradient(180deg, rgba(200,225,255,0) 0%, rgba(200,225,255,0.75) 55%, rgba(200,225,255,0) 100%); animation: fall 1.05s linear infinite; }
+    @keyframes fall { from { transform: translateY(-40px); } to { transform: translateY(1400px); } }
+    .flash { position: absolute; inset: 0; background: #dfe9ff; opacity: 0; pointer-events: none; }
+  </style>
+  <div id="root" data-composition-id="storm" data-width="1920" data-height="1080">
+    <img class="photo" src="./assets/images/interlagos-rain.jpg" alt="McLaren car sliding through the wet Interlagos circuit" />
+    <div class="shade"></div>
+    <div class="shade-b"></div>
+    <div class="rain" id="storm-rain"></div>
+    <div class="flash" id="storm-flash"></div>
+    <div class="stack">
+      <div class="kicker" id="storm-kicker">F1 · São Paulo · Interlagos</div>
+      <h1 class="title"><span class="prism" id="storm-prism"><span class="copy r">THE STORM</span><span class="copy b">THE STORM</span><span class="main">THE STORM</span></span></h1>
+      <div class="sub" id="storm-sub">Round 21 · November 8, 2026 · 71 laps</div>
+    </div>
+    <audio id="storm-vo" data-start="0.6" data-duration="3.93" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p1.mp3"></audio>
+    <audio id="storm-thunder" data-start="0.4" data-duration="1.8" data-track-index="8" data-volume="0.85" src="./assets/sfx/thunder.wav"></audio>
+  </div>
+  <script>
+    (() => {
+      const rain = document.getElementById("storm-rain");
+      let html = "";
+      for (let i = 0; i < 42; i++) {
+        const left = (i * 167) % 100;
+        const h = 70 + ((i * 97) % 130);
+        const delay = -((i * 0.131) % 1.05).toFixed(3);
+        html += '<i style="left:' + left + '%;height:' + h + 'px;animation-delay:' + delay + 's;opacity:' + (0.3 + (i % 5) * 0.12).toFixed(2) + '"></i>';
+      }
+      rain.innerHTML = html;
+    })();
+
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".photo", { scale: 1.06, opacity: 0 }, { scale: 1.0, opacity: 0.72, duration: 2.2, ease: "power2.out" }, 0);
+    tl.fromTo("#storm-kicker", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.5);
+    tl.fromTo("#storm-prism .main", { opacity: 0, filter: "blur(20px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.9, ease: "power2.out" }, 0.75);
+    tl.fromTo("#storm-prism .copy.r", { opacity: 0, x: -24 }, { opacity: 0.92, x: -6, duration: 0.9, ease: "power2.out" }, 0.75);
+    tl.fromTo("#storm-prism .copy.b", { opacity: 0, x: 24 }, { opacity: 0.92, x: 6, duration: 0.9, ease: "power2.out" }, 0.75);
+    tl.fromTo("#storm-sub", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 1.35);
+    // lightning flashes
+    tl.to("#storm-flash", { opacity: 0.5, duration: 0.07, ease: "none" }, 2.6);
+    tl.to("#storm-flash", { opacity: 0, duration: 0.35, ease: "power2.out" }, 2.67);
+    tl.to("#storm-flash", { opacity: 0.32, duration: 0.06, ease: "none" }, 4.15);
+    tl.to("#storm-flash", { opacity: 0, duration: 0.4, ease: "power2.out" }, 4.21);
+    tl.to("#storm-flash", { opacity: 0.55, duration: 0.07, ease: "none" }, 7.3);
+    tl.to("#storm-flash", { opacity: 0, duration: 0.5, ease: "power2.out" }, 7.37);
+    window.__timelines["storm"] = tl;
+  </script>
+</template>

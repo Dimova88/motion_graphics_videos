@@ -40,3 +40,15 @@ Test of the new free/unlimited YouTube pipeline (see `PIPELINE.md`) on a 30s bri
 - v5 revision (same day): driver chips restyled **racing-tire style** — rubber body with tread blocks, team-colour sidewall stripe, glossy team-colour rim (McLaren #FF8000 / Red Bull #3671C6) with inner barrel ring, centre specular, 3-letter code in Anton italic; P1 tire carries yellow drop-shadow (winner halo)
 
 v2 remains intact at commit `711564d`.
+
+## v6 — f1-brazil-2026-2min (2026-11-09)
+
+~2-minute extension of the São Paulo 2026 recap through the same pipeline (sub-compositions, strict dead-centre, racing-tire chips, voice-01 @1.15).
+
+- Project: `f1-brazil-2026-2min/`
+- Render: `f1-brazil-2026-2min/renders/f1-brazil-2026-2min.mp4` (2:00.0, 1920x1080@30, H.264/AAC, -16.8 LUFS, -1.0 dBFS true peak)
+- Captions: `f1-brazil-2026-2min/renders/f1-brazil-2026-2min.srt` — YouTube sidecar (no burned-in captions; dead-centre rule untouched); cue starts = host act start + local voice start, duration = raw/1.15
+- Structure: eight acts, sum 120.0s — 01 storm 0–10.5 · 02 grid 10.5–28.0 · 03 start 28.0–43.0 · 04 climb 43.0–69.0 · 05 flag 69.0–84.0 · 06 result 84.0–99.0 · 07 title 99.0–113.0 · 08 end 113.0–120.0
+- Photos reused from v2 (interlagos-rain.jpg hero, interlagos-podium.jpg); no new stock assets
+- New vs v5: act-count for full-length arc, `06 result` full-classification cascade (six rows, tire chips generated programmatically), `07 title` crowned-champion card (ANT chip, confetti-podium photo), **synthesized SFX** via numpy (`thunder.wav`, `lights.wav` = 5 blips + release boom, `crowd.wav` 12s swell, `boom.wav`) — no licensed samples; VO-synced act staging (grid cells land with the spoken names)
+- Verification: `lint` 0 errors (12 warnings — composition-local media starts, accepted); frames extracted per act (storm/grid/start/climb×2/flag/result/title/end); EBU R128 -16.8 LUFS; grid staging timings corrected to track the narration before final render
