@@ -22,7 +22,9 @@
 | F4 | IPC EE. UU. **3,7%** (sep-2026; ago 3,4% · jul 3,4% · dic-2025 2,7%); subyacente **2,6%** | BLS (14-oct-2026) |
 | F5 | EE. UU. energía **+20,4% interanual**; gasolina **+34,2% interanual** (sep-2026; la gasolina explicó más de la mitad de la subida mensual) | BLS / CBS |
 | F6 | Zona euro **4,0%** (flash oct-2026; sep 3,8% · ago 3,2%); **energía +20,8% interanual** (componente más alto) · servicios 3,3% · alimentos 1,6% · NEIG 1,2% · **ex-energía 2,3%** | Eurostat (4-nov-2026) |
-| F7 | Países Bajos por encima del **3%**; déficit de los gobiernos de la zona euro **3,0% del PIB** | Eurostat |
+| F7 | **Países Bajos: CPI 3,7% en oct-2026** (snelle raming 4-nov; sep 3,4 · ago 3,3 · jul 3,2 · jun 2,9 · may 3,5; +0,7% m/m vs media 10 años de 0,5%); **HICP 3,3%** (desde 3,0%); **energía +14,4%** (sep 13,8%); **gas +52,5% interanual** (de 34,9%); electricidad +23,7%; servicios 3,9%; alimentación −0,6%. Definitivo: 10-nov-2026 | CBS NL |
+| F7b | Déficit gobiernos zona euro **3,0% del PIB**; renta real hogares +0,1% t/t (2T-2026) | Eurostat |
+| F10b | **Guerra en Irán desde el 28-feb-2026**: tráfico por Ormuz colapsó de ~20M b/d a **2,7M b/d** (mar–may, IEA); crudo de $78 a **$131 en 8 días** ($88 en el día 35); >1.300M barriles perdidos acumulados; bypass saudí+emiratí ~6,5M b/d; ~20% del LNG mundial también pasa por Ormuz; 84% del crudo → Asia | EIA / IEA / CBS News |
 | F8 | Renta real de los hogares por habitante en la zona euro **+0,1% trimestral** (2T-2026); consumo real +0,3% | Eurostat (21-oct-2026) |
 | F9 | Expectativas de inflación del consumidor en EE. UU. **3,9%** (sep-2026; desde 3,6%) | Trading Economics / encuestas BLS |
 | F10 | Desencadenante: **guerra en Irán** (shock energético) sobre el legado de Rusia–Ucrania | CBS / Eurostat |
@@ -63,16 +65,16 @@ _Los gráficos con ejemplos cotidianos (recibo, cesta, depósito) son “ilustra
 - **VO:** «La desinflación no es el ladrón devolviendo la cartera. Es el ladrón caminando más despacio.»
 
 ### 3:45–5:15 — OLA 3 (EL PRESENTE): LA SEGUNDA CERILLA
-- **Visual:** mapa — **Irán / Estrecho de Ormuz**; silueta de petroleros; ticker de petróleo en subida; muro de titulares: «sep-2026: la Fed sube tipos por primera vez desde 2023» (F3).
+- **Visual:** mapa — **Irán / Estrecho de Ormuz** (guerra desde el 28-feb-2026); petroleros detenidos; ticker de petróleo: **$78 → $131 en 8 días**, ahora ~$88; muro de titulares: «sep-2026: la Fed sube tipos por primera vez desde 2023» (F3).
 - **Columna vertebral de datos (todos con chip en pantalla):**
   - Zona euro **4,0%** flash oct-2026 (F6) · EE. UU. **3,7%** sep-2026 (F4) · subyacente EE. UU. 2,6% → **es la energía otra vez**
   - EA energía **+20,8%** · alimentos +1,6% · servicios +3,3% · ex-energía **2,3%**
 - **VO:** «Dos años enfriándose. Seis semanas para volver a arder. Bienvenido a la tercera ola.»
-- **Ángulo euros/NL (canal ES/EU-first):** Países Bajos >3% (F7); presión sobre presupuestos de hogares; TTF del gas como indicador en pantalla.
+- **Ángulo euros/NL (canal ES/EU-first):** Países Bajos **3,7%** en oct-2026 (más alto del año; gas **+52,5%** interanual) · HICP 3,3% · TTF como indicador en pantalla · déficit EU 3,0% PIB.
 
 ### 5:15–6:15 — LOS DOS NÚMEROS QUE DECIDEN EL PRÓXIMO AÑO
 - **Visual:** panel doble de dashboard:
-  1. **La prima de energía** — Brent/TTF vs baseline preguerra; tráfico por Ormuz (~20% del flujo mundial de crudo, punto EIA — verificar antes de render)
+  1. **La prima de energía** — Brent/TTF vs baseline preguerra ($78 → $131 en 8 días, ahora ~$88); por Ormuz pasa ~20% del petróleo mundial y ~20% del LNG; el tráfico cayó a 2,7M b/d (F10b) (~20% LNG; verificar EIA — YA VERIFICADO)
   2. **Las expectativas** — EE. UU. 3,9% y subiendo (F9)
 - **VO:** «La inflación vive en lo que la gente *espera*, no solo en lo que pasó. Si tu jefe cree que habrá 4% de inflación, te sube el sueldo un 4%. Y la serpiente se muerde la cola.»
 - **3 tarjetas-escenario** (animación de pase de cartas): *Aterrizaje suave ≈2,5%* · *Más alta y por más tiempo ≈4%* · *Segunda descarga → 5%+* — cada una con «qué la mata / qué la alimenta».
@@ -106,13 +108,15 @@ _Los gráficos con ejemplos cotidianos (recibo, cesta, depósito) son “ilustra
 1. **«+4,0%»** gigante tiza amarillo + surtidor dibujado + recibo asomando; eslogan corto «OTRA VEZ»
 2. **«NADIE TE DEVOLVIÓ»** 3 palabras + mano abierta con billete arrugado
 3. **«€2,50 → €4,10»** tira de recibo con flecha coral
+4. **«+52% TU GAS»** (Países Bajos, gas natural oct-2026, CBS) — variante NL/EU; slab tiza «EN 12 MESES»
 
 ## Descripción lista para pegar (fuentes)
 
 - BLS — CPI News Release (14-oct-2026): via cpiinflationcalculator.com · tradingeconomics.com
 - CBS News — «September CPI report…» (14-oct-2026)
 - Eurostat — Euro indicators flash de octubre 2026 (4-nov-2026) · Inflation in the euro area · renta real de los hogares (21-oct-2026)
-- *Tráfico de crudo por Ormuz — EIA (verificar antes de render)
+- CBS NL — Inflatie in oktober 3,7% bij snelle raming (4-nov-2026); definitivo 10-nov-2026
+- EIA / IEA — Strait of Hormuz: ~20% del consumo mundial de crudo; tráfico 20→2,7M b/d (feb-2026→); $78→$131 (8 días); ~20% LNG
 
 ## Notas de producción (para el paso de construcción — no ahora)
 
