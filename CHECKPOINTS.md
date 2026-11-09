@@ -69,3 +69,6 @@ User feedback addressed: (a) not enough slides / too much dead air, (b) VO volum
 
 All F1 projects (`f1-brazil-2026`, `f1-brazil-2026-story`, `f1-brazil-2026-pipeline`, `f1-brazil-2026-2min`, including renders and sources) were deleted from the working tree at the channel owner's direction; restore only via git history (tags gone, commits remain). PIPELINE.md and YOUTUBE-HYPERFRAMES-PLAYBOOK.md were scrubbed of F1-specific references; the generic 8–10 min HyperFrames workflow stands. README rebuilt around the economics-education channel.
 New deliverables: `econ-channel/BRAND.md` (niche analysis + 3 brand options) and `econ-channel/EP01-STORYBOARD.md` (8:00 episode storyboard, no motion graphics yet — pending owner review).
+
+### v8 update — decisions locked (2026-11-09)
+Channel owner decisions: **Español-first · Opción B “El Precio de Todo” (deep green/cream/chalk yellow; chalkboard ledger look) · faceless (VO + motion graphics) · EP01 «¿Por qué todo está más caro?» aprobado como piloto.** BRAND.md and EP01-STORYBOARD.md rewritten to v2 (Spanish, Option B palette, Spanish VO sample lines). No motion graphics produced yet — pending design adjustments from owner review of EP01-STORYBOARD.md. Open items with owner: handle availability, final tagline, ES voice audition choice.

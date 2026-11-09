@@ -1,6 +1,6 @@
 # Economy Channel — Marca Personal (rebrand)
 
-_Status: research + three brand options presented. Nothing is final until you pick a direction. No graphics have been produced yet — episodes are intentionally not started._
+_Status: DECISIONS LOCKED 2026-11-09 — Español-first · Opción B (“El Precio de Todo” / “The Price of Everything”) · faceless (VO + motion graphics) · EP01 (¿por qué todo está más caro?, 8:00) aprobado como episodio piloto. Aún no se ha producido ningún gráfico. Handle/tagline final y voz VO pendientes de tu visto bueno en EP01-STORYBOARD.md._
 
 ## 1. What the niche actually does (2026 benchmark)
 
@@ -73,9 +73,12 @@ Cadence target: 1 episode/week to start; pillar mix ≈ 60% explainers (current 
 - **Handle sanity check (you):** search all three name candidates on YouTube/X/IG + `instagram.com/…` before committing; I can't verify handle availability from here.
 - **Grammar for motion graphics:** dead-centre stage (keep the rule), 1920×1080, Anton display + Archivo body, ≤3 elements per beat, one yellow/accent moment per scene — same skeleton as the current pipeline, new skin.
 
-## 5. What I need from you (see the question panel)
+## 5. Decisions (2026-11-09) & still-open items
 
-1. Channel language (ES / EN / bilingual)
-2. Option A / B / C (+ free-text adjustments)
-3. Faceless VO (current AI voice) vs you on camera (different pipeline entirely)
-4. Episode 01 approval or a different topic pick
+Decided: **Español-first · Opción B · faceless · EP01 aprobado.**
+
+Still open (need you):
+1. **Handle** — candidates to check on YT/IG/X: `@elpreciodetodo` · `@elprecio_detodo` · `@precio.detodo` · `@elpreciodetodo_ec`. I can't verify availability from here — tell me which one is free and we lock it.
+2. **Tagline final** — recommendation: *“Todo tiene un precio — y una historia.”* (ES) with "The Price of Everything" as the internal/international name.
+3. **VO española** — we'll audition 2 candidate voices in the production step; you pick the one that feels like "the best economics teacher you ever had".
+4. **Thumbnail formula B** — locking the chalk price-tag template after EP01 review.

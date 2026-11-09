@@ -1,117 +1,123 @@
-# EP01 — Storyboard: “Why Is Everything More Expensive?”
+# EP01 — Storyboard: «¿Por qué todo está más caro?» (8:00)
 
-**8:00 target · faceless · VO + motion graphics · no pixels produced yet**
-**Working title (EN):** *Why Everything Feels More Expensive — The Strange Story of 2020s Inflation*
-**Working title (ES):** *¿Por qué todo está más caro? La historia del impuesto invisible*
-**Format:** Economics-Explained-style episode. One question, answered completely. Real example up front, macro lens second, what-to-do-about-it last.
-**VO:** voice-01 @ ~1.1 (TBD rate), fluent storyteller register, short sentences, **zero jargon without a picture**. Language = channel language (see question panel).
-**Visual system:** dead-centre stage 1920×1080 · Anton display + Archivo body · brand palette per BRAND.md option · every number lands via count-up + source chip (`BLS` · `Eurostat` · `Fed`).
+**Canal:** El Precio de Todo · **Idioma:** Español · **Duración:** ≈8:00 · **Formato:** faceless, VO + motion graphics
+**Estado:** APROBADO como episodio piloto (2026-11-09). **No se han producido los gráficos todavía** — este documento es para revisar y ajustar diseños antes de construir.
+**VO:** voz por audition (se auditionan 2 candidatas ES en el paso de producción; tú eliges). Registro: storyteller de aula — frases cortas, cero jerga sin imagen.
+**Sistema visual (Opción B “El Precio de Todo”):**
+- Fondo: pizarra verde oscuro `#10312B` con líneas de ledger al 4% · texto tiza crema `#EDE6D3` · **acento tiza amarillo** `#FFD84D` (números, slabs de énfasis) · **tiza coral** `#FF6B57` (alertas, flechas de subida)
+- Anton para display/titulares, Archivo para cuerpo; números siempre en amarillo tiza con tabulares
+- Anotaciones dibujadas a mano (círculos, subrayados, flechas) — técnica de marker-draw reutilizable del pipeline
+- Episodio con motivo de **tique/recibo** y monedas de tiza; sin stock footage salvo 1–2 hero shots (recibo macro)
+- Cada número con chip de fuente (`BLS` · `Eurostat` · `BCE` · `FRED`); tarjetas “no es consejo financiero” donde aplique
 
 ---
 
-## Verified fact pack (all sourced, Nov 2026)
+## Verificado (Nov 2026) — fact pack
 
-| # | Fact | Source |
+| # | Dato | Fuente |
 |---|---|---|
-| F1 | US CPI peaked **+9.1% y/y** in June 2022 | BLS |
-| F2 | Euro-area HICP peaked **+10.6% y/y** in Oct 2022 | Eurostat |
-| F3 | Fed hiked fastest cycle since the 1980s, to **5.25–5.50%** by Jul 2023; first hike since 2023 in **Sep 2026**, to **3.75–4.00%** ("higher-for-longer" again) | FOMC / CBS |
-| F4 | US CPI **3.7%** (Sep 2026, up from 3.4% Aug, 3.4% Jul, 2.7% Dec 2025); core **2.6%** | BLS (Oct 14, 2026) |
-| F5 | US energy **+20.4% y/y**; gasoline **+34.2% y/y** (Sep 2026); gas accounted for >half of the monthly CPI jump | BLS / CBS |
-| F6 | Euro area **4.0%** (Oct 2026 flash, up from 3.8% Sep, 3.2% Aug); **energy +20.8% y/y** (highest component), services 3.3%, food 1.6%, NEIG 1.2%; ex-energy **2.3%** | Eurostat (Nov 4, 2026) |
-| F7 | Netherlands above **3%**; euro-area governments’ deficit **3.0% of GDP** | Eurostat |
-| F8 | Euro-area real household income per capita **+0.1% q/q** (Q2 2026), real consumption +0.3% — i.e., incomes are only just treading water | Eurostat |
-| F9 | US consumer inflation expectations rose to **3.9%** (Sep 2026, from 3.6%) | Trading Economics / BLS-derived |
-| F10 | Sparked by **war in Iran** (energy shock) on top of Russia–Ukraine legacy | CBS News / Eurostat |
+| F1 | IPC EE. UU. alcanzó **+9,1% interanual** en jun-2022 (máximo en 40 años) | BLS |
+| F2 | IPCA zona euro alcanzó **+10,6% interanual** en oct-2022 | Eurostat |
+| F3 | La Fed hizo el ciclo de subidas más rápido desde los 80, hasta **5,25–5,50%** (jul-2023); **primera subida desde 2023 en sep-2026**, hasta **3,75–4,00%** | FOMC / CBS |
+| F4 | IPC EE. UU. **3,7%** (sep-2026; ago 3,4% · jul 3,4% · dic-2025 2,7%); subyacente **2,6%** | BLS (14-oct-2026) |
+| F5 | EE. UU. energía **+20,4% interanual**; gasolina **+34,2% interanual** (sep-2026; la gasolina explicó más de la mitad de la subida mensual) | BLS / CBS |
+| F6 | Zona euro **4,0%** (flash oct-2026; sep 3,8% · ago 3,2%); **energía +20,8% interanual** (componente más alto) · servicios 3,3% · alimentos 1,6% · NEIG 1,2% · **ex-energía 2,3%** | Eurostat (4-nov-2026) |
+| F7 | Países Bajos por encima del **3%**; déficit de los gobiernos de la zona euro **3,0% del PIB** | Eurostat |
+| F8 | Renta real de los hogares por habitante en la zona euro **+0,1% trimestral** (2T-2026); consumo real +0,3% | Eurostat (21-oct-2026) |
+| F9 | Expectativas de inflación del consumidor en EE. UU. **3,9%** (sep-2026; desde 3,6%) | Trading Economics / encuestas BLS |
+| F10 | Desencadenante: **guerra en Irán** (shock energético) sobre el legado de Rusia–Ucrania | CBS / Eurostat |
 
-_Illustrative graphics (receipts, baskets, tanks) are labelled “illustrative” in-episode; every load-bearing number carries a source chip from this pack._
-
----
-
-## Beat-by-beat (timecode · name · content)
-
-### 0:00–0:25 — COLD OPEN: THE RECEIPT
-- **Visual:** tight shot of a grocery receipt unrolling (illustrative), line items in Anton: *Petrol +34.2%* (US, verified F5) · *Energy +20.8%* (EA, F6) · *Your basket* (illustrative, shrinking cart); then a full-frame Anton stamp: **“SAME BASKET. HIGHER PRICE.”**
-- **VO intent:** hook — "Your coffee. Your petrol. Your rent. All of them tell the same story — and it isn’t over."
-- **Motion:** receipt unroll with count-ups; stamp slam + sub-bass thud; source chips flash in.
-
-### 0:25–1:05 — THE QUESTION + THE ONE-SENTENCE ANSWER
-- **Visual:** definition card — **“Inflation = the quiet transfer of purchasing power.”** Then a 40-year CPI line (US & EA), three zones shaded: 2010s “1–2% normal”, 2021–22 “the explosion”, 2023–25 “the long cooling”, 2026 “the second wave”.
-- **VO intent:** define in one plain sentence; promise the structure: "Three waves. One bill. Eight minutes."
-- **Data:** F1, F2; chart = CPI y/y US & EA (Eurostat/BLS-derived).
-
-### 1:05–2:05 — WAVE 1: THE MATCH (2020–22)
-- **Visual:** three-culprit split screen, each with its mini-chart:
-  1. **The cheques** — 2020–21 fiscal transfers → demand shock
-  2. **The jam** — supply chains / chip shortage → goods spike
-  3. **The missile** — Russia invades Ukraine (Feb 2022) → energy spike (EA energy >40% peak 2022)
-- **VO intent:** no villains needed — three matches, one fire. Story, not lecture.
-
-### 2:05–3:00 — WAVE 2: THE FIREHOSE (2022–25)
-- **Visual:** giant interest-rate dial sweeping 0 → 5.25–5.50% (Jul 2023, F3); ECB to 4.00% (Sep 2023) — fastest hikes in 40 years; lending-rate and mortgage bars climbing; then the long glide back down to sub-3% in 2025–early 2026 (US Dec 2025: 2.7%).
-- **VO intent:** explain *why* it worked slowly (lags) and why nobody cheers a recession that doesn’t arrive.
-- **Beat detail:** “The firehose doesn’t find you for 18 months.”
-
-### 3:00–3:45 — THE TWIST: NOBODY GOT A REFUND
-- **Visual:** the famous-but-true line climbing, then never falling back — **the price level**: “Prices didn’t fall. The *rate* of rising fell.” Side-by-side: wages vs prices 2021→2026 (EA real income +0.1% q/q Q2 2026, F8).
-- **VO intent:** the emotional turn — "Disinflation is the *speed* slowing, not the thief returning your wallet."
-- **Microcosm (real example):** a €100 basket in 2020 buys what ~€80–100 buys today — rendered as a shrinking shopping cart illustration, no invented precision, labelled illustrative + source to Eurostat cumulative HICP.
-
-### 3:45–5:15 — WAVE 3 (THE PRESENT): THE SECOND MATCH
-- **Visual:** map — **Iran / Strait of Hormuz**; tanker silhouettes; oil ticker climbing; US gasoline +34.2% y/y (F5); EA energy +20.8% y/y (F6); headlines wall: "Sept 2026: Fed hikes, first since 2023" (F3).
-- **Data spine (all on-screen with chips):**
-  - EA 4.0% Oct 2026 flash (F6) · US 3.7% Sep 2026 (F4) · core US only 2.6% → it’s energy again
-  - EA energy 20.8% · food 1.6% · services 3.3% · ex-energy 2.3%
-- **VO intent:** "Two years of cooling. Six weeks to reignite. Welcome to wave three."
-- **NL/EU angle (if channel is ES/EU-first):** Netherlands above 3% (F7); household budget squeeze; hub gas prices.
-
-### 5:15–6:15 — THE TWO NUMBERS THAT DECIDE THE NEXT YEAR
-- **Visual:** twin dashboards:
-  1. **Energy premium** — Brent/TTF vs pre-war baseline; Hormuz traffic (Hormuz = ~20% of global oil flow)*
-  2. **Inflation expectations** — US consumer expectations 3.9%, rising from 3.6% (F9)
-- **VO intent:** why expectations matter more than the last data point (wage-setting, pricing power).
-- **Scenario cards** (3, flip animation): *Soft landing ~2.5%* · *Higher-for-longer 4%* · *Second shock → 5%+* — each with “what kills it / what feeds it”.
-
-### 6:15–7:20 — WHAT THIS MEANS FOR YOUR MONEY (3 rules)
-- **Visual:** three chalkboard cards:
-  1. **Cash is a melting ice cube** — hold yield, not just liquidity (savings/T-bills >0% again)
-  2. **Fixed-rate debt is repaid in cheaper money** — the bank does not celebrate (educational, not advice)
-  3. **Negotiate your salary in nominal terms** — a 4% raise in 4% inflation = standing still
-- **VO intent:** empowerment without advice; every card carries “not financial advice” micro-print.
-
-### 7:20–7:45 — RECAP: THE WHOLE VIDEO IN 3 LINES
-1. 2021–22: match (COVID + Ukraine) → 10% inflation
-2. 2022–25: firehose (fastest hikes ever) → cooling, no refund
-3. 2026: second match (Iran energy) → 4% again — keep your guard up
-
-### 7:45–8:00 — OUTRO: THE ONE QUESTION
-- **Visual:** end card with channel end screen — subscribe, next-episode teaser: **“Next: Who really pays tariffs — the importer, the exporter, or you?”**
-- **VO intent:** sign-off catchphrase (brand TBD) + the promise of next week.
+_Los gráficos con ejemplos cotidianos (recibo, cesta, depósito) son “ilustrativos” y se etiquetan así en pantalla; todo número de carga lleva su chip de fuente del fact pack._
 
 ---
 
-## Title options (pick per channel language)
+## Ritmo (9 beats · timecode · contenido)
 
-- **EN:** “Why Everything Feels More Expensive — The Strange Story of 2020s Inflation” / “The Second Inflation Wave: What 2026 Just Changed”
-- **ES:** “¿Por qué todo está más caro? La historia del impuesto invisible” / “La segunda ola de inflación: qué cambió en 2026”
+### 0:00–0:25 — FRÍO: EL TICKET
+- **Visual:** recibo de supermercado desenrollándose (ilustrativo); líneas en Anton sobre papel térmico amarillo-paja: *Gasolina +34,2% (EE. UU., F5)* · *Energía +20,8% (EA, F6)* · *Tu cesta* (ilustrativa, se encoge). Después, sello a toda pantalla, tinta roja: **«MISMA CESTA. OTRO PRECIO.»**
+- **VO (registro anécdota):** «Tu café. Tu gasolina. Tu alquiler. Todos cuentan la misma historia… y no ha terminado.»
+- **Movimiento:** desenrollado con count-ups; sello con golpe seco + sub-bass; chips de fuente parpadean.
+- **SFX:** un solo *stamp thud* (numpy). Nada de ruido de multitudes.
 
-## Thumbnail candidates
+### 0:25–1:05 — LA PREGUNTA + LA RESPUESTA EN UNA FRASE
+- **Visual:** tarjeta-definición en tiza: **«Inflación = la transferencia silenciosa de poder adquisitivo.»** Luego una línea de IPC 40 años (EE. UU. y zona euro) con 3 zonas sombreadas: 2010s «1–2%, la normalidad» · 2021–22 «la explosión» · 2023–25 «el enfriamiento largo» · 2026 «la segunda ola».
+- **VO:** «La inflación es un robo sin pistola: te coge el dinero sin que lo notes. Hoy te cuento las tres olas… y la tercera acaba de llegar.»
+- **Datos:** F1, F2. Gráfico: IPC interanual US & EA 2016–2026 (curva SVG dibujada en runtime, sin librerías externas).
 
-1. Anton **“+4.0%”** (huge) + petrol-pump icon, channel accent — “everything got more expensive again”
-2. **“NOBODY GOT A REFUND”** 4 words, open palm with crushed banknote
-3. **“€2.50 → €4.10”** receipt strip, red arrow
-(All three keep one-number-one-icon; 5 words max.)
+### 1:05–2:05 — OLA 1: LA PITA (2020–22)
+- **Visual:** tritríptico de culpables, cada uno con mini-gráfico:
+  1. **Los cheques** — transferencias 2020–21 → exceso de demanda
+  2. **El atasco** — cadenas de suministro / chips → picos de bienes
+  3. **El misil** — Rusia invade Ucrania (feb-2022) → energía (EA >40% pico en 2022)
+- **VO:** «No hace falta un villano. Hacen falta tres cerillas.»
+- **Nota de diseño:** tres paneles en pizarra con dibujo de cerilla que se enciende uno a uno.
 
-## Sources (description block — paste ready)
+### 2:05–3:00 — OLA 2: EL MANGUERAZO (2022–25)
+- **Visual:** dial gigante de tipos 0 → 5,25–5,50% (jul-2023, F3); BCE hasta 4,00% (sep-2023): las subidas más rápidas en 40 años; barras de hipoteca subiendo; luego el glide-down a <3% en 2025 y principios de 2026 (EE. UU. dic-2025: 2,7%).
+- **VO:** «Una manguera contra un incendio. Pero el agua tarda un año y medio en llegar al fuego.»
+- **Detalle de guion:** «Los tipos tardan 18 meses en encontrarte. Por eso el alquiler y la hipoteca se enfrían el último.»
 
-- BLS CPI News Release (Sep 2026, Oct 14 2026) — cpiinflationcalculator.com · tradingeconomics.com
-- CBS News — “September CPI report…” (Oct 14, 2026)
-- Eurostat — Euro indicators: euro area annual inflation flash (Nov 4, 2026) · Inflation in the euro area (ext. Nov 4, 2026) · household real income (Oct 21, 2026)
-- *Strait of Hormuz oil share — EIA (to verify before render)
+### 3:00–3:45 — EL GIRO: NADIE TE DEVOLVIÓ EL DINERO
+- **Visual:** la línea famosa que NO vuelve: **el nivel de precios**. Texto tiza: «Los precios no bajaron. Bajó la *velocidad* a la que subían.» A la derecha: salarios vs precios 2021→2026 (EA renta real +0,1% t/t 2T-2026, F8).
+- **Microcosmos real:** cesta de 100 € en 2020 → poder de compra erosionado ~15–20% acumulado — carrito ilustrativo que se encoge (sin cifras inventadas; chip: «IPCA acumulado, Eurostat»).
+- **VO:** «La desinflación no es el ladrón devolviendo la cartera. Es el ladrón caminando más despacio.»
 
-## Production notes (for the build step — not now)
+### 3:45–5:15 — OLA 3 (EL PRESENTE): LA SEGUNDA CERILLA
+- **Visual:** mapa — **Irán / Estrecho de Ormuz**; silueta de petroleros; ticker de petróleo en subida; muro de titulares: «sep-2026: la Fed sube tipos por primera vez desde 2023» (F3).
+- **Columna vertebral de datos (todos con chip en pantalla):**
+  - Zona euro **4,0%** flash oct-2026 (F6) · EE. UU. **3,7%** sep-2026 (F4) · subyacente EE. UU. 2,6% → **es la energía otra vez**
+  - EA energía **+20,8%** · alimentos +1,6% · servicios +3,3% · ex-energía **2,3%**
+- **VO:** «Dos años enfriándose. Seis semanas para volver a arder. Bienvenido a la tercera ola.»
+- **Ángulo euros/NL (canal ES/EU-first):** Países Bajos >3% (F7); presión sobre presupuestos de hogares; TTF del gas como indicador en pantalla.
 
-- 9 beats → 9 sub-compositions (`compositions/01-receipt.html` … `09-outro.html`), dead-centre stage, count-ups everywhere.
-- Chart data: HICP/CPI lines 2016–2026 — render from embedded CSV (we draw SVG paths at runtime, no external chart libs); every chart gets a source chip.
-- Photos: 2 hero shots allowed (receipt macro; empty supermarket shelf 2021-era B-roll via licensed/generated assets); everything else vector.
-- SFX: page-flip, stamp, sub-bass thud (numpy); no crowd/boom-type noise (lesson from v6/v7).
+### 5:15–6:15 — LOS DOS NÚMEROS QUE DECIDEN EL PRÓXIMO AÑO
+- **Visual:** panel doble de dashboard:
+  1. **La prima de energía** — Brent/TTF vs baseline preguerra; tráfico por Ormuz (~20% del flujo mundial de crudo, punto EIA — verificar antes de render)
+  2. **Las expectativas** — EE. UU. 3,9% y subiendo (F9)
+- **VO:** «La inflación vive en lo que la gente *espera*, no solo en lo que pasó. Si tu jefe cree que habrá 4% de inflación, te sube el sueldo un 4%. Y la serpiente se muerde la cola.»
+- **3 tarjetas-escenario** (animación de pase de cartas): *Aterrizaje suave ≈2,5%* · *Más alta y por más tiempo ≈4%* · *Segunda descarga → 5%+* — cada una con «qué la mata / qué la alimenta».
+
+### 6:15–7:20 — QUÉ SIGNIFICA PARA TU DINERO (3 reglas)
+- **Visual:** tres tarjetas de tiza:
+  1. **El efectivo es un cubito de hielo al sol** — mejor un depósito que rinde que un colchón; el interés vuelve a ser positivo
+  2. **La deuda a tipo fijo se devuelve con dinero más barato** — el banco no celebra
+  3. **Pide el aumento en términos nominales** — una subida del 4% con 4% de inflación = estar quieto
+- **VO:** empoderamiento sin consejo; cada tarjeta lleva micro-print «Contenido educativo, no consejo financiero».
+
+### 7:20–7:45 — REPASO EN 3 LÍNEAS
+1. 2021–22: la cerilla (COVID + Ucrania) → inflación del 10%
+2. 2022–25: la manguera (las subidas más rápidas de la historia) → enfriamiento, sin devolución
+3. 2026: la segunda cerilla (energía de Irán) → 4% otra vez — mantén el escudo
+
+### 7:45–8:00 — OUTRO
+- **Visual:** end card Opción B — avatar tiza-coin, botón suscribir, teaser del próximo episodio: **«Próximo: ¿quién paga realmente los aranceles — el importador, el exportador… o tú?»**
+- **VO:** frase de despedida + «te veo en el próximo precio».
+
+---
+
+## Títulos (español; escoge en la revisión)
+
+1. **«¿Por qué todo está más caro? La historia del impuesto invisible»**
+2. «La segunda ola de inflación: lo que cambió en 2026»
+3. «Nadie te devolvió tu dinero: la verdad de la inflación»
+
+## Miniaturas (tres candidatas, fórmula B)
+
+1. **«+4,0%»** gigante tiza amarillo + surtidor dibujado + recibo asomando; eslogan corto «OTRA VEZ»
+2. **«NADIE TE DEVOLVIÓ»** 3 palabras + mano abierta con billete arrugado
+3. **«€2,50 → €4,10»** tira de recibo con flecha coral
+
+## Descripción lista para pegar (fuentes)
+
+- BLS — CPI News Release (14-oct-2026): via cpiinflationcalculator.com · tradingeconomics.com
+- CBS News — «September CPI report…» (14-oct-2026)
+- Eurostat — Euro indicators flash de octubre 2026 (4-nov-2026) · Inflation in the euro area · renta real de los hogares (21-oct-2026)
+- *Tráfico de crudo por Ormuz — EIA (verificar antes de render)
+
+## Notas de producción (para el paso de construcción — no ahora)
+
+- 9 beats → 9 sub-composiciones (`compositions/01-ticket.html` … `09-outro.html`), stage dead-centre 1920×1080, count-ups en cada número.
+- Datos: líneas HICP/IPC 2016–2026 desde CSV embebido (SVG en runtime); cada gráfico lleva su chip de fuente.
+- Paleta B: pizarra `#10312B` · crema `#EDE6D3` · amarillo `#FFD84D` · coral `#FF6B57`; subrayados y círculos de tiza en precio clave.
+- SFX mínimos: page-flip, stamp, sub-bass thud (numpy). Nada de crowd noises.
+- Aprobación previa a render: VO (voz ES elegida por ti) → ajustes de diseño aquí → luego build.
