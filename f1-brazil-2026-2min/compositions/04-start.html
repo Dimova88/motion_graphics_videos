@@ -7,7 +7,7 @@
     @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
     @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
     :root {
-      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00;
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --mercedes: #27f4d2; --papaya: #ff8000;
       --prism-r: #ff2a4d; --prism-b: #2a7fff;
       --display: "Anton", "Archivo Black", sans-serif;
       --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
@@ -19,22 +19,30 @@
       background: radial-gradient(ellipse 1300px 850px at 50% 50%, rgba(255,223,0,0.09) 0%, #0b0c0f 70%);
       font-family: var(--body); color: var(--ink);
     }
-    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; position: relative; }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
     .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
 
-    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 158px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; text-shadow: 0 12px 70px rgba(0,0,0,0.6); }
+    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 146px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; text-shadow: 0 12px 70px rgba(0,0,0,0.6); }
     .prism { position: relative; display: inline-block; line-height: 0.92; }
     .prism .copy { position: absolute; inset: 0; pointer-events: none; }
     .prism .copy.r { color: var(--prism-r); transform: translateX(-6px); opacity: .92; }
     .prism .copy.b { color: var(--prism-b); transform: translateX(6px); opacity: .92; }
     .prism .main { position: relative; }
 
-    .lights { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 44px; padding: 24px 50px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
-    .light { width: 66px; height: 66px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 34px rgba(255,59,59,0.55), inset 0 -8px 14px rgba(0,0,0,0.45); }
+    .lights { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 44px; padding: 22px 50px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+    .light { width: 64px; height: 64px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 34px rgba(255,59,59,0.55), inset 0 -8px 14px rgba(0,0,0,0.45); }
 
-    .counter { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .counter .num { font-family: var(--display); font-size: 124px; line-height: 1; color: var(--yellow); font-variant-numeric: tabular-nums; }
-    .counter .cap { font-size: 15px; font-weight: 800; letter-spacing: 0.42em; color: var(--muted); text-transform: uppercase; padding-left: 0.42em; }
+    .t1 { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 26px; }
+    .t1-tag {
+      display: inline-flex; align-items: center; gap: 14px;
+      border: 1px solid rgba(39,244,210,0.55); background: rgba(39,244,210,0.10); color: var(--mercedes);
+      border-radius: 999px; padding: 12px 30px;
+      font-size: 18px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+    }
+
+    .counter { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .counter .num { font-family: var(--display); font-size: 96px; line-height: 1; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .counter .cap { font-size: 14px; font-weight: 800; letter-spacing: 0.42em; color: var(--muted); text-transform: uppercase; padding-left: 0.42em; }
     .checker { width: 700px; height: 12px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 20px 20px; border-radius: 2px; opacity: 0.9; }
   </style>
   <div id="root" data-composition-id="start" data-width="1920" data-height="1080">
@@ -48,13 +56,16 @@
         <div class="light" id="start-l4"></div>
         <div class="light" id="start-l5"></div>
       </div>
+      <div class="t1" id="start-t1">
+        <div class="t1-tag">Turn One — Antonelli Leads</div>
+      </div>
       <div class="counter">
         <div class="num" id="start-counter">0</div>
         <div class="cap">Laps</div>
       </div>
       <div class="checker" id="start-checker"></div>
     </div>
-    <audio id="start-vo" data-start="0.5" data-duration="1.98" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p3.mp3"></audio>
+    <audio id="start-vo" data-start="0.5" data-duration="6.14" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p4.mp3"></audio>
     <audio id="start-lights" data-start="0.3" data-duration="2.7" data-track-index="8" data-volume="0.9" src="./assets/sfx/lights.wav"></audio>
   </div>
   <script>
@@ -68,6 +79,7 @@
     ["#start-l1","#start-l2","#start-l3","#start-l4","#start-l5"].forEach((sel, i) => {
       tl.to(sel, { backgroundColor: "#20222a", boxShadow: "none", duration: 0.08 }, 0.35 + i * 0.34);
     });
+    tl.fromTo("#start-t1", { opacity: 0, scale: 0.7, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }, 3.6);
     const counter = { v: 0 };
     tl.to(counter, { v: 71, duration: 2.1, ease: "power2.inOut", onUpdate: () => { document.getElementById("start-counter").textContent = Math.round(counter.v); } }, 2.6);
     tl.fromTo("#start-checker", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.9);

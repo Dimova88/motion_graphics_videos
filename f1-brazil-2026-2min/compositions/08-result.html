@@ -19,14 +19,14 @@
       background: radial-gradient(ellipse 1400px 950px at 50% 50%, #10131c 0%, #0b0c0f 74%);
       font-family: var(--body); color: var(--ink);
     }
-    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; width: 100%; position: relative; }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; width: 100%; position: relative; }
     .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
 
-    .board { display: flex; flex-direction: column; gap: 14px; width: 980px; }
+    .board { display: flex; flex-direction: column; gap: 12px; width: 980px; }
     .rowx {
       display: grid; grid-template-columns: 66px 108px 1fr 150px; align-items: center; gap: 22px;
       background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px; padding: 10px 26px 10px 18px; position: relative; overflow: hidden;
+      border-radius: 16px; padding: 8px 26px 8px 16px; position: relative; overflow: hidden;
       text-align: left;
     }
     .rowx.ant { border-color: rgba(39,244,210,0.35); background: rgba(39,244,210,0.06); }
@@ -34,18 +34,29 @@
     .pos { font-family: var(--display); font-size: 38px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; }
     .rowx.ant .pos { color: var(--mercedes); }
     .cell { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-    .tire { width: 84px; height: 84px; display: block; }
-    .name { font-family: var(--display); font-style: italic; font-size: 30px; letter-spacing: 0.03em; line-height: 1; text-align: left; }
+    .tire { width: 76px; height: 76px; display: block; }
+    .name { font-family: var(--display); font-style: italic; font-size: 27px; letter-spacing: 0.03em; line-height: 1; text-align: left; }
     .team { font-size: 12px; font-weight: 800; letter-spacing: 0.26em; color: var(--muted); text-transform: uppercase; text-align: left; }
     .gap { font-size: 19px; font-weight: 700; color: #e8e8de; font-variant-numeric: tabular-nums; text-align: right; letter-spacing: 0.02em; }
     .pen { display: inline-block; margin-left: 8px; border: 1px solid rgba(255,109,90,0.6); color: #ff8d7a; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; padding: 2px 8px 3px; border-radius: 4px; vertical-align: 2px; }
+    .foot { font-size: 14px; font-weight: 700; letter-spacing: 0.14em; color: #b9b9ae; text-transform: uppercase; }
+    .foot b { color: var(--mercedes); }
+    .champ {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      background: linear-gradient(180deg, #27f4d2 0%, #17b898 100%);
+      border-radius: 18px; padding: 16px 60px 18px; box-shadow: 0 0 60px rgba(39,244,210,0.35);
+    }
+    .champ .big { font-family: var(--display); font-style: italic; font-size: 44px; color: #04150f; letter-spacing: 0.03em; line-height: 1; }
+    .champ .small { font-size: 12px; font-weight: 800; letter-spacing: 0.3em; color: rgba(4,21,15,0.75); text-transform: uppercase; }
   </style>
   <div id="root" data-composition-id="result" data-width="1920" data-height="1080">
     <div class="stack">
       <div class="kicker" id="res-kicker">Final Classification — Top 6</div>
       <div class="board" id="res-board"></div>
+      <div class="foot" id="res-foot">Fastest lap — <b>Antonelli 1:12.689</b> (Lap 55) · <b>+5s</b> unsafe release · 71 laps / 305.879 km</div>
+      <div class="champ" id="res-champ"><div class="big">Mercedes — Constructors' Champions</div><div class="small">Clinched at Interlagos with three rounds to go</div></div>
     </div>
-    <audio id="result-crowd" data-start="0.0" data-duration="12.0" data-track-index="8" data-volume="0.25" src="./assets/sfx/crowd.wav"></audio>
+    <audio id="result-vo" data-start="0.5" data-duration="10.31" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p9.mp3"></audio>
   </div>
   <script>
     const drivers = [
@@ -97,8 +108,10 @@
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#res-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.2);
     drivers.forEach((_, i) => {
-      tl.fromTo("#res-row-" + i, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 0.5 + i * 0.42);
+      tl.fromTo("#res-row-" + i, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 0.5 + i * 0.38);
     });
+    tl.fromTo("#res-foot", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 3.3);
+    tl.fromTo("#res-champ", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "back.out(1.6)" }, 8.2);
     window.__timelines["result"] = tl;
   </script>
 </template>

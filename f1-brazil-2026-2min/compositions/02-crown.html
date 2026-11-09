@@ -1,0 +1,98 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+    :root {
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --mercedes: #27f4d2;
+      --display: "Anton", "Archivo Black", sans-serif;
+      --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root {
+      position: absolute; inset: 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1600px 900px at 50% 50%, #0e2027 0%, #0b0c0f 74%);
+      font-family: var(--body); color: var(--ink);
+    }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--mercedes); text-transform: uppercase; }
+
+    .headline { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 118px; line-height: 0.95; text-transform: uppercase; color: #fff; text-shadow: 0 12px 60px rgba(0,0,0,0.55); }
+
+    .panels { display: flex; flex-direction: row; align-items: stretch; justify-content: center; gap: 34px; }
+    .panel {
+      width: 560px; border-radius: 22px; padding: 24px 30px; border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.045); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+    }
+    .panel.done { border-color: rgba(39,244,210,0.45); background: rgba(39,244,210,0.07); }
+    .panel.live { border-color: rgba(255,223,0,0.45); background: rgba(255,223,0,0.06); }
+    .panel .when { font-size: 15px; font-weight: 800; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+    .panel.done .when { color: var(--mercedes); }
+    .panel.live .when { color: var(--yellow); }
+    .panel .what { font-family: var(--display); font-style: italic; font-size: 44px; line-height: 1.02; text-transform: uppercase; }
+    .panel .detail { font-size: 16.5px; line-height: 1.45; color: #cfcfc4; font-weight: 600; }
+    .panel .detail b { color: #fff; }
+
+    .chip-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+    .glow-ring { position: absolute; width: 258px; height: 258px; }
+    .glow-ring .ring { transform-origin: 50% 50%; }
+    .tire { width: 210px; height: 210px; display: block; filter: drop-shadow(0 0 46px rgba(39,244,210,0.40)) drop-shadow(0 20px 32px rgba(0,0,0,0.6)); }
+
+    .tag { font-size: 14px; font-weight: 800; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; padding-left: 0.3em; }
+    .tag b { color: var(--mercedes); }
+  </style>
+  <div id="root" data-composition-id="crown" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="crown-kicker">The Backstory — One Week Earlier</div>
+
+      <div class="chip-wrap">
+        <svg class="glow-ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring" id="crown-ring" cx="60" cy="60" r="56" fill="none" stroke="#27f4d2" stroke-width="1.6" stroke-dasharray="10 14" opacity="0.75"/></svg>
+        <svg class="tire" id="crown-chip" viewBox="0 0 120 120" role="img" aria-label="Kimi Antonelli, Mercedes, 2026 world champion">
+          <defs>
+            <radialGradient id="rub-crown" cx="42%" cy="36%" r="72%"><stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/></radialGradient>
+            <radialGradient id="rim-crown" cx="38%" cy="30%" r="78%"><stop offset="0%" stop-color="#7dfbe4"/><stop offset="55%" stop-color="#27f4d2"/><stop offset="100%" stop-color="#0e9c80"/></radialGradient>
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="url(#rub-crown)"/>
+          <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+          <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+          <circle cx="60" cy="60" r="38.5" fill="none" stroke="#27f4d2" stroke-width="3" opacity="0.95"/>
+          <circle cx="60" cy="60" r="31" fill="url(#rim-crown)"/>
+          <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+          <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+          <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+          <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#03271d">ANT</text>
+        </svg>
+      </div>
+
+      <div class="panels">
+        <div class="panel done" id="crown-mexico">
+          <div class="when">Nov 1 — Mexico City · Round 19</div>
+          <div class="what" style="color: var(--mercedes)">Drivers' Champion</div>
+          <div class="detail"><b>Kimi Antonelli</b> — the <b>youngest champion in F1 history</b>, 20 years old. First Italian on the throne since <b>Alberto Ascari, 1953</b>.</div>
+        </div>
+        <div class="panel live" id="crown-brazil">
+          <div class="when">Nov 8 — São Paulo · Round 20</div>
+          <div class="what" style="color: var(--yellow)">Constructors' On The Line</div>
+          <div class="detail">Mercedes arrive as <b>drivers' champions</b>. The job in the wet: <b>seal the double</b> at Interlagos.</div>
+        </div>
+      </div>
+
+      <div class="tag" id="crown-tag"><b>ANTONELLI</b> — 380 pts · +119 over Verstappen</div>
+    </div>
+    <audio id="crown-vo" data-start="0.5" data-duration="7.53" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p2.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#crown-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.2);
+    tl.fromTo("#crown-chip", { opacity: 0, scale: 0.35, rotation: -40 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: "back.out(1.6)" }, 0.5);
+    tl.to("#crown-ring", { rotation: 360, transformOrigin: "50% 50%", duration: 11.4, ease: "none" }, 0);
+    tl.fromTo("#crown-mexico", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 2.6);
+    tl.fromTo("#crown-brazil", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 4.6);
+    tl.fromTo("#crown-tag", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 6.3);
+    window.__timelines["crown"] = tl;
+  </script>
+</template>

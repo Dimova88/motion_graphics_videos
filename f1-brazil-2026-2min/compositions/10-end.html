@@ -7,7 +7,7 @@
     @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
     @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
     :root {
-      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00;
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --mercedes: #27f4d2;
       --display: "Anton", "Archivo Black", sans-serif;
       --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
     }
@@ -18,20 +18,20 @@
       background: radial-gradient(ellipse 1500px 850px at 50% 54%, #14171f 0%, #06070a 78%);
       font-family: var(--body); color: var(--ink);
     }
-    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
     .kicker { font-weight: 800; font-size: 15px; letter-spacing: 0.4em; color: var(--yellow); text-transform: uppercase; }
-    h1.word { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 168px; line-height: 0.9; text-transform: uppercase; color: #fff; letter-spacing: -0.015em; text-shadow: 0 14px 70px rgba(0,0,0,0.6); }
-    h1.word .thin { display: block; font-size: 92px; letter-spacing: 0.16em; color: var(--yellow); font-style: normal; }
+    h1.word { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 156px; line-height: 0.9; text-transform: uppercase; color: #fff; letter-spacing: -0.015em; text-shadow: 0 14px 70px rgba(0,0,0,0.6); }
+    h1.word .thin { display: block; font-size: 84px; letter-spacing: 0.18em; color: var(--yellow); font-style: normal; }
     .rule { width: 640px; height: 2px; background: linear-gradient(90deg, rgba(255,223,0,0) 0%, var(--yellow) 18%, #fff 50%, var(--yellow) 82%, rgba(255,223,0,0) 100%); }
-    .dateline { font-size: 18px; font-weight: 700; letter-spacing: 0.34em; color: #cfcfc4; text-transform: uppercase; }
-    .checker { width: 820px; height: 18px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 24px 24px; border-radius: 3px; opacity: 0.95; }
+    .dateline { font-size: 17px; font-weight: 700; letter-spacing: 0.3em; color: #cfcfc4; text-transform: uppercase; }
+    .checker { width: 760px; height: 16px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 22px 22px; border-radius: 3px; opacity: 0.95; }
   </style>
   <div id="root" data-composition-id="end" data-width="1920" data-height="1080">
     <div class="stack">
-      <div class="kicker" id="end-kicker">F1 · Race Hub</div>
+      <div class="kicker" id="end-kicker">Round 20 of 23 — Three Races to Go</div>
       <h1 class="word" id="end-word">São Paulo<span class="thin">2026</span></h1>
       <div class="rule" id="end-rule"></div>
-      <div class="dateline" id="end-date">Interlagos · 08 · 11 · 2026</div>
+      <div class="dateline" id="end-date">Autódromo José Carlos Pace · 08 · 11 · 2026</div>
       <div class="checker" id="end-checker"></div>
     </div>
   </div>
@@ -42,6 +42,7 @@
     tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.8);
     tl.fromTo("#end-date", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.95);
     tl.fromTo("#end-checker", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 0.95, duration: 0.6, ease: "power3.out", transformOrigin: "50% 50%" }, 1.15);
+    tl.to("#end-kicker", { color: "#fff3a6", duration: 0.55, yoyo: true, repeat: 5, ease: "sine.inOut" }, 2.2);
     window.__timelines["end"] = tl;
   </script>
 </template>

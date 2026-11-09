@@ -1,0 +1,85 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+    :root {
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --mercedes: #27f4d2;
+      --display: "Anton", "Archivo Black", sans-serif;
+      --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--asphalt); font-family: var(--body); color: var(--ink); }
+    .photo { position: absolute; inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); object-fit: cover; object-position: 50% 42%; opacity: 0.62; }
+    .shade { position: absolute; inset: 0; background: radial-gradient(ellipse 1150px 750px at 50% 50%, rgba(6,7,10,0.08) 0%, rgba(6,7,10,0.66) 80%); }
+    .shade-b { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,7,10,0.88) 0%, rgba(6,7,10,0) 42%); }
+    .stack { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+    .kicker { font-weight: 800; font-size: 15px; letter-spacing: 0.4em; color: var(--mercedes); text-transform: uppercase; }
+
+    .tire { width: 178px; height: 178px; display: block; filter: drop-shadow(0 0 54px rgba(39,244,210,0.42)) drop-shadow(0 20px 34px rgba(0,0,0,0.6)); }
+
+    h1.word { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 148px; line-height: 0.92; letter-spacing: -0.015em; text-transform: uppercase; color: #fff; text-shadow: 0 14px 70px rgba(0,0,0,0.75); }
+    .crown { display: inline-block; vertical-align: 0.08em; margin-right: 0.16em; }
+
+    .trophies { display: flex; flex-direction: row; gap: 26px; }
+    .trophy {
+      width: 480px; border-radius: 18px; padding: 16px 24px 18px;
+      background: rgba(8,10,14,0.72); border: 1px solid rgba(39,244,210,0.4);
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      box-shadow: 0 0 40px rgba(39,244,210,0.14) inset;
+    }
+    .trophy .k { font-size: 13px; font-weight: 800; letter-spacing: 0.32em; color: var(--mercedes); text-transform: uppercase; }
+    .trophy .v { font-family: var(--display); font-style: italic; font-size: 37px; color: #fff; line-height: 1.05; text-transform: uppercase; }
+    .trophy .d { font-size: 14.5px; font-weight: 600; color: #b9b9ae; }
+  </style>
+  <div id="root" data-composition-id="double" data-width="1920" data-height="1080">
+    <img class="photo" src="./assets/images/interlagos-podium.jpg" alt="Interlagos podium under confetti and rain" />
+    <div class="shade"></div>
+    <div class="shade-b"></div>
+    <div class="stack">
+      <div class="kicker" id="double-kicker">São Paulo — Nov 8, 2026</div>
+      <svg class="tire" id="double-chip" viewBox="0 0 120 120" role="img" aria-label="Kimi Antonelli, Mercedes, world champion">
+        <defs>
+          <radialGradient id="rub-d-big" cx="42%" cy="36%" r="72%"><stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/></radialGradient>
+          <radialGradient id="rim-d-big" cx="38%" cy="30%" r="78%"><stop offset="0%" stop-color="#7dfbe4"/><stop offset="55%" stop-color="#27f4d2"/><stop offset="100%" stop-color="#0e9c80"/></radialGradient>
+        </defs>
+        <circle cx="60" cy="60" r="56" fill="url(#rub-d-big)"/>
+        <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+        <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+        <circle cx="60" cy="60" r="38.5" fill="none" stroke="#27f4d2" stroke-width="3" opacity="0.95"/>
+        <circle cx="60" cy="60" r="31" fill="url(#rim-d-big)"/>
+        <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+        <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+        <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+        <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#03271d">ANT</text>
+      </svg>
+      <h1 class="word" id="double-word"><svg class="crown" width="104" height="70" viewBox="0 0 96 64" role="img" aria-label="crown"><path d="M6 52 L2 10 L30 32 L48 2 L66 32 L94 10 L90 52 Z" fill="#ffdf00" stroke="#0b0c0f" stroke-width="4" stroke-linejoin="round"/><rect x="6" y="56" width="84" height="6" fill="#ffdf00" stroke="#0b0c0f" stroke-width="3"/></svg>Double Champions</h1>
+      <div class="trophies">
+        <div class="trophy" id="double-drivers">
+          <div class="k">Drivers' · Mexico City · Nov 1</div>
+          <div class="v">Antonelli</div>
+          <div class="d">Youngest champion in F1 history — 20 years old</div>
+        </div>
+        <div class="trophy" id="double-constructors">
+          <div class="k">Constructors' · Interlagos · Nov 8</div>
+          <div class="v">Mercedes</div>
+          <div class="d">Sealed with three rounds of the season to go</div>
+        </div>
+      </div>
+    </div>
+    <audio id="double-vo" data-start="0.5" data-duration="8.10" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p10.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".photo", { scale: 1.12, opacity: 0 }, { scale: 1.02, opacity: 0.62, duration: 2.4, ease: "power2.out" }, 0);
+    tl.fromTo("#double-kicker", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.4);
+    tl.fromTo("#double-chip", { opacity: 0, scale: 0.4, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: "back.out(1.5)" }, 0.55);
+    tl.fromTo("#double-word", { opacity: 0, y: 46, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "power4.out" }, 0.85);
+    tl.fromTo("#double-drivers", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 2.6);
+    tl.fromTo("#double-constructors", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 3.6);
+    window.__timelines["double"] = tl;
+  </script>
+</template>

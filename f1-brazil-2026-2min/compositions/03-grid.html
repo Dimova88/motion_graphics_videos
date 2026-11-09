@@ -20,16 +20,16 @@
       font-family: var(--body); color: var(--ink);
     }
     .halo { position: absolute; width: 1180px; height: 1180px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); }
-    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 44px; position: relative; }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; position: relative; }
     .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
 
     .row { display: flex; flex-direction: row; align-items: stretch; justify-content: center; gap: 40px; }
     .cell { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 420px; padding: 26px 10px 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); background: rgba(10,12,18,0.55); }
     .cell.pole { border-color: rgba(255,223,0,0.35); }
-    .cell.title-fight { border-color: rgba(39,244,210,0.30); }
-    .cell.backrow { border-color: rgba(255,109,90,0.28); }
+    .cell.title-fight { border-color: rgba(39,244,210,0.35); }
+    .cell.backrow { border-color: rgba(255,109,90,0.30); }
     .tire { width: 158px; height: 158px; display: block; filter: drop-shadow(0 14px 24px rgba(0,0,0,0.5)); }
-    .tire.dim { opacity: 0.5; filter: saturate(0.55) drop-shadow(0 10px 18px rgba(0,0,0,0.5)); }
+    .tire.dim { opacity: 0.45; filter: saturate(0.5) drop-shadow(0 10px 18px rgba(0,0,0,0.5)); }
     .name { font-family: var(--display); font-style: italic; font-size: 40px; letter-spacing: 0.02em; line-height: 1; }
     #grid-nor-name { color: var(--papaya); }
     #grid-ant-name { color: var(--mercedes); }
@@ -46,7 +46,7 @@
   <div id="root" data-composition-id="grid" data-width="1920" data-height="1080">
     <div class="halo"></div>
     <div class="stack">
-      <div class="kicker" id="grid-kicker">The Grid — 3 Stories in One Row</div>
+      <div class="kicker" id="grid-kicker">The Grid — Three Stories in One Row</div>
 
       <div class="row">
         <div class="cell pole" id="grid-nor">
@@ -70,7 +70,7 @@
         </div>
 
         <div class="cell title-fight" id="grid-ant">
-          <svg class="tire" viewBox="0 0 120 120" role="img" aria-label="Antonelli, Mercedes, P2, title fight">
+          <svg class="tire" viewBox="0 0 120 120" role="img" aria-label="Antonelli, Mercedes, P2, world champion">
             <defs>
               <radialGradient id="rub-g-ant" cx="42%" cy="36%" r="72%"><stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/></radialGradient>
               <radialGradient id="rim-g-ant" cx="38%" cy="30%" r="78%"><stop offset="0%" stop-color="#7dfbe4"/><stop offset="55%" stop-color="#27f4d2"/><stop offset="100%" stop-color="#0e9c80"/></radialGradient>
@@ -86,7 +86,7 @@
             <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#03271d">ANT</text>
           </svg>
           <div class="name" id="grid-ant-name">ANTONELLI</div>
-          <div class="tag"><b>P2</b> · The title on the line</div>
+          <div class="tag"><b>P2</b> · The champion</div>
         </div>
 
         <div class="cell backrow" id="grid-ver">
@@ -112,15 +112,15 @@
 
       <div class="penalty" id="grid-penalty">−30 places · Power unit</div>
     </div>
-    <audio id="grid-vo" data-start="0.5" data-duration="7.27" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p2.mp3"></audio>
+    <audio id="grid-vo" data-start="0.5" data-duration="7.53" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p3.mp3"></audio>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#grid-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.2);
-    tl.fromTo("#grid-nor", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 0.8);
-    tl.fromTo("#grid-ant", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.3);
-    tl.fromTo("#grid-ver", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 5.3);
-    tl.fromTo("#grid-penalty", { opacity: 0, y: 16, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 6.7);
+    tl.fromTo("#grid-nor", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 0.7);
+    tl.fromTo("#grid-ant", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.5);
+    tl.fromTo("#grid-ver", { opacity: 0, y: 44, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 5.1);
+    tl.fromTo("#grid-penalty", { opacity: 0, y: 16, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 6.5);
     tl.fromTo(".halo", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 1.4, ease: "power2.out" }, 0.15);
     window.__timelines["grid"] = tl;
   </script>
