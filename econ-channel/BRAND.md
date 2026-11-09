@@ -1,6 +1,6 @@
 # Economy Channel — Marca Personal (rebrand)
 
-_Status: BRAND v1 BUILT — see BRAND-FINAL.md (handle check + logo masters + banner + thumbnail formula). Pending: owner sign-off on handle/tagline, then EP01 build._
+_Status: BRAND LOCKED 2026-11-09 — @elprecio_detodo · tagline «Todo tiene un precio — y una historia.» · Opción B. See BRAND-FINAL.md. EP01 in build._
 
 ## 1. What the niche actually does (2026 benchmark)
 

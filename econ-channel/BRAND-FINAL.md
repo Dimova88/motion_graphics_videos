@@ -1,16 +1,15 @@
-# EL PRECIO DE TODO — Brand System v1 (locked pending your sign-off)
+# EL PRECIO DE TODO — Brand System v1 (LOCKED 2026-11-09)
 
 _2026-11-09 · Canal económico en español · Faceless · Opción B “pizarra”_
 
 ## 1. Nombre y handle
 
 - **Nombre del canal:** El Precio de Todo
-- **Tagline (recomendada, pendiente de confirmar):** *«Todo tiene un precio — y una historia.»*
-- **Handle:** `@elpreciodetodo` está **OCUPADO** en YouTube por un canal preexistente (6 subs, 12 vídeos, creado oct-2025 — sin relación con nosotros; ir a por él vía name-squatting no merece la pena y crearía confusión).
+- - **Handle:** `@elpreciodetodo` está **OCUPADO** en YouTube por un canal preexistente (6 subs, 12 vídeos, creado oct-2025 — sin relación con nosotros; ir a por él vía name-squatting no merece la pena y crearía confusión).
 - **Verificado en YouTube (2026-11-09, 404 = disponible al comprobar, la reserva final ocurre al registrarlo):**
-  1. `@elprecio_detodo` — opción recomendada por claridad
-  2. `@elprecio.detodo` — la más cercana al nombre, pero el punto es más fácil de teclear mal
-  3. `@elpreciodetodo_ec` — válida pero “sucia”
+  1. ✅ `@elprecio_detodo` — ELEGIDO
+  2. `@elprecio.detodo` — descartado
+  3. `@elpreciodetodo_ec` — descartado como base; reservar solo como defensivo si disponible
 - **No verificable desde el sandbox (bloqueado/401):** Instagram, TikTok, X. Al registrar, comprobar en la app: `elprecio_detodo` (o la opción elegida) y variante con `_ec`. Recomendación: asegurar las tres plataformas con el MISMO handle el día 1.
 - **Alternativa si prefieres un handle limpio 100%**: cambiar ligeramente a *El Precio de Todo — Economía* como nombre y `@elpreciodetodo_ec`, o pasar a una variante distinta del nombre (p. ej., “La Cuestión del Precio”). Solo si no te cuadra ninguna opción.
 

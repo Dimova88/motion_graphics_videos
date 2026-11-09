@@ -75,3 +75,6 @@ Channel owner decisions: **Español-first · Opción B “El Precio de Todo” (
 
 ### v8 update 2 — brand v1 built (2026-11-09)
 Handle probe (YouTube, fetch tool): `@elpreciodetodo` TAKEN (pre-existing tiny channel, 6 subs, joined Oct-2025); `@elprecio.detodo`, `@elprecio_detodo`, `@elpreciodetodo_ec` all 404 (available at check time; IG/TikTok/X not verifiable from sandbox). Brand assets generated vector-first: `econ-channel/brand/` (logo-mark/lockup SVG masters + resvg PNG renders: avatar-800, banner-2560x1440, thumbnail-mock, Anton/Archivo TTFs recovered from git history and renamed to clean family names, SIL OFL). Spec + sign-off checklist: `econ-channel/BRAND-FINAL.md`. Pending owner: handle pick, tagline confirm, brand sign-off, then EP01 build.
+
+### v8 update 3 — marca cerrada + build EP01 autorizado (2026-11-09)
+Owner sign-off: **handle `@elprecio_detodo`** (disponible verificado en YouTube 2026-11-09) · **tagline «Todo tiene un precio — y una historia.»** · OK para construir **EP01**. Flujo: audition voz ES (2 candidatas, owner elige) → script VO ES → composiciones HyperFrames → render + SRT.

@@ -1,7 +1,7 @@
 # EP01 — Storyboard: «¿Por qué todo está más caro?» (8:00)
 
 **Canal:** El Precio de Todo · **Idioma:** Español · **Duración:** ≈8:00 · **Formato:** faceless, VO + motion graphics
-**Estado:** APROBADO como episodio piloto (2026-11-09). **No se han producido los gráficos todavía** — este documento es para revisar y ajustar diseños antes de construir.
+**Estado:** APROBADO (2026-11-09) — marca cerrada (@elprecio_detodo · Opción B). En build: VO ES por audition, luego composiciones y render.
 **VO:** voz por audition (se auditionan 2 candidatas ES en el paso de producción; tú eliges). Registro: storyteller de aula — frases cortas, cero jerga sin imagen.
 **Sistema visual (Opción B “El Precio de Todo”):**
 - Fondo: pizarra verde oscuro `#10312B` con líneas de ledger al 4% · texto tiza crema `#EDE6D3` · **acento tiza amarillo** `#FFD84D` (números, slabs de énfasis) · **tiza coral** `#FF6B57` (alertas, flechas de subida)
