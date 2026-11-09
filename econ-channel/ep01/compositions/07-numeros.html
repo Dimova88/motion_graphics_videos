@@ -1,0 +1,98 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; position: relative; width: 1800px; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .chip { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07);
+      border-radius: 999px; padding: 7px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--chalk); }
+
+    .dash { display: flex; gap: 40px; }
+    .dcard { width: 660px; background: rgba(237,230,211,0.05); border: 2px solid rgba(237,230,211,0.16); border-radius: 18px; padding: 24px 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .dcard .num-badge { width: 56px; height: 56px; border-radius: 50%; background: var(--yellow); color: var(--board); font-family: "Anton"; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+    .dcard h3 { font-family: "Anton"; font-size: 40px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--chalk); }
+    .bars { display: flex; align-items: flex-end; gap: 58px; height: 190px; margin-top: 4px; }
+    .bar { display: flex; flex-direction: column; align-items: center; gap: 8px; justify-content: flex-end; height: 100%; }
+    .bar .fill { width: 96px; border-radius: 6px 6px 0 0; background: var(--yellow); }
+    .bar.peak .fill { background: var(--coral); }
+    .bar.now .fill { background: var(--chalk); }
+    .bar .bl { font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: var(--mut); text-transform: uppercase; }
+    .bar .bv { font-family: "Anton"; font-size: 30px; color: var(--chalk); font-variant-numeric: tabular-nums; }
+
+    .exp .exp-n { font-family: "Anton"; font-size: 148px; line-height: 1; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .exp .exp-from { font-size: 22px; color: var(--mut); }
+    .exp .exp-from b { color: var(--chalk); }
+    .exp .note { font-size: 19px; line-height: 1.4; color: rgba(237,230,211,0.85); max-width: 520px; }
+
+    .scenarios { display: flex; gap: 26px; }
+    .sc { width: 480px; border-radius: 16px; padding: 18px 24px 16px; border: 2px solid rgba(237,230,211,0.2); background: rgba(11,36,31,0.6);
+      display: flex; flex-direction: column; gap: 8px; }
+    .sc .t { font-family: "Anton"; font-size: 34px; letter-spacing: 0.03em; text-transform: uppercase; }
+    .sc .v { font-family: "Anton"; font-size: 54px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .sc .d { font-size: 15px; color: rgba(237,230,211,0.75); line-height: 1.35; }
+    .sc.a { border-color: #7BD88F; } .sc.a .v { color: #7BD88F; } .sc.a .t { color: #7BD88F; }
+    .sc.b { border-color: var(--yellow); } .sc.b .v { color: var(--yellow); } .sc.b .t { color: var(--yellow); }
+    .sc.c { border-color: var(--coral); } .sc.c .v { color: var(--coral); } .sc.c .t { color: var(--coral); }
+  </style>
+  <div id="root" data-composition-id="numeros" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="nu-kicker">Los dos números que importan</div>
+      <div class="dash">
+        <div class="dcard" id="nu-a">
+          <div class="num-badge">1</div>
+          <h3>La prima de energía</h3>
+          <div class="bars">
+            <div class="bar" id="nu-b1"><div class="bv">$78</div><div class="fill" id="nu-f1" style="height:76px"></div><div class="bl">Pre-guerra<br/>feb-2026</div></div>
+            <div class="bar peak" id="nu-b2"><div class="bv">$131</div><div class="fill" id="nu-f2" style="height:150px"></div><div class="bl">Pico<br/>8 días</div></div>
+            <div class="bar now" id="nu-b3"><div class="bv">≈$88</div><div class="fill" id="nu-f3" style="height:104px"></div><div class="bl">Hoy<br/>oct-2026</div></div>
+          </div>
+          <div class="chip">Brent · estrecho de Ormuz semi-cerrado · EIA/IEA</div>
+        </div>
+        <div class="dcard exp" id="nu-b">
+          <div class="num-badge">2</div>
+          <h3>Las expectativas</h3>
+          <div class="exp-n" id="nu-exp">3,6%</div>
+          <div class="exp-from">expectativa de inflación del consumidor EE. UU. · sep-2026 <b>(era 3,6% en agosto)</b></div>
+          <div class="note">Si tu jefe espera inflación, te sube el sueldo. Si tu proveedor la espera, te sube la tarifa. La serpiente se muerde la cola.</div>
+          <div class="chip">Encuestas consumidor · sep-2026 (BLS vía Trading Economics)</div>
+        </div>
+      </div>
+      <div class="scenarios">
+        <div class="sc a" id="nu-sc1"><div class="t">Aterrizaje suave</div><div class="v">≈2,5%</div><div class="d">La mata: fin del conflicto + energía normalizada. La alimenta: rebrotes puntuales en gas.</div></div>
+        <div class="sc b" id="nu-sc2"><div class="t">Más alta y más tiempo</div><div class="v">≈4%</div><div class="d">La mata: Ormuz reabre gradualmente. La alimenta: rigidez de salarios y tarifas indexadas.</div></div>
+        <div class="sc c" id="nu-sc3"><div class="t">Segunda descarga</div><div class="v">≥5%</div><div class="d">La mata: nada aún. La alimenta: escalada militar + cerrojazo duradero de Ormuz + espiral salarios-precios.</div></div>
+      </div>
+      <div class="chip" id="nu-src">Fuente: IEA · EIA · BLS · Trading Economics</div>
+    </div>
+    <audio id="nu-vo" data-start="0.6" data-duration="50.913" data-track-index="9" src="./assets/voice/v7-numeros.mp3"></audio>
+    <audio id="nu-flip" data-start="31.0" data-duration="0.45" data-track-index="8" data-volume="0.7" src="./assets/sfx/flip.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#nu-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.1);
+    tl.fromTo("#nu-a", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 0.5);
+    tl.fromTo("#nu-b", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 0.8);
+    ["#nu-f1", "#nu-f2", "#nu-f3"].forEach((sel, i) => {
+      const h = [76, 150, 104][i];
+      tl.fromTo(sel, { height: 0 }, { height: h, duration: 0.9, ease: "back.out(1.3)" }, 1.2 + i * 0.35);
+    });
+    const exp = { v: 3.6 };
+    tl.to(exp, { v: 3.9, duration: 1.4, ease: "power2.out",
+      onUpdate: () => { document.getElementById("nu-exp").textContent = exp.v.toFixed(1).replace(".", ",") + "%"; } }, 3.2);
+    tl.fromTo("#nu-sc1", { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, 30.5);
+    tl.fromTo("#nu-sc2", { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, 34.5);
+    tl.fromTo("#nu-sc3", { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, 38.5);
+    tl.fromTo("#nu-src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 43.5);
+    window.__timelines["numeros"] = tl;
+  </script>
+</template>

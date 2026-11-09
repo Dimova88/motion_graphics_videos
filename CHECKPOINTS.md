@@ -78,3 +78,17 @@ Handle probe (YouTube, fetch tool): `@elpreciodetodo` TAKEN (pre-existing tiny c
 
 ### v8 update 3 — marca cerrada + build EP01 autorizado (2026-11-09)
 Owner sign-off: **handle `@elprecio_detodo`** (disponible verificado en YouTube 2026-11-09) · **tagline «Todo tiene un precio — y una historia.»** · OK para construir **EP01**. Flujo: audition voz ES (2 candidatas, owner elige) → script VO ES → composiciones HyperFrames → render + SRT.
+
+## v9 — EP01 «¿Por qué todo está más caro?» RENDER (2026-11-09)
+
+Full production of the pilot episode for **El Precio de Todo / @elprecio_detodo** (ES · Opción B chalkboard ledger · faceless, VO voice-02 educativa).
+
+- Project: `econ-channel/ep01/` — 10 sub-compositions (`compositions/01-frio` … `10-outro`), dead-centre stage, Option B palette (#10312B pizarra, #EDE6D3 tiza, #FFD84D números, #FF6B57 alertas), Anton/Archivo vendored woff2, gsap from v7 vendor pack, synth SFX (stamp/tap/flip via numpy)
+- VO: 10 tomas ES voice-02 (natural rate 1.0), two-pass loudnorm to −19.5 LUFS (spread ≤0.4 LU); frases cortas, guion en `VO-SCRIPT.md`
+- Facts verified and baked in (chip on every number): **EA 4,0% flash oct-2026** (Eurostat, 4-nov) · **US 3,7% sep-2026 / core 2,6%** (BLS, 14-oct, gasolina +34,2%) · **NL 3,7% oct-2026** snelle raming (CBS, 4-nov; gas +52,5%, HICP 3,3%) · **renta real hogares EA +0,1% t/t 2T-2026** · **Fed +3,75–4,00% primera subida desde 2023 (sep-2026)** · **Hormuz: guerra desde el 28-feb-2026, tráfico 20→2,7M b/d, $78→$131 en 8 días, ~20% LNG** (EIA/IEA) · expectativas EE. UU. 3,6→3,9% (sep-2026). Series: CPIAUCSL vía FRED (gráfico 2016–2026 calculado), Eurostat prc_hicp_minr EA21 (consulta API verificada, sep → dic-2025 = 2,0%)
+- Render: `renders/el-precio-de-todo-ep01.mp4` — **7:55.4, 14261 frames, −16.9 LUFS, −1.0 dBFS TP, H.264/AAC 1920×1080@30, 30.8 MB** (hyperframes 0.9.26 delivery; NVIDIA-free SwiftShader; ffmpeg at /tmp/ff + chmod'ed /usr/local/bin/ffmpeg/ffprobe)
+- SRT sidecar: `renders/el-precio-de-todo-ep01.srt` (110 cues, distribución proporcional por caracteres dentro de cada toma) · Descripción+capítulos: `EP01-DESCRIPCION.md`
+- Gates: lint 0 errors (25 warnings, todos `nested_media_start_basis_ambiguous` intencionales composition-local); 12 frames + 9 boundary frames verificados; sin pop-ins crudos (corte en negro ≤0.3 s por acto, estilo hard-cut con VO continuo — valorar crossfades si el owner lo prefiere)
+- Known cosmetic trade-offs: stamp del acto 1 cubre parcialmente el ticket (intencional); callouts de pico en el gráfico reposicionados; `#ou-cta` segundo fromTo con immediateRender:false
+- Restored from git history (v7 assets, no F1 content): gsap.min.js; Anton/Archivo TTFs for the brand sheet (SIL OFL)
+- Next: owner review of the MP4 (diseño/ritmo/VO) → ajustes → upload + descripción. Voice-02 stays the house narrator unless replaced.

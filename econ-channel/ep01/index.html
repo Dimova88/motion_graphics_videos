@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>El Precio de Todo — EP01 · ¿Por qué todo está más caro?</title>
+    <script src="./assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+      :root {
+        --board: #10312B;
+        --board2: #0B241F;
+        --chalk: #EDE6D3;
+        --yellow: #FFD84D;
+        --coral: #FF6B57;
+        --mut: rgba(237,230,211,0.55);
+        --mut2: rgba(237,230,211,0.32);
+        --display: "Anton", "Archivo Black", sans-serif;
+        --body: "Archivo", "Liberation Sans", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--board2); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--board2); font-family: var(--body); color: var(--chalk); }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="475.36"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="frio" data-composition-id="frio" data-composition-src="compositions/01-frio.html"
+           data-start="0.00" data-duration="19.38" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="pregunta" data-composition-id="pregunta" data-composition-src="compositions/02-pregunta.html"
+           data-start="19.38" data-duration="45.25" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <div id="ola1" data-composition-id="ola1" data-composition-src="compositions/03-ola1.html"
+           data-start="64.63" data-duration="67.12" data-track-index="3" data-width="1920" data-height="1080"></div>
+      <div id="ola2" data-composition-id="ola2" data-composition-src="compositions/04-ola2.html"
+           data-start="131.75" data-duration="57.17" data-track-index="4" data-width="1920" data-height="1080"></div>
+      <div id="giro" data-composition-id="giro" data-composition-src="compositions/05-giro.html"
+           data-start="188.92" data-duration="43.57" data-track-index="5" data-width="1920" data-height="1080"></div>
+      <div id="ola3" data-composition-id="ola3" data-composition-src="compositions/06-ola3.html"
+           data-start="232.49" data-duration="80.89" data-track-index="6" data-width="1920" data-height="1080"></div>
+      <div id="numeros" data-composition-id="numeros" data-composition-src="compositions/07-numeros.html"
+           data-start="313.38" data-duration="59.01" data-track-index="7" data-width="1920" data-height="1080"></div>
+      <div id="reglas" data-composition-id="reglas" data-composition-src="compositions/08-reglas.html"
+           data-start="372.39" data-duration="48.40" data-track-index="8" data-width="1920" data-height="1080"></div>
+      <div id="repaso" data-composition-id="repaso" data-composition-src="compositions/09-repaso.html"
+           data-start="420.79" data-duration="37.68" data-track-index="9" data-width="1920" data-height="1080"></div>
+      <div id="outro" data-composition-id="outro" data-composition-src="compositions/10-outro.html"
+           data-start="458.47" data-duration="16.89" data-track-index="10" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

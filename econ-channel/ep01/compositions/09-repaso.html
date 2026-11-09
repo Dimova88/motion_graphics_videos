@@ -1,0 +1,61 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; width: 1740px; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+
+    .line-item { display: flex; align-items: center; gap: 30px; width: 1560px; text-align: left; }
+    .check { flex: 0 0 auto; }
+    .line-item .txt { font-family: "Anton"; font-size: 44px; line-height: 1.08; text-transform: uppercase; color: var(--chalk); letter-spacing: 0.01em; }
+    .line-item .txt .n { color: var(--yellow); }
+    .line-item .txt .dim { color: var(--mut); font-size: 30px; }
+
+    .slab { transform: rotate(-1.1deg); background: var(--yellow); color: var(--board); border-radius: 10px; padding: 18px 54px;
+      font-family: "Anton"; font-size: 72px; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1; box-shadow: 0 22px 60px rgba(0,0,0,0.4); }
+    .sub { font-size: 20px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; color: var(--mut); }
+  </style>
+  <div id="root" data-composition-id="repaso" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="rp-kicker">Repaso en tres líneas</div>
+      <div class="line-item" id="rp-l1">
+        <svg class="check" width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="38" fill="none" stroke="#FFD84D" stroke-width="6"/><polyline points="27,44 39,56 62,30" fill="none" stroke="#FFD84D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="txt"><span class="n">1 · 2021–22</span> — tres cerillas<br/><span class="dim">Pandemia · cuellos de botella · Ucrania → 9,1% US / 10,6% EA</span></div>
+      </div>
+      <div class="line-item" id="rp-l2">
+        <svg class="check" width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="38" fill="none" stroke="#FFD84D" stroke-width="6"/><polyline points="27,44 39,56 62,30" fill="none" stroke="#FFD84D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="txt"><span class="n">2 · 2022–25</span> — la manguera<br/><span class="dim">Los tipos más rápidos de la historia → nadie te devolvió el dinero</span></div>
+      </div>
+      <div class="line-item" id="rp-l3">
+        <svg class="check" width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="38" fill="none" stroke="#FF6B57" stroke-width="6"/><polyline points="27,44 39,56 62,30" fill="none" stroke="#FF6B57" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="txt"><span class="n" style="color: var(--coral);">3 · 2026</span> — la segunda cerilla<br/><span class="dim">La guerra de Irán y la energía → 4,0% EA · 3,7% US · 3,7% NL</span></div>
+      </div>
+      <div class="slab" id="rp-slab">El impuesto invisible… ya lo conoces</div>
+      <div class="sub" id="rp-sub">Míralo cada mes, como la previsión del tiempo</div>
+    </div>
+    <audio id="rp-vo" data-start="0.6" data-duration="29.784" data-track-index="9" src="./assets/voice/v9-repaso.mp3"></audio>
+    <audio id="rp-tap1" data-start="0.9" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+    <audio id="rp-tap2" data-start="8.2" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+    <audio id="rp-tap3" data-start="15.6" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#rp-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
+    [["#rp-l1", 0.7], ["#rp-l2", 8.0], ["#rp-l3", 15.4]].forEach(([sel, at]) => {
+      tl.fromTo(sel, { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, at);
+    });
+    tl.fromTo("#rp-slab", { opacity: 0, scale: 0.7, rotate: -4 }, { opacity: 1, scale: 1, rotate: -1.1, duration: 0.65, ease: "back.out(1.4)" }, 23.0);
+    tl.fromTo("#rp-sub", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 24.6);
+    window.__timelines["repaso"] = tl;
+  </script>
+</template>

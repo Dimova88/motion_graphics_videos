@@ -1,0 +1,110 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; position: relative; width: 1760px; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .chip { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07);
+      border-radius: 999px; padding: 8px 22px; font-size: 15px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--chalk); }
+
+    .def { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .def .word { font-family: "Anton"; font-size: 128px; line-height: 0.95; letter-spacing: 0.01em; color: var(--chalk); }
+    .def .word .u { position: relative; display: inline-block; }
+    .def .word .u svg { position: absolute; left: -6%; bottom: -0.22em; width: 112%; height: 0.42em; overflow: visible; }
+    .def .word .u path { fill: none; stroke: var(--yellow); stroke-width: 12; stroke-linecap: round; }
+    .def .line { font-size: 26px; color: rgba(237,230,211,0.9); max-width: 1150px; line-height: 1.35; }
+    .def .line b { color: var(--yellow); font-weight: 700; }
+
+    .chart-wrap { position: relative; width: 1620px; }
+    .chart-title { display: flex; justify-content: space-between; align-items: baseline; width: 100%; margin-bottom: 6px; padding: 0 6px; }
+    .chart-title .t { font-weight: 700; font-size: 17px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mut); }
+    .legend { display: flex; gap: 26px; }
+    .lg { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; }
+    .lg .sw { width: 34px; height: 6px; border-radius: 3px; }
+    .lg .sw.us { background: var(--yellow); } .lg .sw.ea { background: var(--chalk); }
+    .peak { position: absolute; font-family: "Anton"; font-size: 40px; color: var(--coral); line-height: 1; text-align: center; }
+    .peak small { display: block; font-family: "Archivo"; font-weight: 700; font-size: 13px; letter-spacing: 0.24em; color: var(--mut); margin-top: 6px; }
+    .zones { display: flex; width: 100%; gap: 12px; }
+    .zone { flex: 1; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mut); border-top: 2px solid rgba(237,230,211,0.22); padding-top: 8px; }
+  </style>
+  <div id="root" data-composition-id="pregunta" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="pg-kicker">La pregunta</div>
+      <div class="def" id="pg-def">
+        <div class="word">INFLA<span class="u">CIÓN<svg viewBox="0 0 200 24" preserveAspectRatio="none"><path id="pg-underline" d="M4 12 C 40 6, 66 18, 104 10 S 168 14, 196 10"/></svg></span></div>
+        <div class="line">La <b>transferencia silenciosa de poder adquisitivo</b>: nadie te roba la cartera… simplemente, todo cuesta más.</div>
+      </div>
+      <div class="chart-wrap" id="pg-chart">
+        <div class="chart-title">
+          <div class="t">IPC interanual · diciembre, 2016–2026</div>
+          <div class="legend">
+            <div class="lg"><span class="sw us"></span>EE. UU. (BLS vía FRED)</div>
+            <div class="lg"><span class="sw ea"></span>ZONA EURO (Eurostat)</div>
+          </div>
+        </div>
+        <svg id="pg-svg" width="1620" height="380" viewBox="0 0 1620 380"></svg>
+        <div class="peak" id="pg-peak-us" style="left: 755px; top: -16px;">9,1%<small>EE. UU. · JUN-2022</small></div>
+        <div class="peak" id="pg-peak-ea" style="left: 915px; top: 84px;">10,6%<small>ZONA EURO · OCT-2022</small></div>
+      </div>
+      <div class="zones" id="pg-zones">
+        <div class="zone">2010s · 1–2%</div>
+        <div class="zone" style="color: var(--coral); border-top-color: var(--coral);">2021–22 · Explosión</div>
+        <div class="zone">2023–25 · Enfriamiento</div>
+        <div class="zone" style="color: var(--yellow); border-top-color: var(--yellow);">2026 · Tercera ola</div>
+      </div>
+      <div class="chip" id="pg-src">Fuente: BLS · FRED (CPIAUCSL) · Eurostat (prc_hicp)</div>
+    </div>
+    <audio id="pg-vo" data-start="0.6" data-duration="37.146" data-track-index="9" src="./assets/voice/v2-pregunta.mp3"></audio>
+    <audio id="pg-tap" data-start="1.1" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const US = [2.1, 2.1, 2.0, 2.3, 1.3, 7.2, 6.4, 3.3, 2.9, 2.7, 3.7];
+    const EA = [1.1, 1.4, 1.6, 1.3, -0.3, 5.0, 9.2, 2.9, 2.4, 2.0, 4.0];
+    const YEARS = [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
+    const W = 1620, H = 380, L = 64, R = 24, T = 26, B = 44;
+    const iW = W - L - R, iH = H - T - B, yMin = -1, yMax = 12;
+    const X = i => L + i * (iW / (YEARS.length - 1));
+    const Y = v => T + (yMax - v) * (iH / (yMax - yMin));
+    const line = arr => arr.map((v, i) => (i ? "L" : "M") + X(i).toFixed(1) + "," + Y(v).toFixed(1)).join(" ");
+    let g = "";
+    [0, 3, 6, 9, 12].forEach(v => {
+      g += `<line x1="${L}" y1="${Y(v)}" x2="${W - R}" y2="${Y(v)}" stroke="#EDE6D3" stroke-opacity="${v === 0 ? 0.4 : 0.12}" stroke-width="2"/>`;
+      g += `<text x="${L - 12}" y="${Y(v) + 6}" text-anchor="end" fill="#EDE6D3" fill-opacity="0.55" font-size="15" font-family="Archivo">${v}%</text>`;
+    });
+    YEARS.forEach((y, i) => { if (i % 2 === 0) g += `<text x="${X(i)}" y="${H - 12}" text-anchor="middle" fill="#EDE6D3" fill-opacity="0.55" font-size="16" font-family="Archivo">${y}</text>`; });
+    g += `<path id="pg-line-us" d="${line(US)}" fill="none" stroke="#FFD84D" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>`;
+    g += `<path id="pg-line-ea" d="${line(EA)}" fill="none" stroke="#EDE6D3" stroke-width="5" stroke-dasharray="2 14" stroke-linecap="round" stroke-linejoin="round"/>`;
+    document.getElementById("pg-svg").innerHTML = g;
+
+    tl.fromTo("#pg-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.1);
+    tl.fromTo("#pg-def", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.35);
+    const und = document.getElementById("pg-underline");
+    const undLen = und.getTotalLength();
+    und.style.strokeDasharray = undLen; und.style.strokeDashoffset = undLen;
+    tl.to(und, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" }, 1.15);
+    tl.fromTo("#pg-chart", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 6.0);
+    ["pg-line-us", "pg-line-ea"].forEach((id, i) => {
+      const p = document.getElementById(id); const len = p.getTotalLength();
+      p.style.strokeDasharray = (id === "pg-line-ea") ? "2 14" : len;
+      p.style.strokeDashoffset = (id === "pg-line-ea") ? 0 : len;
+      if (id === "pg-line-us") tl.fromTo(p, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: 2.6, ease: "power2.inOut" }, 6.5);
+      else tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 1.6, ease: "power2.inOut" }, 7.2);
+    });
+    tl.fromTo("#pg-peak-us", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 9.3);
+    tl.fromTo("#pg-peak-ea", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 10.1);
+    tl.fromTo("#pg-zones .zone", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.18, ease: "power2.out" }, 11.0);
+    tl.fromTo("#pg-src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 12.6);
+    window.__timelines["pregunta"] = tl;
+  </script>
+</template>

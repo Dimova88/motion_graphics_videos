@@ -1,0 +1,440 @@
+1
+00:00:00,600 --> 00:00:01,325
+Tu café.
+
+2
+00:00:01,325 --> 00:00:02,413
+Tu gasolina.
+
+3
+00:00:02,413 --> 00:00:03,500
+Tu alquiler.
+
+4
+00:00:03,500 --> 00:00:06,400
+Todos cuentan la misma historia.
+
+5
+00:00:06,400 --> 00:00:10,116
+La historia de cómo tu dinero vale menos…
+
+6
+00:00:10,116 --> 00:00:12,473
+y por qué no ha terminado.
+
+7
+00:00:12,473 --> 00:00:14,376
+Quédate ocho minutos.
+
+8
+00:00:19,980 --> 00:00:24,614
+Vamos a llamar a las cosas por su nombre: esto es inflación.
+
+9
+00:00:24,614 --> 00:00:33,726
+Inflación es la transferencia silenciosa de poder adquisitivo: nadie te roba la cartera; simplemente, todo cuesta más.
+
+10
+00:00:33,726 --> 00:00:37,124
+En esta línea de tiempo ves años de precios.
+
+11
+00:00:37,124 --> 00:00:41,526
+Los dos mil diez: tranquilo, uno o dos por ciento al año.
+
+12
+00:00:41,526 --> 00:00:43,534
+2021 y 2022: la explosión.
+
+13
+00:00:43,534 --> 00:00:46,237
+2023, 2024 y 2025: el enfriamiento.
+
+14
+00:00:46,237 --> 00:00:48,554
+Y ahora, 2026: la tercera ola.
+
+15
+00:00:48,554 --> 00:00:52,647
+De eso va este episodio: tres olas, una sola factura.
+
+16
+00:00:52,647 --> 00:00:53,496
+Tu factura.
+
+17
+00:00:53,496 --> 00:00:57,126
+Al final te cuento tres reglas para defenderte.
+
+18
+00:01:05,230 --> 00:01:07,067
+Primera ola: 2020 a 2022.
+
+19
+00:01:07,067 --> 00:01:10,373
+Y no hay un villano único; hay tres cerillas.
+
+20
+00:01:10,373 --> 00:01:12,724
+La primera cerilla: los cheques.
+
+21
+00:01:12,724 --> 00:01:19,410
+En 2020 y 2021, los gobiernos repartieron dinero para que nadie se hundiera en la pandemia.
+
+22
+00:01:19,410 --> 00:01:20,072
+Funcionó.
+
+23
+00:01:20,072 --> 00:01:27,933
+Pero de repente había demasiado dinero persiguiendo las mismas pizzas, los mismos coches, las mismas casas.
+
+24
+00:01:27,933 --> 00:01:29,917
+Segunda cerilla: el atasco.
+
+25
+00:01:29,917 --> 00:01:34,032
+Fábricas cerradas, puertos colapsados, chips sin llegar.
+
+26
+00:01:34,032 --> 00:01:39,469
+La oferta se encogía mientras la demanda rugía; los precios se dispararon.
+
+27
+00:01:39,469 --> 00:01:41,379
+Tercera cerilla: el misil.
+
+28
+00:01:41,379 --> 00:01:44,171
+Febrero de 2022, Rusia invade Ucrania.
+
+29
+00:01:44,171 --> 00:01:48,212
+El gas en Europa se multiplica; el petróleo se dispara.
+
+30
+00:01:48,212 --> 00:01:56,956
+Resultado: en junio de 2022, los precios en Estados Unidos crecían al 9,1 por ciento anual, el máximo en cuarenta años.
+
+31
+00:01:56,956 --> 00:02:01,291
+Y en octubre, en la zona euro, llegaron al 10,6 por ciento.
+
+32
+00:02:01,291 --> 00:02:04,450
+La calculadora de la vida diaria en llamas.
+
+33
+00:02:12,350 --> 00:02:14,173
+Segunda ola: la respuesta.
+
+34
+00:02:14,173 --> 00:02:19,994
+El fuego se apaga con una manguera gigante, y la manguera se llama tipo de interés.
+
+35
+00:02:19,994 --> 00:02:30,512
+En Estados Unidos, la Reserva Federal hizo el ciclo de subidas más rápido desde los años ochenta: del cero al 5,25 y 5,50 por ciento en julio de 2023.
+
+36
+00:02:30,512 --> 00:02:35,351
+El Banco Central Europeo llegó al 4 por ciento en septiembre de 2023.
+
+37
+00:02:35,351 --> 00:02:41,522
+Suena brutal, pero la manguera tarda entre doce y dieciocho meses en encontrar el fuego.
+
+38
+00:02:41,522 --> 00:02:48,324
+Por eso el alivio se notó tan tarde: las hipotecas y los alquileres son los últimos en enfriarse.
+
+39
+00:02:48,324 --> 00:02:49,095
+Y funcionó…
+
+40
+00:02:49,095 --> 00:02:49,726
+a medias.
+
+41
+00:02:49,726 --> 00:02:55,616
+En 2025, Estados Unidos cerró cerca del 2,7 por ciento y la zona euro en torno al 2.
+
+42
+00:02:55,616 --> 00:02:56,809
+Todos celebraron.
+
+43
+00:02:56,809 --> 00:03:01,016
+Y olvidaron un detalle: nadie te devolvió el dinero perdido.
+
+44
+00:03:09,520 --> 00:03:12,813
+Aquí está el giro que casi nadie explica bien.
+
+45
+00:03:12,813 --> 00:03:15,963
+La desinflación no es que los precios bajen.
+
+46
+00:03:15,963 --> 00:03:17,824
+Es que suben más despacio.
+
+47
+00:03:17,824 --> 00:03:20,616
+El nivel de precios nunca volvió atrás.
+
+48
+00:03:20,616 --> 00:03:21,833
+Y no va a volver.
+
+49
+00:03:21,833 --> 00:03:27,918
+Traducido: una cesta de cien dólares de enero de 2020 cuesta hoy casi ciento treinta.
+
+50
+00:03:27,918 --> 00:03:33,789
+Cada año que no te suben el sueldo, tu cartera se encoge sin que nadie firme nada.
+
+51
+00:03:33,789 --> 00:03:43,310
+Y el dato más honesto del trimestre: entre abril y junio de 2026, la renta real de los hogares europeos subió solo un 0,1 por ciento.
+
+52
+00:03:43,310 --> 00:03:44,384
+Perdiste menos…
+
+53
+00:03:44,384 --> 00:03:45,386
+pero perdiste.
+
+54
+00:03:53,090 --> 00:03:54,853
+Y entonces llegó 2026.
+
+55
+00:03:54,853 --> 00:03:55,574
+Ola tres.
+
+56
+00:03:55,574 --> 00:04:00,861
+El 28 de febrero de 2026, Estados Unidos e Israel atacaron a Irán.
+
+57
+00:04:00,861 --> 00:04:05,748
+En ocho días, el petróleo pasó de 78 a 131 dólares el barril.
+
+58
+00:04:05,748 --> 00:04:23,134
+El tráfico por el estrecho de Ormuz, la garganta por la que pasa una quinta parte del petróleo del mundo y una quinta parte del gas licuado, se desplomó: de unos veinte millones de barriles diarios a 2,7 en primavera.
+
+59
+00:04:23,134 --> 00:04:26,178
+Hoy sigue muy por debajo de lo normal.
+
+60
+00:04:26,178 --> 00:04:28,421
+¿Y qué pasó con los precios?
+
+61
+00:04:28,421 --> 00:04:35,071
+Estados Unidos: 3,7 por ciento anual en septiembre, tres décimas más que en agosto.
+
+62
+00:04:35,071 --> 00:04:41,480
+Y ojo; la inflación subyacente, la que excluye energía y alimentos, solo el 2,6.
+
+63
+00:04:41,480 --> 00:04:46,367
+En la zona euro: 4,0 en octubre, según el avance de Eurostat.
+
+64
+00:04:46,367 --> 00:04:50,053
+Energía, 20,8; alimentos, 1,6; servicios, 3,3.
+
+65
+00:04:50,053 --> 00:04:51,495
+Y en Países Bajos…
+
+66
+00:04:51,495 --> 00:04:59,506
+3,7 según el CBS, el dato más alto del año, con el gas 52,5 por ciento más caro que hace doce meses.
+
+67
+00:04:59,506 --> 00:05:01,189
+Dos años enfriándose.
+
+68
+00:05:01,189 --> 00:05:03,833
+Seis semanas para volver a arder.
+
+69
+00:05:03,833 --> 00:05:06,076
+Bienvenido a la tercera ola.
+
+70
+00:05:13,980 --> 00:05:15,258
+¿Qué miramos ahora?
+
+71
+00:05:15,258 --> 00:05:16,065
+Dos números.
+
+72
+00:05:16,065 --> 00:05:18,217
+El primero: la prima de energía.
+
+73
+00:05:18,217 --> 00:05:28,642
+Mientras el estrecho de Ormuz siga cerrado o semi-cerrado, cada litro de gasolina, cada factura de luz y cada bolsa de transporte lleva un peaje de guerra.
+
+74
+00:05:28,642 --> 00:05:30,592
+El segundo: las expectativas.
+
+75
+00:05:30,592 --> 00:05:38,865
+En septiembre, los consumidores estadounidenses esperaban una inflación del 3,9 por ciento, frente al 3,6 del mes anterior.
+
+76
+00:05:38,865 --> 00:05:41,286
+Esto importa más que el dato pasado.
+
+77
+00:05:41,286 --> 00:05:44,985
+Si tu jefe cree que habrá inflación, te sube el sueldo.
+
+78
+00:05:44,985 --> 00:05:49,021
+Si tu proveedor cree que habrá inflación, te sube la tarifa.
+
+79
+00:05:49,021 --> 00:05:51,240
+Y la serpiente se muerde la cola.
+
+80
+00:05:51,240 --> 00:05:52,316
+Tres escenarios.
+
+81
+00:05:52,316 --> 00:05:54,603
+Aterrizaje suave: en torno al 2,5.
+
+82
+00:05:54,603 --> 00:05:57,360
+Inflación alta y duradera: en torno al 4.
+
+83
+00:05:57,360 --> 00:06:00,252
+O una segunda descarga: camino del 5 o más.
+
+84
+00:06:00,252 --> 00:06:02,068
+¿Qué decide entre los tres?
+
+85
+00:06:02,068 --> 00:06:04,893
+Una sola variable: cuánto dure la energía.
+
+86
+00:06:12,990 --> 00:06:14,929
+Tres reglas para tu dinero.
+
+87
+00:06:14,929 --> 00:06:18,521
+Primera: el efectivo es un cubito de hielo al sol.
+
+88
+00:06:18,521 --> 00:06:28,145
+Si tu dinero está quieto, pierde valor cada mes; el depósito o la renta fija vuelven a rendir y, aunque no te hagan rico, te protegen.
+
+89
+00:06:28,145 --> 00:06:33,389
+Segunda: la deuda a tipo fijo se devuelve con dinero cada vez más barato.
+
+90
+00:06:33,389 --> 00:06:37,267
+Lo que debes desde 2020 son euros de 2020, no de 2026.
+
+91
+00:06:37,267 --> 00:06:40,643
+Tercera: pide tu aumento en términos nominales.
+
+92
+00:06:40,643 --> 00:06:45,886
+Una subida del 4 con la inflación al 4 no es una subida; es estar quieto.
+
+93
+00:06:45,886 --> 00:06:50,268
+Y una nota honesta: esto es educación, no consejo financiero.
+
+94
+00:06:50,268 --> 00:06:54,290
+Cada situación es un mundo; esto es el mapa, no la ruta.
+
+95
+00:07:01,390 --> 00:07:03,185
+Repaso en tres líneas.
+
+96
+00:07:03,185 --> 00:07:05,796
+Uno: 2021 y 2022, tres cerillas.
+
+97
+00:07:05,796 --> 00:07:09,958
+Pandemia, cuellos de botella e invasión de Ucrania.
+
+98
+00:07:09,958 --> 00:07:14,364
+Dos: 2022 y 2025, la manguera de los bancos centrales.
+
+99
+00:07:14,364 --> 00:07:18,526
+Se enfrió el incendio; nadie te devolvió el dinero.
+
+100
+00:07:18,526 --> 00:07:21,056
+Tres: 2026, la segunda cerilla.
+
+101
+00:07:21,056 --> 00:07:23,585
+La guerra de Irán y la energía.
+
+102
+00:07:23,585 --> 00:07:26,768
+Y ya lo conoces: el impuesto invisible.
+
+103
+00:07:26,768 --> 00:07:31,174
+Vígilalo cada mes, como miras la previsión del tiempo.
+
+104
+00:07:39,070 --> 00:07:42,786
+El próximo episodio: ¿quién paga de verdad los aranceles?
+
+105
+00:07:42,786 --> 00:07:44,742
+¿El importador, el exportador…
+
+106
+00:07:44,742 --> 00:07:45,068
+o tú?
+
+107
+00:07:45,068 --> 00:07:47,089
+Suscríbete a El Precio de Todo.
+
+108
+00:07:47,089 --> 00:07:48,458
+Todo tiene un precio…
+
+109
+00:07:48,458 --> 00:07:49,436
+y una historia.
+
+110
+00:07:49,436 --> 00:07:51,262
+Te veo en el próximo precio.
+

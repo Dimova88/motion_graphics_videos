@@ -1,0 +1,93 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; width: 1780px; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .chip { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07);
+      border-radius: 999px; padding: 8px 22px; font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--chalk); }
+
+    .dials { display: flex; align-items: center; gap: 90px; }
+    .dial-card { display: flex; flex-direction: column; align-items: center; gap: 10px; background: rgba(237,230,211,0.05);
+      border: 2px solid rgba(237,230,211,0.16); border-radius: 18px; padding: 26px 44px 22px; }
+    .dial-card .lbl { font-size: 15px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mut); }
+    .dial-card .big { font-family: "Anton"; font-size: 96px; line-height: 1; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .dial-card .sub { font-size: 17px; color: rgba(237,230,211,0.85); }
+    .dial-card .sub b { color: var(--yellow); }
+
+    .glide { width: 1500px; }
+    .tag-strip { font-family: "Anton"; font-size: 46px; letter-spacing: 0.01em; color: var(--chalk); text-transform: uppercase; }
+    .tag-strip .hl { color: var(--yellow); }
+    .foot { font-size: 18px; letter-spacing: 0.14em; color: var(--mut); text-transform: uppercase; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="ola2" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="o2-kicker">Ola 2 · La manguera · 2022–2025</div>
+      <div class="dials">
+        <div class="dial-card" id="o2-fed">
+          <div class="lbl">Reserva Federal · jul-2023</div>
+          <svg width="360" height="200" viewBox="0 0 360 200">
+            <path d="M30 178 A150 150 0 0 1 330 178" fill="none" stroke="rgba(237,230,211,0.18)" stroke-width="22" stroke-linecap="round"/>
+            <path id="o2-arc" d="M30 178 A150 150 0 0 1 330 178" fill="none" stroke="#FFD84D" stroke-width="22" stroke-linecap="round" stroke-dasharray="471.2" stroke-dashoffset="471.2"/>
+            <line id="o2-needle" x1="180" y1="178" x2="180" y2="52" stroke="#FF6B57" stroke-width="8" stroke-linecap="round" transform="rotate(-90 180 178)"/>
+            <circle cx="180" cy="178" r="12" fill="#FF6B57"/>
+          </svg>
+          <div class="big" id="o2-fed-n">0,00%</div>
+          <div class="sub">ciclo <b>más rápido desde los 80</b> · 500 pb en 16 meses</div>
+        </div>
+        <div class="dial-card" id="o2-ecb">
+          <div class="lbl">Banco Central Europeo · sep-2023</div>
+          <svg width="360" height="200" viewBox="0 0 360 200">
+            <path d="M30 178 A150 150 0 0 1 330 178" fill="none" stroke="rgba(237,230,211,0.18)" stroke-width="22" stroke-linecap="round"/>
+            <path id="o2-arc2" d="M30 178 A150 150 0 0 1 330 178" fill="none" stroke="#EDE6D3" stroke-width="22" stroke-linecap="round" stroke-dasharray="471.2" stroke-dashoffset="471.2"/>
+            <line id="o2-needle2" x1="180" y1="178" x2="180" y2="52" stroke="#FF6B57" stroke-width="8" stroke-linecap="round" transform="rotate(-90 180 178)"/>
+            <circle cx="180" cy="178" r="12" fill="#FF6B57"/>
+          </svg>
+          <div class="big" id="o2-ecb-n">0,00%</div>
+          <div class="sub"><b>depósito 4,00%</b> · diez subidas seguidas</div>
+        </div>
+      </div>
+      <svg class="glide" id="o2-glide" width="1500" height="150" viewBox="0 0 1500 150"></svg>
+      <div class="tag-strip" id="o2-tag">El agua tarda <span class="hl">12–18 meses</span> en encontrar el fuego</div>
+      <div class="chip" id="o2-src">Fuente: FOMC · BCE · BLS · Eurostat</div>
+    </div>
+    <audio id="o2-vo" data-start="0.6" data-duration="48.666" data-track-index="9" src="./assets/voice/v4-ola2.mp3"></audio>
+    <audio id="o2-tap" data-start="2.4" data-duration="0.12" data-track-index="8" data-volume="0.7" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#o2-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
+    tl.fromTo("#o2-fed", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.5);
+    tl.fromTo("#o2-ecb", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.8);
+    const fed = { v: 0 }, ecb = { v: 0 };
+    tl.to("#o2-arc", { strokeDashoffset: 471.2 * (1 - 5.5 / 6), duration: 2.4, ease: "power2.inOut" }, 1.2);
+    tl.to("#o2-arc2", { strokeDashoffset: 471.2 * (1 - 4.0 / 6), duration: 2.4, ease: "power2.inOut" }, 1.6);
+    tl.to("#o2-needle", { attr: { transform: "rotate(75 180 178)" }, duration: 2.4, ease: "power2.inOut" }, 1.2);
+    tl.to("#o2-needle2", { attr: { transform: "rotate(30.3 180 178)" }, duration: 2.4, ease: "power2.inOut" }, 1.6);
+    tl.to(fed, { v: 5.5, duration: 2.4, ease: "power2.inOut", onUpdate: () => { document.getElementById("o2-fed-n").textContent = fed.v.toFixed(2).replace(".", ",") + "%"; } }, 1.2);
+    tl.to(ecb, { v: 4.0, duration: 2.4, ease: "power2.inOut", onUpdate: () => { document.getElementById("o2-ecb-n").textContent = ecb.v.toFixed(2).replace(".", ",") + "%"; } }, 1.6);
+    // glide-down line 2023 → 2025/26
+    const g = document.getElementById("o2-glide");
+    g.innerHTML = `<path id="o2-line" d="M40 34 C 320 40, 520 66, 760 92 C 1000 114, 1240 124, 1460 128" fill="none" stroke="#FFD84D" stroke-width="7" stroke-linecap="round"/>
+      <text x="40" y="18" fill="#EDE6D3" fill-opacity="0.6" font-size="16" font-family="Archivo" letter-spacing="2">2022–23 · TIPOS AL PÍO</text>
+      <text id="o2-end-us" x="1460" y="122" text-anchor="end" fill="#FFD84D" font-size="30" font-family="Anton">US 2,7%</text>
+      <text id="o2-end-ea" x="1460" y="88" text-anchor="end" fill="#EDE6D3" fill-opacity="0.85" font-size="17" font-family="Archivo" font-weight="700">EA ≈2,0% · DIC-2025</text>`;
+    const gl = document.getElementById("o2-line"); const len = gl.getTotalLength();
+    gl.style.strokeDasharray = len; gl.style.strokeDashoffset = len;
+    tl.to(gl, { strokeDashoffset: 0, duration: 2.4, ease: "power2.inOut" }, 12.0);
+    tl.fromTo("#o2-glide text", { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.2 }, 13.2);
+    tl.fromTo("#o2-tag", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 25.0);
+    tl.fromTo("#o2-src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 29.5);
+    window.__timelines["ola2"] = tl;
+  </script>
+</template>

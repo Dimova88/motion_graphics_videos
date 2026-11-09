@@ -1,0 +1,92 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; position: relative; width: 1800px; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .chip { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07);
+      border-radius: 999px; padding: 8px 22px; font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--chalk); }
+
+    .panels { display: flex; gap: 34px; }
+    .panel { width: 480px; background: rgba(237,230,211,0.05); border: 2px solid rgba(237,230,211,0.16); border-radius: 18px;
+      padding: 30px 30px 26px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .panel .num { width: 74px; height: 74px; border-radius: 50%; border: 4px solid var(--yellow); color: var(--yellow);
+      font-family: "Anton"; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+    .panel h3 { font-family: "Anton"; font-size: 44px; letter-spacing: 0.02em; color: var(--chalk); text-transform: uppercase; }
+    .panel p { font-size: 19px; line-height: 1.42; color: rgba(237,230,211,0.88); }
+    .panel p b { color: var(--yellow); font-weight: 700; }
+    .panel .match { display: flex; align-items: center; gap: 12px; margin-top: 2px; }
+    .panel .match .stick { width: 120px; height: 12px; border-radius: 6px; background: #EDE6D3; opacity: 0.85; }
+
+    .payoff { display: flex; align-items: flex-end; gap: 120px; }
+    .peak { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .peak .n { font-family: "Anton"; font-size: 170px; line-height: 1; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .peak .cap { font-size: 16px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mut); }
+    .tagline { font-family: "Anton"; font-size: 54px; line-height: 1.05; color: var(--chalk); text-transform: uppercase; }
+    .tagline .hl { color: var(--coral); }
+  </style>
+  <div id="root" data-composition-id="ola1" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="o1-kicker">Ola 1 · La cerilla · 2020–2022</div>
+      <div class="panels">
+        <div class="panel" id="o1-p1">
+          <div class="num">1</div>
+          <h3>Los cheques</h3>
+          <p>2020–21: dinero de emergencia en los bolsillos. <b>Demasiado dinero</b> persiguiendo las mismas pizzas, los mismos coches, las mismas casas.</p>
+          <svg class="match" id="o1-match1" width="150" height="46" viewBox="0 0 150 46"><g stroke="#FFD84D" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 38 L108 12"/><path d="M108 12 C 118 2, 132 6, 128 18 C 122 26, 108 24, 108 12 Z" fill="#FF6B57" stroke="#FF6B57"/></g></svg>
+        </div>
+        <div class="panel" id="o1-p2">
+          <div class="num">2</div>
+          <h3>El atasco</h3>
+          <p>Fábricas cerradas, puertos colapsados, chips sin llegar. La <b>oferta se encogía</b> mientras la demanda rugía: precios al alza.</p>
+          <svg class="match" id="o1-match2" width="150" height="46" viewBox="0 0 150 46"><g stroke="#FFD84D" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 38 L108 12"/><path d="M108 12 C 118 2, 132 6, 128 18 C 122 26, 108 24, 108 12 Z" fill="#FF6B57" stroke="#FF6B57"/></g></svg>
+        </div>
+        <div class="panel" id="o1-p3">
+          <div class="num">3</div>
+          <h3>El misil</h3>
+          <p><b>Febrero 2022</b>: Rusia invade Ucrania. El gas europeo se multiplica; el petróleo se dispara. La cerilla al polvorín.</p>
+          <svg class="match" id="o1-match3" width="150" height="46" viewBox="0 0 150 46"><g stroke="#FFD84D" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 38 L108 12"/><path d="M108 12 C 118 2, 132 6, 128 18 C 122 26, 108 24, 108 12 Z" fill="#FF6B57" stroke="#FF6B57"/></g></svg>
+        </div>
+      </div>
+      <div class="payoff" id="o1-payoff">
+        <div class="peak"><div class="n" id="o1-n1">0,0%</div><div class="cap">EE. UU. · jun-2022 · BLS</div></div>
+        <div class="peak"><div class="n" id="o1-n2">0,0%</div><div class="cap">Zona euro · oct-2022 · Eurostat</div></div>
+      </div>
+      <div class="tagline" id="o1-tag">Tres cerillas.<br/><span class="hl">Un solo incendio.</span></div>
+      <div class="chip" id="o1-src">Fuente: BLS · Eurostat · FRED</div>
+    </div>
+    <audio id="o1-vo" data-start="0.6" data-duration="59.220" data-track-index="9" src="./assets/voice/v3-ola1.mp3"></audio>
+    <audio id="o1-tap" data-start="2.1" data-duration="0.12" data-track-index="8" data-volume="0.7" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#o1-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
+    [["#o1-p1", 0.5], ["#o1-p2", 1.9], ["#o1-p3", 3.3]].forEach(([sel, at]) => {
+      tl.fromTo(sel, { opacity: 0, y: 64, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "back.out(1.5)" }, at);
+    });
+    ["o1-match1", "o1-match2", "o1-match3"].forEach((id, i) => {
+      tl.fromTo("#" + id, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 5.5 + i * 1.1);
+    });
+    tl.fromTo("#o1-payoff", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 20.0);
+    const count = (id, target, at) => {
+      const o = { v: 0 };
+      tl.to(o, { v: target, duration: 1.5, ease: "power2.out",
+        onUpdate: () => { document.getElementById(id).textContent = o.v.toFixed(1).replace(".", ",") + "%"; } }, at);
+    };
+    count("o1-n1", 9.1, 20.6);
+    count("o1-n2", 10.6, 22.0);
+    tl.fromTo("#o1-tag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 30.5);
+    tl.fromTo("#o1-src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 34.0);
+    window.__timelines["ola1"] = tl;
+  </script>
+</template>

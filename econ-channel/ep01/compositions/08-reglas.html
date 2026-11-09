@@ -1,0 +1,62 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; position: relative; width: 1720px; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+
+    .rule { display: flex; align-items: center; gap: 34px; width: 1560px; background: rgba(237,230,211,0.05);
+      border: 2px solid rgba(237,230,211,0.16); border-radius: 18px; padding: 22px 34px; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .rule .num { font-family: "Anton"; font-size: 92px; line-height: 1; color: transparent; -webkit-text-stroke: 2.5px var(--yellow); min-width: 92px; text-align: center; }
+    .rule .txt h3 { font-family: "Anton"; font-size: 40px; letter-spacing: 0.01em; text-transform: uppercase; color: var(--chalk); line-height: 1.05; }
+    .rule .txt p { font-size: 20px; color: rgba(237,230,211,0.82); margin-top: 6px; line-height: 1.35; }
+    .rule .txt p b { color: var(--yellow); }
+    .rule .icon { flex: 0 0 auto; margin-left: auto; }
+
+    .fineprint { border: 1.5px solid rgba(237,230,211,0.3); border-radius: 999px; padding: 10px 34px; font-size: 16px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--mut); }
+  </style>
+  <div id="root" data-composition-id="reglas" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="rg-kicker">Tres reglas para tu dinero</div>
+      <div class="rule" id="rg-r1">
+        <div class="num">1</div>
+        <div class="txt"><h3>El efectivo es un cubito de hielo al sol</h3><p>Quieto, pierde valor cada mes. El <b>depósito y la renta fija vuelven a rendir</b>: no te hacen rico, pero te protegen.</p></div>
+        <svg class="icon" width="120" height="120" viewBox="0 0 120 120"><g stroke="#EDE6D3" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="18" width="60" height="56" rx="8" fill="rgba(237,230,211,0.08)"/><path d="M22 96 C 40 88, 52 104, 68 96 C 82 89, 92 102, 104 96" stroke="#7BD0FF"/><path d="M30 82 C 46 76, 54 90, 72 82" stroke="#7BD0FF" opacity="0.7"/></g></svg>
+      </div>
+      <div class="rule" id="rg-r2">
+        <div class="num">2</div>
+        <div class="txt"><h3>La deuda a tipo fijo se devuelve con dinero barato</h3><p>Lo que debes desde 2020 son <b>euros de 2020, no de 2026</b>. El banco no celebra tu hipoteca fija: tú, quizá un poco.</p></div>
+        <svg class="icon" width="120" height="120" viewBox="0 0 120 120"><g stroke="#EDE6D3" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M26 12 H94 V96 L78 86 L64 100 L50 86 L36 100 L26 90 Z" fill="rgba(237,230,211,0.08)"/><line x1="44" y1="40" x2="76" y2="40"/><line x1="44" y1="58" x2="76" y2="58"/><line x1="44" y1="76" x2="66" y2="76"/></g></svg>
+      </div>
+      <div class="rule" id="rg-r3">
+        <div class="num">3</div>
+        <div class="txt"><h3>Pide el aumento en términos nominales</h3><p>Un <b>+4 con inflación al 4 no es una subida</b>: es estar quieto. Negocia con el IPC en la mano, cada año.</p></div>
+        <svg class="icon" width="120" height="120" viewBox="0 0 120 120"><g stroke="#FFD84D" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 84 L54 48 L74 66 L104 26"/><polyline points="76,26 104,26 104,54"/></g></svg>
+      </div>
+      <div class="fineprint" id="rg-fine">Contenido educativo — no es consejo financiero</div>
+    </div>
+    <audio id="rg-vo" data-start="0.6" data-duration="41.300" data-track-index="9" src="./assets/voice/v8-reglas.mp3"></audio>
+    <audio id="rg-tap1" data-start="1.0" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+    <audio id="rg-tap2" data-start="3.8" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+    <audio id="rg-tap3" data-start="6.6" data-duration="0.12" data-track-index="8" data-volume="0.8" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#rg-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
+    [["#rg-r1", 0.7], ["#rg-r2", 3.5], ["#rg-r3", 6.3]].forEach(([sel, at]) => {
+      tl.fromTo(sel, { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, at);
+    });
+    tl.fromTo("#rg-fine", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 27.0);
+    window.__timelines["reglas"] = tl;
+  </script>
+</template>

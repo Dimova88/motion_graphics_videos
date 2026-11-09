@@ -7,7 +7,7 @@ Motion-graphics videos for an **economics-education YouTube channel**, built wit
 Channel pivot (2026-11-09): the previous F1 content was removed at the channel owner's direction; the repo is being rebuilt around economics explainers with current, sourced examples. See [CHECKPOINTS.md](CHECKPOINTS.md).
 
 - Brand options and niche analysis: [`econ-channel/BRAND.md`](econ-channel/BRAND.md)
-- First episode storyboard (8:00, no motion graphics yet): [`econ-channel/EP01-STORYBOARD.md`](econ-channel/EP01-STORYBOARD.md)
+- Episode 01 RENDERED: [`econ-channel/ep01/renders/el-precio-de-todo-ep01.mp4`](econ-channel/ep01/renders/el-precio-de-todo-ep01.mp4) (7:55, 1920×1080@30, H.264/AAC, −16.9 LUFS) + [`.srt`](econ-channel/ep01/renders/el-precio-de-todo-ep01.srt) — «¿Por qué todo está más caro?»
 
 ## Workflow
 

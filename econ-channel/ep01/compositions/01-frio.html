@@ -1,0 +1,74 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .ledger { position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 158px, rgba(237,230,211,0.05) 158px 160px); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .chip { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07);
+      border-radius: 999px; padding: 8px 22px; font-size: 15px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--chalk); }
+
+    .receipt { position: relative; width: 620px; background: #F5F0E4; color: #20242B; padding: 38px 44px 46px;
+      transform: rotate(-1.1deg); box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      -webkit-mask-image: linear-gradient(to bottom, #000 96%, transparent 96%); }
+    .receipt::after { content: ""; position: absolute; left: 0; right: 0; bottom: -14px; height: 16px;
+      background: radial-gradient(circle at 12px -4px, transparent 12px, #F5F0E4 13px); background-size: 28px 16px; }
+    .r-head { font-family: "Archivo"; font-weight: 700; font-size: 17px; letter-spacing: 0.34em; text-transform: uppercase; color: #5A5344; border-bottom: 3px solid #20242B; padding-bottom: 14px; margin-bottom: 18px; }
+    .r-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 13px 2px; border-bottom: 2px dashed rgba(32,36,43,0.35); }
+    .r-row .lbl { font-family: "Archivo"; font-weight: 700; font-size: 24px; letter-spacing: 0.02em; text-align: left; }
+    .r-row .lbl small { display: block; font-weight: 400; font-size: 13px; letter-spacing: 0.18em; color: #6B6455; text-transform: uppercase; }
+    .r-row .val { font-family: "Anton"; font-size: 46px; line-height: 1; color: #C8452B; font-variant-numeric: tabular-nums; }
+    .r-total { display: flex; align-items: baseline; justify-content: space-between; padding-top: 18px; }
+    .r-total .lbl { font-family: "Archivo"; font-weight: 700; font-size: 17px; letter-spacing: 0.3em; text-transform: uppercase; color: #20242B; }
+    .r-total .val { font-family: "Anton"; font-size: 54px; color: #20242B; font-variant-numeric: tabular-nums; }
+
+    .stamp { position: absolute; left: 50%; top: 46%; transform: translate(-50%,-50%) rotate(-5deg);
+      border: 6px solid var(--coral); color: var(--coral); border-radius: 10px; padding: 12px 28px;
+      font-family: "Anton"; font-size: 46px; letter-spacing: 0.02em; line-height: 1; white-space: nowrap;
+      box-shadow: 0 0 0 3px var(--board), inset 0 0 0 3px var(--board); background: rgba(16,49,43,0.72); }
+    .stamp small { display: block; font-family: "Archivo"; font-weight: 700; font-size: 15px; letter-spacing: 0.42em; margin-top: 10px; color: var(--chalk); }
+  </style>
+  <div id="root" data-composition-id="frio" data-width="1920" data-height="1080">
+    <div class="ledger"></div>
+    <div class="stack">
+      <div class="kicker" id="frio-kicker">El Precio de Todo · EP01</div>
+      <div class="receipt" id="frio-receipt">
+        <div class="r-head">TICKET · LA COMPRA DE LA VIDA</div>
+        <div class="r-row"><div class="lbl">Gasolina<small>EE. UU. · sep-2026 · BLS</small></div><div class="val" id="frio-n1">+0,0%</div></div>
+        <div class="r-row"><div class="lbl">Gas natural<small>Países Bajos · oct-2026 · CBS</small></div><div class="val" id="frio-n2">+0,0%</div></div>
+        <div class="r-row"><div class="lbl">Energía<small>Zona euro · oct-2026 · Eurostat</small></div><div class="val" id="frio-n3">+0,0%</div></div>
+        <div class="r-total"><div class="lbl">Total</div><div class="val" id="frio-n4">+0,0%</div></div>
+      </div>
+      <div class="chip" id="frio-src">Fuente: BLS · CBS NL · Eurostat</div>
+    </div>
+    <div class="stamp" id="frio-stamp">MISMA CESTA.<br/>OTRO PRECIO.<small>EL IMPUESTO INVISIBLE</small></div>
+    <audio id="frio-vo" data-start="0.6" data-duration="13.776" data-track-index="9" src="./assets/voice/v1-frio.mp3"></audio>
+    <audio id="frio-stamp-sfx" data-start="9.35" data-duration="0.55" data-track-index="8" data-volume="0.95" src="./assets/sfx/stamp.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#frio-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.15);
+    tl.fromTo("#frio-receipt", { opacity: 0, y: -46, rotate: -4.5 }, { opacity: 1, y: 0, rotate: -1.1, duration: 0.7, ease: "power4.out" }, 0.4);
+    const count = (id, target, at, fmt) => {
+      const o = { v: 0 };
+      tl.to(o, { v: target, duration: 1.15, ease: "power2.out",
+        onUpdate: () => { document.getElementById(id).textContent = fmt(o.v); } }, at);
+    };
+    count("frio-n1", 34.2, 1.6, v => "+" + v.toFixed(1).replace(".", ",") + "%");
+    count("frio-n2", 52.5, 2.6, v => "+" + v.toFixed(1).replace(".", ",") + "%");
+    count("frio-n3", 20.8, 3.6, v => "+" + v.toFixed(1).replace(".", ",") + "%");
+    count("frio-n4", 3.7, 4.6, v => "+" + v.toFixed(1).replace(".", ",") + "%");
+    tl.fromTo("#frio-src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 5.3);
+    tl.fromTo("#frio-stamp", { opacity: 0, scale: 2.3, rotate: -16 }, { opacity: 1, scale: 1, rotate: -5, duration: 0.38, ease: "power4.in" }, 9.35);
+    tl.fromTo("#frio-stamp", { scale: 1 }, { scale: 1.06, duration: 0.09, yoyo: true, repeat: 1, ease: "power1.inOut" }, 9.75);
+    window.__timelines["frio"] = tl;
+  </script>
+</template>
