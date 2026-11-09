@@ -8,17 +8,20 @@
 
 Economía en español con números de verdad: un ejemplo real, una pregunta, cero jerga. EP01: por qué tu café, tu gasolina y tu alquiler cuentan la misma historia —y no ha terminado. Tres olas, una sola factura tuya.
 
-⏱️ Capítulos
-0:00 El ticket de la compra
-0:19 ¿Qué es la inflación?
-1:05 Ola 1 · la cerilla (2020–2022)
-2:12 Ola 2 · la manguera (2022–2025)
-3:09 El giro · nadie te devolvió el dinero
-3:52 Ola 3 · la segunda cerilla (2026)
-5:13 Los dos números que importan
-6:12 Tres reglas para tu dinero
-7:01 Repaso en tres líneas
-7:38 Próximo episodio: los aranceles
+⏱️ Capítulos (v3, 6:33)
+0:00 El gancho
+0:35 ¿Qué es la inflación?
+0:54 Los precios, en una línea
+1:19 Ola 1 · La cerilla (2021–2022)
+1:59 El resultado: 9,1 en EE. UU. / 10,6 en Europa
+2:13 Ola 2 · La manguera (2022–2025)
+3:07 La desinflación no es que bajen los precios
+3:20 Ola 3 · La segunda cerilla (2026)
+4:28 Los dos números que importan
+5:17 Tres reglas para tu dinero
+5:53 Tu tarea: abre tu extracto
+6:04 Repaso en tres líneas
+6:19 Próximo episodio: los aranceles
 
 📊 Fuentes (todas verificadas a 9-nov-2026)
 · Eurostat — flash IPCA zona euro oct-2026 (4-nov-2026): 4,0% · energía +20,8% · ex-energía 2,3%

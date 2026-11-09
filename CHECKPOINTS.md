@@ -92,3 +92,16 @@ Full production of the pilot episode for **El Precio de Todo / @elprecio_detodo*
 - Known cosmetic trade-offs: stamp del acto 1 cubre parcialmente el ticket (intencional); callouts de pico en el gráfico reposicionados; `#ou-cta` segundo fromTo con immediateRender:false
 - Restored from git history (v7 assets, no F1 content): gsap.min.js; Anton/Archivo TTFs for the brand sheet (SIL OFL)
 - Next: owner review of the MP4 (diseño/ritmo/VO) → ajustes → upload + descripción. Voice-02 stays the house narrator unless replaced.
+
+## v10 — EP01 v3 RENDER: rebuild completo tras correcciones del owner (2026-11-09)
+
+EP01 rebuilt per owner's 5 post-render corrections of v1: (1) cero aire muerto — 36 micro-scenes in one idea per screen, contiguous slots (clip + 0.45 s, sin huecos, VO 100% continua); (2) texto mínimo en pantalla (1 foco por frame); (3) VO entretenida voice-03 (ES, entertainment — Battle «03» elegido por el owner); (4) **subtítulos quemados en vídeo** (Archivo bold, crema/negro, centrados abajo, libass) + sidecar SRT (161 cues); (5) muchas diapositivas rápidas en vez de pocas densas.
+
+- Project: `econ-channel/ep01/` — 36 sub-compositions (`compositions-v2/01…36`), host `index.html` rebuilt from measured clip durations (`build_index.py`; contiguity guaranteed), subtitle generator `build_subs.py` (cue time ∝ chars; clip = t=0.15)
+- VO: 36 tomas voice-03, all loudnormed two-pass −19.5 LUFS (TP −1.5); registro cercano, segunda persona, humor; **todas las cifras = fact pack verificado** (9,1 / 10,6 / Fed 5,25–5,50 jul-2023 / BCE 4,00 sep-2023 / EA 4,0 flash oct-2026 / US 3,7 core 2,6 sep-2026 / NL 3,7 gas +52,5 CBS / $78→$131 / 20→2,7M b/d / exp. 3,6→3,9 / escenarios ≈2,5·≈4·≥5); ejemplos ilustrativos etiquetados en pantalla (café 2,50→4,10; hipoteca 900→1.300)
+- Scene 03 VO promise corrected v3: «Tres olas. Cero relleno.» (was «ocho minutos» — runtime real 6:33)
+- Render: delivery quality, **6:32.6, −16.9 LUFS integrated, −1.1 dBFS true peak, LRA 2.9, 1920×1080@30**, audio copied bit-identical; subtitles burned via ffmpeg `subtitles` filter (libass; Archivo TTF via fontsdir) into `renders/el-precio-de-todo-ep01.mp4` (overwrites v1 deliverable; v1 intact in git at e3708b4)
+- Gates: lint 0 errors/0 warnings; frames verified (hook/peaks/desinflación/regla1/CTA) — subtítulos legibles, layout centrado; durations.json tracked for reproducibility
+- Toolchain notes (sandbox): ffmpeg via imageio-ffmpeg n9.0.2 at pip path; ffprobe via npm `ffprobe-static`; browser via `@sparticuz/chromium` (bin → /tmp/chromium; libs al2023 tar.br extracted; FONTCONFIG_PATH=/tmp/fonts-x); Anton/Archivo TTFs converted woff2→ttf for libass
+- Runtime landed at 6:33 (voice-03 speaks faster than scripted est.) — owner rejected padding; script stands at 1.039 words
+- Next: owner review of the v3 MP4 (ritmo/subtítulos/VO) → `present_file` approval → upload EP01 con EP01-DESCRIPCION.md (chapters v3)
