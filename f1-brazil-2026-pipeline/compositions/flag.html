@@ -1,0 +1,76 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+    :root {
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00; --papaya: #ff8000;
+      --prism-r: #ff2a4d; --prism-b: #2a7fff;
+      --display: "Anton", "Archivo Black", sans-serif;
+      --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root {
+      position: absolute; inset: 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 50%, #241209 0%, #0b0c0f 72%);
+      font-family: var(--body); color: var(--ink);
+    }
+    .halo { position: absolute; width: 940px; height: 940px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.07); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
+
+    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 158px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; }
+    .prism { position: relative; display: inline-block; line-height: 0.92; }
+    .prism .copy { position: absolute; inset: 0; pointer-events: none; }
+    .prism .copy.r { color: var(--prism-r); transform: translateX(-6px); opacity: .92; }
+    .prism .copy.b { color: var(--prism-b); transform: translateX(6px); opacity: .92; }
+    .prism .main { position: relative; color: var(--papaya); text-shadow: 0 12px 70px rgba(255,128,0,0.35); }
+
+    /* marker underline (hw-title technique) */
+    .sub { font-size: 19px; font-weight: 700; letter-spacing: 0.18em; color: #e8e8e2; text-transform: uppercase; }
+    .marker { position: relative; display: inline-block; padding-bottom: 10px; }
+    .marker svg { position: absolute; left: -10px; bottom: -8px; width: calc(100% + 20px); height: 26px; overflow: visible; }
+    .marker path { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; }
+
+    .meta { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .meta .time { font-family: var(--display); font-size: 34px; letter-spacing: 0.06em; color: #fff; font-variant-numeric: tabular-nums; }
+    .checker { width: 760px; height: 12px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 20px 20px; border-radius: 2px; }
+    .endline { font-size: 15px; font-weight: 800; letter-spacing: 0.4em; color: var(--muted); text-transform: uppercase; }
+    .endline b { color: #fff; }
+  </style>
+  <div id="root" data-composition-id="flag" data-width="1920" data-height="1080">
+    <div class="halo"></div>
+    <div class="stack">
+      <div class="kicker" id="flag-kicker">Act IV — The Flag · Lap 71</div>
+      <h1 class="title"><span class="prism" id="flag-prism"><span class="copy r">NORRIS WINS</span><span class="copy b">NORRIS WINS</span><span class="main">NORRIS WINS</span></span></h1>
+      <div class="sub" id="flag-sub">Won from <span class="marker"><em>pole.</em><svg viewBox="0 0 320 26" preserveAspectRatio="none"><path id="flag-marker-path" d="M6 17 C 84 24, 208 9, 314 19" /></svg></span></div>
+      <div class="meta" id="flag-meta">
+        <div class="time">1:35:23.504</div>
+        <div class="checker" id="flag-checker"></div>
+        <div class="endline"><b>F1 São Paulo 2026</b> · Interlagos</div>
+      </div>
+    </div>
+    <audio id="flag-vo" data-start="0.35" data-duration="2.82" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p5.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#flag-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.25);
+    tl.fromTo("#flag-prism .main", { opacity: 0, filter: "blur(20px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" }, 0.4);
+    tl.fromTo("#flag-prism .copy.r", { opacity: 0, x: -22 }, { opacity: 0.92, x: -6, duration: 0.8, ease: "power2.out" }, 0.4);
+    tl.fromTo("#flag-prism .copy.b", { opacity: 0, x: 22 }, { opacity: 0.92, x: 6, duration: 0.8, ease: "power2.out" }, 0.4);
+    tl.fromTo("#flag-sub", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.95);
+    const marker = document.getElementById("flag-marker-path");
+    const markerLen = marker.getTotalLength();
+    marker.style.strokeDasharray = markerLen;
+    marker.style.strokeDashoffset = markerLen;
+    tl.fromTo(marker, { strokeDashoffset: markerLen }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 1.35);
+    tl.fromTo("#flag-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.6);
+    tl.fromTo("#flag-checker", { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: "power3.out" }, 1.75);
+    tl.fromTo(".halo", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 1.3, ease: "power2.out" }, 0.2);
+    window.__timelines["flag"] = tl;
+  </script>
+</template>

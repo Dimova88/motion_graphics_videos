@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="./assets/vendor/gsap.min.js"></script>
+    <style>
+      /* document-level fonts so the assembled page resolves every scene's type */
+      @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+      :root {
+        --asphalt: #0b0c0f;
+        --ink: #f4f4f0;
+        --muted: #9a9aa2;
+        --yellow: #ffdf00;
+        --green: #00a651;
+        --papaya: #ff8000;
+        --redbull: #16224e;
+        --prism-r: #ff2a4d;
+        --prism-b: #2a7fff;
+        --display: "Anton", "Archivo Black", sans-serif;
+        --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--asphalt); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--asphalt); font-family: var(--body); color: var(--ink); }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Scene 1 · PROLOGUE — 0.0–4.5s -->
+      <div id="storm" data-composition-id="storm" data-composition-src="compositions/storm.html"
+           data-start="0" data-duration="4.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <!-- Scene 2 · ACT I — 4.5–11.0s -->
+      <div id="trap" data-composition-id="trap" data-composition-src="compositions/trap.html"
+           data-start="4.5" data-duration="6.5" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <!-- Scene 3 · ACT II — 11.0–16.5s -->
+      <div id="lights" data-composition-id="lights" data-composition-src="compositions/lights.html"
+           data-start="11.0" data-duration="5.5" data-track-index="3" data-width="1920" data-height="1080"></div>
+      <!-- Scene 4 · ACT III — 16.5–24.0s -->
+      <div id="climb" data-composition-id="climb" data-composition-src="compositions/climb.html"
+           data-start="16.5" data-duration="7.5" data-track-index="4" data-width="1920" data-height="1080"></div>
+      <!-- Scene 5 · ACT IV + END CARD — 24.0–30.0s -->
+      <div id="flag" data-composition-id="flag" data-composition-src="compositions/flag.html"
+           data-start="24.0" data-duration="6.0" data-track-index="5" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

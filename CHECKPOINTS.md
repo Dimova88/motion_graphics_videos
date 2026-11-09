@@ -23,3 +23,17 @@ Story-driven rework of the São Paulo GP recap, built on the v1 configuration.
 - Film grain (seed-stable feTurbulence SVG) + stronger vignette; facts unchanged from v1
 
 v1 remains intact at tag `f1-brazil-2026/v1`.
+
+## v3 — f1-brazil-2026-pipeline (2026-11-09)
+
+Test of the new free/unlimited YouTube pipeline (see `PIPELINE.md`) on a 30s brief, ahead of 8–10 minute videos.
+
+- Project: `f1-brazil-2026-pipeline/`
+- Render: `f1-brazil-2026-pipeline/renders/f1-brazil-2026-pipeline-test.mp4` (30s, 1920x1080@30, H.264/AAC, -16.6 LUFS)
+- Voice: `voice-01` rate 1.15 (assistant voice tool; Kokoro `hyperframes tts` is the local free path on machines that can reach model hosts — see `YOUTUBE-HYPERFRAMES-PLAYBOOK.md`)
+- New vs v2: **sub-composition architecture** — `index.html` mounts one `compositions/<act>.html` per scene (`data-composition-src`, composition-local timing, `#root` inset:0 flex stage) instead of one monolithic file; **strict dead-centre layout** — every motion-graphic element column+row centred in the 1920×1080 frame (no edge-anchored graphics); halo ring + radial-gradient backdrops
+- Techniques reused/adapted from the registry: `yt-prism-title`, `hw-title` (marker underline draw-on on "P21" and "pole."); climb scene adds an animated P21→P2 arrow + fill bar + `+19` counter; lights scene counts 0→71 laps with five sequential start lights
+- Verification: `lint` 0 errors (5 warnings `nested_media_start_basis_ambiguous` — intentional, timing is composition-local); frames extracted and inspected at act boundaries (lights→climb cut holds a clean hard cut; counter/marker/checker timings confirmed); EBU R128 integrated -16.6 LUFS
+- Note: all act elements must carry an entrance tween — a scene's slot holds its final frame and would otherwise pop in static elements raw
+
+v2 remains intact at commit `711564d`.

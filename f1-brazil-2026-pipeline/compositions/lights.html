@@ -1,0 +1,78 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+    :root {
+      --asphalt: #0b0c0f; --ink: #f4f4f0; --muted: #9a9aa2; --yellow: #ffdf00;
+      --prism-r: #ff2a4d; --prism-b: #2a7fff;
+      --display: "Anton", "Archivo Black", sans-serif;
+      --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root {
+      position: absolute; inset: 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1300px 850px at 50% 50%, rgba(255,223,0,0.09) 0%, #0b0c0f 70%);
+      font-family: var(--body); color: var(--ink);
+    }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .kicker { font-weight: 800; font-size: 16px; letter-spacing: 0.34em; color: var(--yellow); text-transform: uppercase; }
+
+    h1.title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 150px; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; text-shadow: 0 12px 70px rgba(0,0,0,0.6); }
+    .prism { position: relative; display: inline-block; line-height: 0.92; }
+    .prism .copy { position: absolute; inset: 0; pointer-events: none; }
+    .prism .copy.r { color: var(--prism-r); transform: translateX(-6px); opacity: .92; }
+    .prism .copy.b { color: var(--prism-b); transform: translateX(6px); opacity: .92; }
+    .prism .main { position: relative; }
+
+    /* start lights, dead-centre row */
+    .lights { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 42px; padding: 22px 46px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+    .light { width: 64px; height: 64px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 34px rgba(255,59,59,0.55), inset 0 -8px 14px rgba(0,0,0,0.45); }
+    .light.off { background: #20222a; box-shadow: none; }
+
+    .counter { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .counter .num { font-family: var(--display); font-size: 118px; line-height: 1; color: var(--yellow); letter-spacing: 0.01em; font-variant-numeric: tabular-nums; }
+    .counter .cap { font-size: 15px; font-weight: 800; letter-spacing: 0.42em; color: var(--muted); text-transform: uppercase; padding-left: 0.42em; }
+
+    .checker { width: 700px; height: 12px; background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%); background-size: 20px 20px; border-radius: 2px; opacity: 0.9; }
+  </style>
+  <div id="root" data-composition-id="lights" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="lights-kicker">Act II — The Start</div>
+      <h1 class="title"><span class="prism" id="lights-prism"><span class="copy r">LIGHTS OUT</span><span class="copy b">LIGHTS OUT</span><span class="main">LIGHTS OUT</span></span></h1>
+      <div class="lights" id="lights-row">
+        <div class="light" id="lights-l1"></div>
+        <div class="light" id="lights-l2"></div>
+        <div class="light" id="lights-l3"></div>
+        <div class="light" id="lights-l4"></div>
+        <div class="light" id="lights-l5"></div>
+      </div>
+      <div class="counter">
+        <div class="num" id="lights-counter">0</div>
+        <div class="cap">Laps</div>
+      </div>
+      <div class="checker" id="lights-checker"></div>
+    </div>
+    <audio id="lights-vo" data-start="0.45" data-duration="1.97" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/p3.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#lights-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.2);
+    tl.fromTo("#lights-prism .main", { opacity: 0, scale: 0.92, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power4.out" }, 0.3);
+    tl.fromTo("#lights-prism .copy.r", { opacity: 0, x: -20 }, { opacity: 0.92, x: -6, duration: 0.6, ease: "power4.out" }, 0.3);
+    tl.fromTo("#lights-prism .copy.b", { opacity: 0, x: 20 }, { opacity: 0.92, x: 6, duration: 0.6, ease: "power4.out" }, 0.3);
+    tl.fromTo("#lights-row", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.55);
+    // five out in sequence — the race begins
+    ["#lights-l1","#lights-l2","#lights-l3","#lights-l4","#lights-l5"].forEach((sel, i) => {
+      tl.to(sel, { backgroundColor: "#20222a", boxShadow: "none", duration: 0.08 }, 1.45 + i * 0.09);
+    });
+    const counter = { v: 0 };
+    tl.to(counter, { v: 71, duration: 1.9, ease: "power2.inOut", onUpdate: () => { document.getElementById("lights-counter").textContent = Math.round(counter.v); } }, 1.9);
+    tl.fromTo("#lights-checker", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.9);
+    window.__timelines["lights"] = tl;
+  </script>
+</template>
