@@ -8,6 +8,8 @@ Motion-graphics videos built with [HyperFrames](https://github.com/heygen-com/hy
 | --- | --- | --- |
 | [`f1-brazil-2026/`](f1-brazil-2026/) | 30s | Race recap of the **2026 Formula 1 São Paulo Grand Prix** (Interlagos, 08.11.2026): Norris converts pole to victory, Verstappen charges from P21 to P2, Hadjar secures a Red Bull double podium. Narrated motion-graphics recap. |
 
+The rendered video is committed at [`f1-brazil-2026/renders/f1-brazil-2026-race-recap.mp4`](f1-brazil-2026/renders/f1-brazil-2026-race-recap.mp4) (12 MB, H.264/AAC, 1920×1080@30).
+
 ### Rebuilding a video
 
 Each project folder is a self-contained HyperFrames composition. You need Node.js 22+, FFmpeg on `PATH`, and a Chrome/Chromium executable (set `HYPERFRAMES_BROWSER_PATH` if Chrome is not auto-detected):
