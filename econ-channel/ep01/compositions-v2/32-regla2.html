@@ -1,0 +1,43 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--yellow); text-transform: uppercase; padding-left: 0.4em; }
+    .rule { display: flex; align-items: center; gap: 54px; }
+    .body { display: flex; flex-direction: column; gap: 10px; text-align: left; max-width: 1050px; }
+    .t { font-family: "Anton"; font-size: 64px; line-height: 1.0; text-transform: uppercase; color: var(--chalk); }
+    .t .y { color: var(--yellow); }
+    .s { font-size: 23px; color: rgba(237,230,211,0.85); line-height: 1.35; }
+    .s b { color: var(--chalk); }
+    .receipt { font-family: "Anton"; font-size: 34px; color: var(--mut); text-transform: uppercase; letter-spacing: 0.08em; }
+  </style>
+  <div id="root" data-composition-id="s32" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s32-k">Regla 2</div>
+      <div class="rule">
+        <svg id="s32-tag" width="160" height="190" viewBox="0 0 160 190"><g stroke="#FFD84D" stroke-width="7" fill="rgba(255,216,77,0.1)" stroke-linejoin="round" stroke-linecap="round"><path d="M14 84 L14 24 H74 L146 96 L76 166 Z"/><circle cx="46" cy="56" r="9" fill="#10312B"/><text x="88" y="116" text-anchor="middle" font-family="Anton" font-size="44" fill="#FFD84D" stroke="none">€</text></g></svg>
+        <div class="body">
+          <div class="t" id="s32-t">La deuda fija se paga<br />con <span class="y">euros de 2020</span></div>
+          <div class="s" id="s32-s">Lo que debes desde 2020 se devuelve con dinero barato de entonces. El banco no celebra tu hipoteca fija. <b>Tú, quizá un poco.</b></div>
+        </div>
+      </div>
+    </div>
+    <audio id="s32-vo" data-start="0.15" data-duration="13.0" data-track-index="9" src="./assets/voice-v2/32.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s32-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s32-tag", { opacity: 0, rotation: 10, y: -24 }, { opacity: 1, rotation: 0, y: 0, duration: 0.55, ease: "back.out(1.6)" }, 0.4);
+    tl.fromTo("#s32-t", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power4.out" }, 0.7);
+    tl.fromTo("#s32-s", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 5.6);
+    window.__timelines["s32"] = tl;
+  </script>
+</template>

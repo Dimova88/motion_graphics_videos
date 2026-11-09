@@ -1,0 +1,45 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .row { display: flex; gap: 30px; }
+    .card { width: 510px; border-radius: 18px; padding: 28px 26px; border: 2px solid rgba(237,230,211,0.15); background: rgba(237,230,211,0.04); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .card .n { font-family: "Anton"; font-size: 110px; line-height: 1; }
+    .card .t { font-size: 19px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .ok { border-color: #6FCF97; } .ok .n { color: #6FCF97; } .ok .t { color: #6FCF97; }
+    .warn { border-color: var(--yellow); } .warn .n { color: var(--yellow); } .warn .t { color: var(--yellow); }
+    .bad { border-color: var(--coral); } .bad .n { color: var(--coral); } .bad .t { color: var(--coral); }
+    .sub { font-size: 22px; color: rgba(237,230,211,0.85); }
+    .sub b { color: var(--chalk); }
+  </style>
+  <div id="root" data-composition-id="s29" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s29-k">Tres futuros posibles · escenarios</div>
+      <div class="row">
+        <div class="card ok" id="s29-a"><div class="n">≈2,5%</div><div class="t">Aterrizaje suave</div></div>
+        <div class="card warn" id="s29-b"><div class="n">≈4%</div><div class="t">Alta y duradera</div></div>
+        <div class="card bad" id="s29-c"><div class="n">≥5%</div><div class="t">2.ª descarga</div></div>
+      </div>
+      <div class="sub" id="s29-sub">¿Quién decide? <b>Cuánto dure la energía. Solo eso.</b></div>
+    </div>
+    <audio id="s29-vo" data-start="0.15" data-duration="13.5" data-track-index="9" src="./assets/voice-v2/29.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s29-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s29-a", { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.2);
+    tl.fromTo("#s29-b", { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.6);
+    tl.fromTo("#s29-c", { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 5.0);
+    tl.fromTo("#s29-sub", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 8.6);
+    window.__timelines["s29"] = tl;
+  </script>
+</template>

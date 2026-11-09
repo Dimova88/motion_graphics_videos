@@ -1,0 +1,40 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; position: relative; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .big { font-family: "Anton"; font-size: 230px; line-height: 0.95; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .sub { font-size: 24px; color: rgba(237,230,211,0.85); }
+    .sub b { color: var(--chalk); }
+    .euribor { font-family: "Anton"; font-size: 34px; letter-spacing: 0.06em; color: var(--coral); text-transform: uppercase; }
+    .chip { display: inline-flex; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07); border-radius: 999px;
+      padding: 6px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--chalk); }
+  </style>
+  <div id="root" data-composition-id="s16" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s16-k">BCE · septiembre 2023</div>
+      <div class="big" id="s16-big">4,00%</div>
+      <div class="sub" id="s16-sub"><b>diez subidas seguidas</b> en la zona euro</div>
+      <div class="euribor" id="s16-eur">y el Euríbor hizo el resto</div>
+      <div class="chip" id="s16-chip">Fuente: BCE (decisión del BCE, sep-2023)</div>
+    </div>
+    <audio id="s16-vo" data-start="0.15" data-duration="11.5" data-track-index="9" src="./assets/voice-v2/16.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s16-k", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 0.1);
+    tl.fromTo("#s16-big", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 0.4);
+    tl.fromTo("#s16-sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.1);
+    tl.fromTo("#s16-eur", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 5.2);
+    tl.fromTo("#s16-chip", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 8.5);
+    window.__timelines["s16"] = tl;
+  </script>
+</template>

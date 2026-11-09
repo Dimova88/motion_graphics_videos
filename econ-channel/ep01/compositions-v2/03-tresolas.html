@@ -1,0 +1,32 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; position: relative; }
+    .big { font-family: "Anton"; font-size: 200px; line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; color: var(--chalk); }
+    .big.y { color: var(--yellow); }
+    .arrow { margin-top: 6px; }
+  </style>
+  <div id="root" data-composition-id="s03" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="big" id="s03-a">Tres olas.</div>
+      <div class="big y" id="s03-b">Ocho minutos.</div>
+      <svg class="arrow" id="s03-arrow" width="150" height="80" viewBox="0 0 150 80"><g stroke="#FF6B57" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="75" y1="6" x2="75" y2="56"/><polyline points="48,38 75,66 102,38"/></g></svg>
+    </div>
+    <audio id="s03-vo" data-start="0.15" data-duration="8.080" data-track-index="9" src="./assets/voice-v2/03.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s03-a", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 0.3);
+    tl.fromTo("#s03-b", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 1.6);
+    tl.fromTo("#s03-arrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 2.9);
+    window.__timelines["s03"] = tl;
+  </script>
+</template>

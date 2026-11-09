@@ -1,0 +1,35 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .name { font-family: "Anton"; font-size: 128px; line-height: 0.95; text-transform: uppercase; color: var(--chalk); }
+    .sub { font-size: 25px; color: rgba(237,230,211,0.85); max-width: 1250px; line-height: 1.35; }
+    .sub b { color: var(--yellow); }
+  </style>
+  <div id="root" data-composition-id="s10" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s10-k">Cerilla 1</div>
+      <svg id="s10-coins" width="240" height="150" viewBox="0 0 240 150"><g fill="none" stroke="#FFD84D" stroke-width="7" stroke-linecap="round"><circle cx="60" cy="80" r="44" fill="#10312B"/><circle cx="128" cy="55" r="44" fill="#10312B"/><circle cx="188" cy="92" r="44" fill="#10312B"/><text x="60" y="92" text-anchor="middle" font-family="Anton" font-size="36" fill="#FFD84D" stroke="none">€</text><text x="128" y="67" text-anchor="middle" font-family="Anton" font-size="36" fill="#FFD84D" stroke="none">€</text><text x="188" y="104" text-anchor="middle" font-family="Anton" font-size="36" fill="#FFD84D" stroke="none">€</text></g></svg>
+      <div class="name" id="s10-name">Los cheques</div>
+      <div class="sub" id="s10-sub">Dinero gratis para sobrevivir… <b>demasiado dinero</b> persiguiendo las mismas pizzas, los mismos coches, los mismos pisos.</div>
+    </div>
+    <audio id="s10-vo" data-start="0.15" data-duration="11.840" data-track-index="9" src="./assets/voice-v2/10.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s10-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s10-coins", { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 0.3);
+    tl.fromTo("#s10-name", { opacity: 0, x: -90 }, { opacity: 1, x: 0, duration: 0.5, ease: "power4.out" }, 0.7);
+    tl.fromTo("#s10-sub", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.2);
+    window.__timelines["s10"] = tl;
+  </script>
+</template>

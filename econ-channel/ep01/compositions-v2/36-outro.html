@@ -1,0 +1,42 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1400px 900px at 50% 45%, #16382F 0%, var(--board) 58%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .next { font-family: "Anton"; font-size: 92px; line-height: 1.0; text-transform: uppercase; color: var(--chalk); max-width: 1600px; }
+    .next .y { color: var(--yellow); }
+    .cta { display: flex; align-items: center; gap: 34px; border-radius: 999px; border: 3px solid var(--yellow); padding: 18px 54px;
+      font-family: "Anton"; font-size: 44px; text-transform: uppercase; color: var(--yellow);
+      box-shadow: 0 0 70px rgba(255,216,77,0.18); }
+    .handle { font-size: 22px; font-weight: 700; letter-spacing: 0.24em; color: var(--chalk); text-transform: uppercase; }
+    .tagline { font-size: 20px; color: var(--mut); }
+  </style>
+  <div id="root" data-composition-id="s36" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s36-k">El próximo episodio</div>
+      <div class="next" id="s36-next">¿Quién paga de verdad<br /><span class="y">los aranceles</span>?</div>
+      <div class="cta" id="s36-cta">Suscríbete</div>
+      <div class="handle" id="s36-handle">@elprecio_detodo</div>
+      <div class="tagline" id="s36-tag">Todo tiene un precio — y su historia.</div>
+    </div>
+    <audio id="s36-vo" data-start="0.15" data-duration="14.0" data-track-index="9" src="./assets/voice-v2/36.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s36-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s36-next", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.55, ease: "power4.out" }, 0.9);
+    tl.fromTo("#s36-cta", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 4.4);
+    tl.fromTo("#s36-cta", { scale: 1 }, { scale: 1.07, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, 6.0);
+    tl.fromTo("#s36-handle", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 4.9);
+    tl.fromTo("#s36-tag", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 10.0);
+    window.__timelines["s36"] = tl;
+  </script>
+</template>

@@ -1,0 +1,36 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1300px 850px at 50% 45%, #241C10 0%, var(--board2) 75%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; }
+    .ola { font-weight: 700; font-size: 26px; letter-spacing: 0.6em; text-transform: uppercase; color: var(--coral); padding-left: 0.6em; }
+    .name { font-family: "Anton"; font-size: 170px; line-height: 0.94; text-transform: uppercase; color: var(--coral); }
+    .date { font-family: "Anton"; font-size: 54px; color: var(--yellow); letter-spacing: 0.05em; }
+    .vs { font-size: 21px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mut); }
+  </style>
+  <div id="root" data-composition-id="s21" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="ola" id="s21-k">Ola 3</div>
+      <div class="name" id="s21-name">La segunda<br/>cerilla</div>
+      <div class="date" id="s21-date">28 · FEB · 2026</div>
+      <div class="vs" id="s21-vs">EE. UU. + Israel atacan Irán</div>
+    </div>
+    <audio id="s21-vo" data-start="0.15" data-duration="10.5" data-track-index="9" src="./assets/voice-v2/21.mp3"></audio>
+    <audio id="s21-tap" data-start="0.2" data-duration="0.12" data-track-index="8" data-volume="0.7" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s21-k", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 0.1);
+    tl.fromTo("#s21-name", { opacity: 0, scale: 1.4, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.3);
+    tl.fromTo("#s21-date", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.6);
+    tl.fromTo("#s21-vs", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 4.4);
+    window.__timelines["s21"] = tl;
+  </script>
+</template>

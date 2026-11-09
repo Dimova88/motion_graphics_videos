@@ -1,0 +1,31 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; position: relative; }
+    .q { font-family: "Anton"; font-size: 300px; line-height: 0.9; color: var(--chalk); letter-spacing: -0.01em; }
+    .qmark { color: var(--coral); }
+    .slab { background: var(--yellow); color: var(--board); border-radius: 10px; padding: 10px 40px 14px; transform: rotate(-1.1deg);
+      font-family: "Anton"; font-size: 84px; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s02" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="q" id="s02-q"><span class="qmark">¿</span>Por qué<span class="qmark">?</span></div>
+      <div class="slab" id="s02-slab">todo está más caro</div>
+    </div>
+    <audio id="s02-vo" data-start="0.15" data-duration="7.780" data-track-index="9" src="./assets/voice-v2/02.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s02-q", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power4.out" }, 0.15);
+    tl.fromTo("#s02-slab", { opacity: 0, y: 40, rotate: -4 }, { opacity: 1, y: 0, rotate: -1.1, duration: 0.45, ease: "back.out(1.6)" }, 2.6);
+    window.__timelines["s02"] = tl;
+  </script>
+</template>

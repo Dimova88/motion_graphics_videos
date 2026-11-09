@@ -1,0 +1,30 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1300px 850px at 50% 45%, #1B453A 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; }
+    .big { font-family: "Anton"; font-size: 96px; line-height: 1.02; text-transform: uppercase; color: var(--chalk); }
+    .big .y { color: var(--yellow); }
+    .cross { font-family: "Anton"; font-size: 58px; color: rgba(237,230,211,0.45); text-transform: uppercase; text-decoration: line-through; text-decoration-thickness: 10px; }
+  </style>
+  <div id="root" data-composition-id="s19" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="cross" id="s19-cross">Los precios bajan</div>
+      <div class="big" id="s19-big">Desinflación =<br /><span class="y">suben más despacio</span></div>
+    </div>
+    <audio id="s19-vo" data-start="0.15" data-duration="7.0" data-track-index="9" src="./assets/voice-v2/19.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s19-cross", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.3);
+    tl.fromTo("#s19-big", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.55, ease: "power4.out" }, 1.5);
+    window.__timelines["s19"] = tl;
+  </script>
+</template>

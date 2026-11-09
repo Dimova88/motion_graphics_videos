@@ -1,0 +1,44 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--yellow); text-transform: uppercase; padding-left: 0.4em; }
+    .rule { display: flex; align-items: center; gap: 54px; }
+    .body { display: flex; flex-direction: column; gap: 10px; text-align: left; max-width: 1150px; }
+    .t { font-family: "Anton"; font-size: 58px; line-height: 1.05; text-transform: uppercase; color: var(--chalk); }
+    .s { font-size: 23px; color: rgba(237,230,211,0.85); line-height: 1.35; }
+    .s b { color: var(--chalk); }
+    .tiny { font-size: 15px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="s33" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s33-k">Regla 3</div>
+      <div class="rule">
+        <svg id="s33-hand" width="160" height="180" viewBox="0 0 160 180"><g stroke="#EDE6D3" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M52 108 V54 a10 10 0 0 1 20 0 V88 M72 88 V34 a10 10 0 0 1 20 0 V88 M92 88 V44 a10 10 0 0 1 20 0 V96 M112 96 V66 a10 10 0 0 1 20 0 V120"/><path d="M52 108 C 52 150, 74 168, 100 168 C 128 168, 132 140, 132 120"/></g></svg>
+        <div class="body">
+          <div class="t" id="s33-t">Pide tu subida<br />con el IPC en la mano</div>
+          <div class="s" id="s33-s"><b>+4%</b> con IPC al 4% no es una subida: es <b>estar quieto</b>. Cada año. Sin vergüenza.</div>
+          <div class="tiny" id="s33-tiny">Educación financiera · no es consejo financiero</div>
+        </div>
+      </div>
+    </div>
+    <audio id="s33-vo" data-start="0.15" data-duration="15.5" data-track-index="9" src="./assets/voice-v2/33.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s33-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s33-hand", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.4);
+    tl.fromTo("#s33-t", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power4.out" }, 0.7);
+    tl.fromTo("#s33-s", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 6.4);
+    tl.fromTo("#s33-tiny", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 11.0);
+    window.__timelines["s33"] = tl;
+  </script>
+</template>

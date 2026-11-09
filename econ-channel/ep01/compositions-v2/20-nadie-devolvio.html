@@ -1,0 +1,30 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1300px 850px at 50% 45%, #241C10 0%, var(--board2) 70%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
+    .big { font-family: "Anton"; font-size: 108px; line-height: 1.0; text-transform: uppercase; color: var(--chalk); }
+    .big .c { color: var(--coral); }
+    .big2 { font-family: "Anton"; font-size: 108px; line-height: 1.0; text-transform: uppercase; color: var(--yellow); }
+  </style>
+  <div id="root" data-composition-id="s20" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="big" id="s20-l1">Nadie te <span class="c">devolvió</span><br />el dinero.</div>
+      <div class="big2" id="s20-l2">Nadie te lo va a devolver.</div>
+    </div>
+    <audio id="s20-vo" data-start="0.15" data-duration="8.5" data-track-index="9" src="./assets/voice-v2/20.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s20-l1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 0.3);
+    tl.fromTo("#s20-l2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 4.0);
+    window.__timelines["s20"] = tl;
+  </script>
+</template>

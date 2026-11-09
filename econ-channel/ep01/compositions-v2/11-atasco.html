@@ -1,0 +1,45 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .name { font-family: "Anton"; font-size: 132px; line-height: 0.95; text-transform: uppercase; color: var(--chalk); }
+    .vs { display: flex; align-items: center; gap: 44px; }
+    .vs .col { display: flex; flex-direction: column; align-items: center; gap: 6px; border: 2px solid rgba(237,230,211,0.16); background: rgba(237,230,211,0.05); border-radius: 18px; padding: 26px 48px; }
+    .vs .lbl { font-size: 15px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--mut); }
+    .vs .big { font-family: "Anton"; font-size: 96px; line-height: 1; }
+    .down { color: #7BD0FF; } .up { color: var(--coral); }
+    .concl { font-family: "Anton"; font-size: 40px; color: var(--yellow); text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s11" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s11-k">Cerilla 2</div>
+      <div class="name" id="s11-name">El atasco</div>
+      <div class="vs">
+        <div class="col" id="s11-supply"><div class="lbl">Oferta</div><div class="big down" id="s11-down">↓</div></div>
+        <div class="concl" id="s11-vs">×</div>
+        <div class="col" id="s11-demand"><div class="lbl">Demanda</div><div class="big up" id="s11-up">↑</div></div>
+      </div>
+      <div class="concl" id="s11-concl">= precios para arriba</div>
+    </div>
+    <audio id="s11-vo" data-start="0.15" data-duration="9.860" data-track-index="9" src="./assets/voice-v2/11.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s11-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s11-name", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 0.3);
+    tl.fromTo("#s11-supply", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.5)" }, 2.6);
+    tl.fromTo("#s11-vs", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" }, 4.0);
+    tl.fromTo("#s11-demand", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.5)" }, 4.2);
+    tl.fromTo("#s11-concl", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 6.4);
+    window.__timelines["s11"] = tl;
+  </script>
+</template>

@@ -1,0 +1,39 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; position: relative; }
+    .pct { font-family: "Anton"; font-size: 260px; line-height: 0.9; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .cap { font-size: 24px; color: rgba(237,230,211,0.88); max-width: 900px; line-height: 1.35; }
+    .cap b { color: var(--chalk); }
+    .chip { display: inline-flex; border: 1px solid rgba(237,230,211,0.28); background: rgba(237,230,211,0.07); border-radius: 999px;
+      padding: 7px 20px; font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--chalk); }
+    svg.cart path, svg.cart circle { stroke: var(--chalk); }
+  </style>
+  <div id="root" data-composition-id="s06" data-width="1920" data-height="1080">
+    <div class="stack">
+      <svg class="cart" id="s06-cart" width="190" height="140" viewBox="0 0 300 210"><g stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 30 H74 L104 150 H252 L278 64 H88"/><circle cx="126" cy="182" r="13"/><circle cx="230" cy="182" r="13"/></g></svg>
+      <div class="pct" id="s06-pct">+0%</div>
+      <div class="cap" id="s06-cap">lo que cuesta <b>tu carro del súper</b> vs enero de 2020</div>
+      <div class="chip" id="s06-chip">Fuente: BLS vía FRED (CPIAUCSL)</div>
+    </div>
+    <audio id="s06-vo" data-start="0.15" data-duration="8.5" data-track-index="9" src="./assets/voice-v2/06.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s06-cart", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.2);
+    const o = { v: 0 };
+    tl.to(o, { v: 30, duration: 1.6, ease: "power2.out",
+      onUpdate: () => { document.getElementById("s06-pct").textContent = "+" + Math.round(o.v) + "%"; } }, 0.7);
+    tl.fromTo("#s06-cap", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 2.6);
+    tl.fromTo("#s06-chip", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 4.2);
+    window.__timelines["s06"] = tl;
+  </script>
+</template>

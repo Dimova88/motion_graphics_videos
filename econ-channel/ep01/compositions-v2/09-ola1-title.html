@@ -1,0 +1,33 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1300px 850px at 50% 45%, #1B453A 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative; }
+    .ola { font-weight: 700; font-size: 26px; letter-spacing: 0.6em; text-transform: uppercase; color: var(--coral); padding-left: 0.6em; }
+    .name { font-family: "Anton"; font-size: 260px; line-height: 0.92; text-transform: uppercase; color: var(--chalk); letter-spacing: 0.005em; }
+    .years { font-family: "Anton"; font-size: 64px; color: var(--yellow); letter-spacing: 0.06em; }
+  </style>
+  <div id="root" data-composition-id="s09" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="ola" id="s09-k">Ola 1</div>
+      <div class="name" id="s09-name">La cerilla</div>
+      <div class="years" id="s09-years">2021 — 2022</div>
+    </div>
+    <audio id="s09-vo" data-start="0.15" data-duration="6.640" data-track-index="9" src="./assets/voice-v2/09.mp3"></audio>
+    <audio id="s09-tap" data-start="0.2" data-duration="0.12" data-track-index="8" data-volume="0.7" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s09-k", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 0.1);
+    tl.fromTo("#s09-name", { opacity: 0, scale: 1.5, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.25);
+    tl.fromTo("#s09-years", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.8);
+    window.__timelines["s09"] = tl;
+  </script>
+</template>

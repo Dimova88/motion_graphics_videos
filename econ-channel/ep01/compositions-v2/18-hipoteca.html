@@ -1,0 +1,46 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; position: relative; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .row { display: flex; align-items: center; gap: 54px; }
+    .col { display: flex; flex-direction: column; align-items: center; }
+    .col .n { font-family: "Anton"; font-size: 150px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .a { color: rgba(237,230,211,0.6); } .b { color: var(--coral); }
+    .lbl { font-size: 15px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mut); }
+    .arrow { font-family: "Anton"; font-size: 110px; color: var(--yellow); }
+    .sub { font-size: 21px; color: rgba(237,230,211,0.85); }
+    .fine { font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 700; color: var(--mut); }
+  </style>
+  <div id="root" data-composition-id="s18" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s18-k">Tu hipoteca variable · la cuota mensual</div>
+      <div class="row">
+        <div class="col" id="s18-a"><div class="n a" id="s18-a-n">900 €</div><div class="lbl">antes</div></div>
+        <div class="arrow" id="s18-arrow">→</div>
+        <div class="col" id="s18-b"><div class="n b" id="s18-b-n">1.300 €</div><div class="lbl">ahora</div></div>
+      </div>
+      <div class="sub" id="s18-sub">tipo variable: del <b>1 y pico</b> al <b>4%+</b> · misma casa, mismos metros, otra factura</div>
+      <div class="fine" id="s18-fine">Ejemplo ilustrativo</div>
+    </div>
+    <audio id="s18-vo" data-start="0.15" data-duration="14.5" data-track-index="9" src="./assets/voice-v2/18.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s18-k", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 0.1);
+    tl.fromTo("#s18-a", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 1.2);
+    tl.fromTo("#s18-arrow", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 4.6);
+    tl.fromTo("#s18-b", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 4.9);
+    tl.fromTo("#s18-sub", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 6.2);
+    tl.fromTo("#s18-fine", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 12.0);
+    window.__timelines["s18"] = tl;
+  </script>
+</template>

@@ -1,0 +1,35 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1300px 850px at 50% 45%, #1B453A 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .ola { font-weight: 700; font-size: 26px; letter-spacing: 0.6em; text-transform: uppercase; color: var(--coral); padding-left: 0.6em; }
+    .name { font-family: "Anton"; font-size: 250px; line-height: 0.92; text-transform: uppercase; color: var(--chalk); }
+    .years { font-family: "Anton"; font-size: 64px; color: var(--yellow); letter-spacing: 0.06em; }
+  </style>
+  <div id="root" data-composition-id="s14" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="ola" id="s14-k">Ola 2</div>
+      <svg id="s14-hose" width="150" height="230" viewBox="0 0 150 230"><g stroke="#7BD0FF" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M24 205 C 10 130, 60 110, 66 70 C 70 40, 96 28, 122 34"/><path d="M122 34 l-26 -6 M122 34 l-8 25"/></g></svg>
+      <div class="name" id="s14-name">La manguera</div>
+      <div class="years" id="s14-years">2022 — 2025</div>
+    </div>
+    <audio id="s14-vo" data-start="0.15" data-duration="9.5" data-track-index="9" src="./assets/voice-v2/14.mp3"></audio>
+    <audio id="s14-tap" data-start="0.2" data-duration="0.12" data-track-index="8" data-volume="0.7" src="./assets/sfx/tap.wav"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s14-k", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 0.1);
+    tl.fromTo("#s14-hose", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+    tl.fromTo("#s14-name", { opacity: 0, scale: 1.4, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.5);
+    tl.fromTo("#s14-years", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.1);
+    window.__timelines["s14"] = tl;
+  </script>
+</template>

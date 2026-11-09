@@ -1,0 +1,41 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; position: relative; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .tag { position: relative; transform: rotate(-1.5deg); }
+    .tag .now { font-family: "Anton"; font-size: 260px; line-height: 0.95; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .tag .was { position: absolute; top: -30px; left: -320px; font-family: "Archivo"; font-weight: 700; font-size: 60px; color: var(--mut); text-decoration: line-through; text-decoration-thickness: 8px; }
+    .tag .cur { position: absolute; top: 30px; right: -150px; font-family: "Anton"; font-size: 110px; color: var(--chalk); }
+    .fineprint { font-size: 17px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; color: var(--mut); }
+  </style>
+  <div id="root" data-composition-id="s04" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s04-k">Tu café · hace 5 años → hoy</div>
+      <div class="tag" id="s04-tag">
+        <div class="was" id="s04-was">2,50</div>
+        <div class="now" id="s04-now">4,10</div>
+        <div class="cur" id="s04-cur">€</div>
+      </div>
+      <div class="fineprint" id="s04-fine">Ejemplo ilustrativo · el mismo café, la misma mesa</div>
+    </div>
+    <audio id="s04-vo" data-start="0.15" data-duration="8.5" data-track-index="9" src="./assets/voice-v2/04.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s04-k", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1);
+    tl.fromTo("#s04-was", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 0.7);
+    tl.fromTo("#s04-now", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 1.8);
+    tl.fromTo("#s04-cur", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.1);
+    tl.fromTo("#s04-fine", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 4.6);
+    window.__timelines["s04"] = tl;
+  </script>
+</template>

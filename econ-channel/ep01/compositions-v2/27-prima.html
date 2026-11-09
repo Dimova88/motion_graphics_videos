@@ -1,0 +1,33 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .big { font-family: "Anton"; font-size: 84px; line-height: 1.02; text-transform: uppercase; color: var(--chalk); }
+    .num { font-family: "Anton"; font-size: 190px; color: var(--yellow); line-height: 1; }
+    .note { font-size: 22px; color: rgba(237,230,211,0.85); max-width: 1100px; line-height: 1.4; }
+  </style>
+  <div id="root" data-composition-id="s27" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s27-k">Qué mirar a partir de ahora · número 1</div>
+      <div class="big" id="s27-big">La prima<br />de energía</div>
+      <div class="note" id="s27-note">Mientras Ormuz siga así, cada litro, cada factura de la luz y cada bolsa lleva <b>peaje de guerra</b>.</div>
+    </div>
+    <audio id="s27-vo" data-start="0.15" data-duration="13.0" data-track-index="9" src="./assets/voice-v2/27.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s27-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s27-big", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.55, ease: "power4.out" }, 1.6);
+    tl.fromTo("#s27-note", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 5.2);
+    window.__timelines["s27"] = tl;
+  </script>
+</template>

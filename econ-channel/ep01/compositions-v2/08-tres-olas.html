@@ -1,0 +1,50 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 44px; position: relative; }
+    .kicker { font-weight: 700; font-size: 20px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .waves { display: flex; gap: 28px; }
+    .wave { width: 460px; border-radius: 18px; border: 2px solid rgba(237,230,211,0.15); background: rgba(237,230,211,0.04);
+      padding: 30px 26px; display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0.42; }
+    .wave .n { font-family: "Anton"; font-size: 96px; line-height: 1; color: var(--chalk); }
+    .wave .t { font-family: "Anton"; font-size: 34px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--chalk); }
+    .wave .y { font-size: 16px; font-weight: 700; letter-spacing: 0.3em; color: var(--mut); text-transform: uppercase; }
+    .wave.on { opacity: 1; border-color: var(--yellow); box-shadow: 0 0 60px rgba(255,216,77,0.12); }
+    .wave.on .n { color: var(--yellow); }
+    .wave.hot { opacity: 1; border-color: var(--coral); box-shadow: 0 0 60px rgba(255,107,87,0.18); }
+    .wave.hot .n { color: var(--coral); }
+  </style>
+  <div id="root" data-composition-id="s08" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s08-k">Tres olas</div>
+      <div class="waves">
+        <div class="wave" id="s08-w1"><div class="n">1</div><div class="t">La cerilla</div><div class="y">2021–2022</div></div>
+        <div class="wave" id="s08-w2"><div class="n">2</div><div class="t">La manguera</div><div class="y">2022–2025</div></div>
+        <div class="wave" id="s08-w3"><div class="n">3</div><div class="t">Ahora</div><div class="y">2026 · en curso</div></div>
+      </div>
+    </div>
+    <audio id="s08-vo" data-start="0.15" data-duration="12.880" data-track-index="9" src="./assets/voice-v2/08.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s08-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s08-w1", { opacity: 0, y: 44 }, { opacity: 0.42, y: 0, duration: 0.4, ease: "power3.out" }, 0.4);
+    tl.fromTo("#s08-w2", { opacity: 0, y: 44 }, { opacity: 0.42, y: 0, duration: 0.4, ease: "power3.out" }, 6.0);
+    tl.fromTo("#s08-w3", { opacity: 0, y: 44 }, { opacity: 0.42, y: 0, duration: 0.4, ease: "power3.out" }, 9.2);
+    tl.to("#s08-w1", { opacity: 1, duration: 0.35 }, 1.0);
+    tl.to("#s08-w2", { opacity: 1, duration: 0.35 }, 6.8);
+    tl.to("#s08-w3", { opacity: 1, duration: 0.35 }, 10.1);
+    tl.set("#s08-w1", { attr: { class: "wave on" } }, 1.0);
+    tl.set("#s08-w2", { attr: { class: "wave on" } }, 6.8);
+    tl.set("#s08-w3", { attr: { class: "wave hot" } }, 10.1);
+    window.__timelines["s08"] = tl;
+  </script>
+</template>

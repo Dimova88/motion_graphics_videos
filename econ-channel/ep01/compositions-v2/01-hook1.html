@@ -1,0 +1,35 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; position: relative; }
+    .kicker { font-weight: 700; font-size: 21px; letter-spacing: 0.42em; color: var(--coral); text-transform: uppercase; padding-left: 0.42em; }
+    .line { font-family: "Anton"; font-size: 108px; line-height: 0.98; letter-spacing: 0.005em; text-transform: uppercase; color: var(--chalk); }
+    .line .y { color: var(--yellow); }
+    .line .c { color: var(--coral); }
+  </style>
+  <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s01-k">EP01</div>
+      <div class="line" id="s01-l1">Tu <span class="y">café</span> cuesta más.</div>
+      <div class="line" id="s01-l2">Tu <span class="y">gasolina</span> cuesta más.</div>
+      <div class="line" id="s01-l3">Tu <span class="c">alquiler</span>… ya sabes.</div>
+    </div>
+    <audio id="s01-vo" data-start="0.15" data-duration="8.310" data-track-index="9" src="./assets/voice-v2/01.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s01-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s01-l1", { opacity: 0, x: -140 }, { opacity: 1, x: 0, duration: 0.45, ease: "power4.out" }, 0.25);
+    tl.fromTo("#s01-l2", { opacity: 0, x: -140 }, { opacity: 1, x: 0, duration: 0.45, ease: "power4.out" }, 2.4);
+    tl.fromTo("#s01-l3", { opacity: 0, x: -140 }, { opacity: 1, x: 0, duration: 0.45, ease: "power4.out" }, 4.6);
+    window.__timelines["s01"] = tl;
+  </script>
+</template>

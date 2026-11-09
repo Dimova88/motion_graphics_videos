@@ -1,0 +1,40 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .row { display: flex; gap: 60px; }
+    .col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .col .n { font-family: "Anton"; font-size: 150px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .col .lbl { font-size: 15px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mut); }
+    .us { color: var(--yellow); } .ea { color: var(--chalk); }
+    .sub { font-family: "Anton"; font-size: 44px; text-transform: uppercase; color: var(--coral); }
+  </style>
+  <div id="root" data-composition-id="s17" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s17-k">Finales de 2025 · se enfrió</div>
+      <div class="row">
+        <div class="col" id="s17-us"><div class="n us" id="s17-us-n">2,7%</div><div class="lbl">EE. UU.</div></div>
+        <div class="col" id="s17-ea"><div class="n ea" id="s17-ea-n">~2,0%</div><div class="lbl">Zona euro</div></div>
+      </div>
+      <div class="sub" id="s17-sub">Hubo fiesta… pero olvidó un detalle.</div>
+    </div>
+    <audio id="s17-vo" data-start="0.15" data-duration="11.5" data-track-index="9" src="./assets/voice-v2/17.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s17-k", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 0.1);
+    tl.fromTo("#s17-us", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+    tl.fromTo("#s17-ea", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 2.6);
+    tl.fromTo("#s17-sub", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 7.4);
+    window.__timelines["s17"] = tl;
+  </script>
+</template>

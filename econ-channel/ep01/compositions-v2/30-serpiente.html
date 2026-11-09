@@ -1,0 +1,46 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1200px 850px at 50% 45%, #241C10 0%, var(--board2) 78%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; position: relative; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--coral); text-transform: uppercase; padding-left: 0.4em; }
+    .loop { position: relative; width: 560px; height: 420px; }
+    .node { position: absolute; font-family: "Anton"; font-size: 54px; text-transform: uppercase; color: var(--chalk);
+      border: 2px solid rgba(237,230,211,0.2); background: rgba(237,230,211,0.05); border-radius: 18px; padding: 18px 30px; }
+    .node .pct { display: block; font-size: 30px; color: var(--yellow); }
+    .n1 { left: 0; top: 0; } .n2 { right: 0; top: 130px; } .n3 { left: 0; bottom: 0; }
+    svg.head { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .sub { font-size: 23px; color: rgba(237,230,211,0.85); max-width: 1300px; line-height: 1.4; }
+    .sub b { color: var(--yellow); }
+  </style>
+  <div id="root" data-composition-id="s30" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s30-k">El círculo que hay que evitar</div>
+      <div class="loop" id="s30-loop">
+        <svg class="head" viewBox="0 0 560 420"><g fill="none" stroke="#FFD84D" stroke-width="5" stroke-linecap="round" stroke-opacity="0.85"><path d="M250 30 C 340 40, 380 80, 400 128"/><path d="M395 118 L 402 140 L 372 128"/><path d="M470 260 C 430 330, 330 360, 240 362"/><path d="M250 352 L 226 360 L 246 382"/><path d="M120 330 C 60 240, 90 130, 168 52"/><path d="M156 66 L 176 48 L 176 88"/></g></svg>
+        <div class="node n1" id="s30-n1">Sueldos<span class="pct">+4%</span></div>
+        <div class="node n2" id="s30-n2">Tarifas<span class="pct">+4%</span></div>
+        <div class="node n3" id="s30-n3">Precios<span class="pct">+4%</span></div>
+      </div>
+      <div class="sub" id="s30-sub">La serpiente se muerde la cola — <b>romper ese nudo es el trabajo de los bancos centrales</b></div>
+    </div>
+    <audio id="s30-vo" data-start="0.15" data-duration="11.0" data-track-index="9" src="./assets/voice-v2/30.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s30-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s30-n1", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.6);
+    tl.fromTo("#s30-n2", { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 2.9);
+    tl.fromTo("#s30-n3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 4.2);
+    tl.fromTo("#s30-loop .head", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 4.8);
+    tl.fromTo("#s30-sub", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 6.2);
+    window.__timelines["s30"] = tl;
+  </script>
+</template>

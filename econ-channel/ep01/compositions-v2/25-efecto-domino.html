@@ -1,0 +1,47 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 46px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--mut); text-transform: uppercase; padding-left: 0.4em; }
+    .chain { display: flex; align-items: center; gap: 30px; }
+    .node { font-family: "Anton"; font-size: 62px; text-transform: uppercase; color: var(--chalk); border: 2px solid rgba(237,230,211,0.18); border-radius: 16px; padding: 26px 36px; background: rgba(237,230,211,0.05); }
+    .node.hot { border-color: var(--coral); color: var(--coral); box-shadow: 0 0 60px rgba(255,107,87,0.2); }
+    .node.final { border-color: var(--yellow); color: var(--yellow); box-shadow: 0 0 60px rgba(255,216,77,0.2); }
+    .arrow { font-family: "Anton"; font-size: 64px; color: var(--yellow); }
+  </style>
+  <div id="root" data-composition-id="s25" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s25-k">El efecto dominó</div>
+      <div class="chain">
+        <div class="node hot" id="s25-gas">Gas</div>
+        <div class="arrow" id="s25-a1">→</div>
+        <div class="node" id="s25-trans">Transporte</div>
+        <div class="arrow" id="s25-a2">→</div>
+        <div class="node" id="s25-comida">Comida</div>
+        <div class="arrow" id="s25-a3">→</div>
+        <div class="node final" id="s25-todo">Todo</div>
+      </div>
+    </div>
+    <audio id="s25-vo" data-start="0.15" data-duration="12.5" data-track-index="9" src="./assets/voice-v2/25.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s25-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s25-gas", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.4)" }, 0.8);
+    tl.fromTo("#s25-a1", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 2.2);
+    tl.fromTo("#s25-trans", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.4)" }, 2.5);
+    tl.fromTo("#s25-a2", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 4.4);
+    tl.fromTo("#s25-comida", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.4)" }, 4.7);
+    tl.fromTo("#s25-a3", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 6.6);
+    tl.fromTo("#s25-todo", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 6.9);
+    window.__timelines["s25"] = tl;
+  </script>
+</template>

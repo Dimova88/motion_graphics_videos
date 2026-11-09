@@ -1,0 +1,42 @@
+<template>
+  <style>
+    @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+    :root { --board:#10312B; --board2:#0B241F; --chalk:#EDE6D3; --yellow:#FFD84D; --coral:#FF6B57; --mut:rgba(237,230,211,.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse 1500px 950px at 50% 44%, #16382F 0%, var(--board) 55%, var(--board2) 100%);
+      font-family: "Archivo", "Liberation Sans", sans-serif; color: var(--chalk); }
+    .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+    .kicker { font-weight: 700; font-size: 19px; letter-spacing: 0.4em; color: var(--yellow); text-transform: uppercase; padding-left: 0.4em; }
+    .rule { display: flex; align-items: center; gap: 54px; }
+    .num { font-family: "Anton"; font-size: 210px; line-height: 1; color: var(--yellow); }
+    .body { display: flex; flex-direction: column; gap: 10px; text-align: left; max-width: 1050px; }
+    .t { font-family: "Anton"; font-size: 66px; line-height: 1.0; text-transform: uppercase; color: var(--chalk); }
+    .s { font-size: 23px; color: rgba(237,230,211,0.85); line-height: 1.35; }
+    .s b { color: var(--chalk); }
+  </style>
+  <div id="root" data-composition-id="s31" data-width="1920" data-height="1080">
+    <div class="stack">
+      <div class="kicker" id="s31-k">Regla 1</div>
+      <div class="rule">
+        <svg id="s31-ice" width="150" height="170" viewBox="0 0 150 190"><g stroke="#7BD0FF" stroke-width="7" fill="rgba(123,208,255,0.14)" stroke-linejoin="round" stroke-linecap="round"><path d="M28 10 H122 L138 62 L118 178 H32 L12 62 Z"/><path d="M12 62 H138" stroke-width="5" stroke-opacity="0.7"/></g></svg>
+        <div class="body">
+          <div class="t" id="s31-t">Tu efectivo es<br />un cubito de hielo</div>
+          <div class="s" id="s31-s">Quieto, cada mes vale menos. El <b>depósito</b> y la <b>renta fija</b> vuelven a rendir: no te hacen rico… pero te protegen.</div>
+        </div>
+      </div>
+    </div>
+    <audio id="s31-vo" data-start="0.15" data-duration="13.0" data-track-index="9" src="./assets/voice-v2/31.mp3"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s31-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s31-ice", { opacity: 0, y: -30, rotation: -8 }, { opacity: 1, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 0.4);
+    tl.fromTo("#s31-t", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power4.out" }, 0.7);
+    tl.fromTo("#s31-s", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 5.2);
+    window.__timelines["s31"] = tl;
+  </script>
+</template>
