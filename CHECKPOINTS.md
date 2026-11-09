@@ -37,5 +37,6 @@ Test of the new free/unlimited YouTube pipeline (see `PIPELINE.md`) on a 30s bri
 - Verification: `lint` 0 errors (5 warnings `nested_media_start_basis_ambiguous` — intentional, timing is composition-local); frames extracted at act boundaries; EBU R128 integrated -16.4 LUFS
 - Note: all act elements must carry an entrance tween — a scene's slot holds its final frame and would otherwise pop in static elements raw
 - v4 revision (same day): VO rewritten fluent/direct (no comma-heavy phrasing, e.g. "Interlagos, under a dark sky. Norris has pole."); team chips added to Act I (duel row), Act III (dim→bright flanking P21→P2), Act IV (podium row); TRAP type scaled up
+- v5 revision (same day): driver chips restyled **racing-tire style** — rubber body with tread blocks, team-colour sidewall stripe, glossy team-colour rim (McLaren #FF8000 / Red Bull #3671C6) with inner barrel ring, centre specular, 3-letter code in Anton italic; P1 tire carries yellow drop-shadow (winner halo)
 
 v2 remains intact at commit `711564d`.

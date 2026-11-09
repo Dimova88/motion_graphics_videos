@@ -24,16 +24,9 @@
 
     /* team-colour driver chips flanking the position numerals */
     .climb-row { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 34px; }
-    .chip-dot {
-      width: 96px; height: 96px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--display); font-style: italic; font-size: 34px; letter-spacing: 0.03em; padding-left: 0.03em;
-      border: 3px solid rgba(255,255,255,0.16);
-      box-shadow: 0 10px 32px rgba(0,0,0,0.5), inset 0 7px 12px rgba(255,255,255,0.28), inset 0 -10px 16px rgba(0,0,0,0.32);
-    }
-    .chip-dot.redbull { background: radial-gradient(circle at 36% 30%, #639ae0 0%, #3671c6 55%, #1e4f8f 100%); color: #fff; }
-    .chip-dot.dim { opacity: 0.38; filter: saturate(0.6); }
-    .chip-dot.bright { opacity: 1; box-shadow: 0 0 0 5px rgba(255,223,0,0.35), 0 12px 36px rgba(54,113,198,0.55), inset 0 7px 12px rgba(255,255,255,0.28), inset 0 -10px 16px rgba(0,0,0,0.32); }
+    .tire { width: 96px; height: 96px; display: block; }
+    .tire.dim { opacity: 0.38; filter: saturate(0.6); }
+    .tire.bright { filter: drop-shadow(0 0 14px rgba(255,223,0,0.4)); }
 
     .pos { display: flex; flex-direction: column; align-items: center; gap: 4px; }
     .pos .n { font-family: var(--display); font-size: 150px; line-height: 1; }
@@ -61,11 +54,47 @@
       <div class="kicker" id="climb-kicker">Act III — The Climb</div>
 
       <div class="climb-row">
-        <div class="chip-dot redbull dim" id="climb-chip-from">VER</div>
+        <svg class="tire dim" id="climb-chip-from" viewBox="0 0 120 120" role="img" aria-label="Verstappen, starts P21">
+            <defs>
+              <radialGradient id="rub-c-ver" cx="42%" cy="36%" r="72%">
+                <stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/>
+              </radialGradient>
+              <radialGradient id="rim-c-ver" cx="38%" cy="30%" r="78%">
+                <stop offset="0%" stop-color="#639ae0"/><stop offset="55%" stop-color="#3671c6"/><stop offset="100%" stop-color="#1c4c88"/>
+              </radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#rub-c-ver)"/>
+            <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+            <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+            <circle cx="60" cy="60" r="38.5" fill="none" stroke="#3671c6" stroke-width="3" opacity="0.95"/>
+            <circle cx="60" cy="60" r="31" fill="url(#rim-c-ver)"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+            <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+            <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#f2f7ff">VER</text>
+          </svg>
         <div class="pos" id="climb-from"><div class="n">P21</div><div class="cap">Start</div></div>
         <svg class="arrow" viewBox="0 0 120 60" aria-hidden="true"><path id="climb-arrow-path" d="M8 30 H 96 M 70 10 L 96 30 L 70 50" /></svg>
         <div class="pos" id="climb-to"><div class="n">P2</div><div class="cap">Finish</div></div>
-        <div class="chip-dot redbull bright" id="climb-chip-to">VER</div>
+        <svg class="tire bright" id="climb-chip-to" viewBox="0 0 120 120" role="img" aria-label="Verstappen, finishes P2">
+            <defs>
+              <radialGradient id="rub-c-ver2" cx="42%" cy="36%" r="72%">
+                <stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/>
+              </radialGradient>
+              <radialGradient id="rim-c-ver2" cx="38%" cy="30%" r="78%">
+                <stop offset="0%" stop-color="#639ae0"/><stop offset="55%" stop-color="#3671c6"/><stop offset="100%" stop-color="#1c4c88"/>
+              </radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#rub-c-ver2)"/>
+            <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+            <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+            <circle cx="60" cy="60" r="38.5" fill="none" stroke="#3671c6" stroke-width="3" opacity="0.95"/>
+            <circle cx="60" cy="60" r="31" fill="url(#rim-c-ver2)"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+            <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+            <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#f2f7ff">VER</text>
+          </svg>
       </div>
 
       <div class="progress" id="climb-progress">

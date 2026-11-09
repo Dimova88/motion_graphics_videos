@@ -33,16 +33,8 @@
     /* podium chips — P2 VER · P1 NOR · P3 HAD, dead centre */
     .podium { display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 44px; }
     .pchip { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .pchip .chip-dot {
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-family: var(--display); font-style: italic; letter-spacing: 0.03em; padding-left: 0.03em;
-      border: 4px solid rgba(255,255,255,0.16);
-      box-shadow: 0 14px 44px rgba(0,0,0,0.5), inset 0 10px 16px rgba(255,255,255,0.30), inset 0 -14px 22px rgba(0,0,0,0.32);
-    }
-    .pchip .chip-dot.redbull { background: radial-gradient(circle at 36% 30%, #639ae0 0%, #3671c6 55%, #1e4f8f 100%); color: #fff; }
-    .pchip .chip-dot.mclaren { background: radial-gradient(circle at 36% 30%, #ffb25e 0%, #ff8000 55%, #d36200 100%); color: #201000; }
-    .pchip.p1 .chip-dot { width: 158px; height: 158px; font-size: 52px; box-shadow: 0 0 0 6px rgba(255,223,0,0.35), 0 18px 54px rgba(255,128,0,0.45), inset 0 10px 16px rgba(255,255,255,0.30), inset 0 -14px 22px rgba(0,0,0,0.32); }
-    .pchip.p2 .chip-dot, .pchip.p3 .chip-dot { width: 118px; height: 118px; font-size: 38px; }
+    .pchip .tire { width: 118px; height: 118px; display: block; }
+    .pchip.p1 .tire { width: 158px; height: 158px; filter: drop-shadow(0 0 18px rgba(255,223,0,0.42)); }
     .pchip .code-name { font-family: var(--display); font-style: italic; font-size: 26px; letter-spacing: 0.05em; color: #fff; }
     .pchip .place { font-size: 13px; font-weight: 800; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
     .pchip.p1 .place { color: var(--yellow); }
@@ -62,9 +54,63 @@
       <h1 class="title"><span class="prism" id="flag-prism"><span class="copy r">NORRIS WINS</span><span class="copy b">NORRIS WINS</span><span class="main">NORRIS WINS</span></span></h1>
 
       <div class="podium">
-        <div class="pchip p2" id="flag-p2"><div class="chip-dot redbull">VER</div><div class="code-name">VER</div><div class="place">P2</div></div>
-        <div class="pchip p1" id="flag-p1"><div class="chip-dot mclaren">NOR</div><div class="code-name">NOR</div><div class="place">P1 · Winner</div></div>
-        <div class="pchip p3" id="flag-p3"><div class="chip-dot redbull">HAD</div><div class="code-name">HAD</div><div class="place">P3</div></div>
+        <div class="pchip p2" id="flag-p2"><svg class="tire" viewBox="0 0 120 120" role="img" aria-label="Verstappen, P2">
+            <defs>
+              <radialGradient id="rub-f-ver" cx="42%" cy="36%" r="72%">
+                <stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/>
+              </radialGradient>
+              <radialGradient id="rim-f-ver" cx="38%" cy="30%" r="78%">
+                <stop offset="0%" stop-color="#639ae0"/><stop offset="55%" stop-color="#3671c6"/><stop offset="100%" stop-color="#1c4c88"/>
+              </radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#rub-f-ver)"/>
+            <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+            <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+            <circle cx="60" cy="60" r="38.5" fill="none" stroke="#3671c6" stroke-width="3" opacity="0.95"/>
+            <circle cx="60" cy="60" r="31" fill="url(#rim-f-ver)"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+            <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+            <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#f2f7ff">VER</text>
+          </svg><div class="code-name">VER</div><div class="place">P2</div></div>
+        <div class="pchip p1" id="flag-p1"><svg class="tire" viewBox="0 0 120 120" role="img" aria-label="Norris, P1, winner">
+            <defs>
+              <radialGradient id="rub-f-nor" cx="42%" cy="36%" r="72%">
+                <stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/>
+              </radialGradient>
+              <radialGradient id="rim-f-nor" cx="38%" cy="30%" r="78%">
+                <stop offset="0%" stop-color="#ffb25e"/><stop offset="55%" stop-color="#ff8000"/><stop offset="100%" stop-color="#c75d00"/>
+              </radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#rub-f-nor)"/>
+            <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+            <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+            <circle cx="60" cy="60" r="38.5" fill="none" stroke="#ff8000" stroke-width="3" opacity="0.95"/>
+            <circle cx="60" cy="60" r="31" fill="url(#rim-f-nor)"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+            <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+            <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#241000">NOR</text>
+          </svg><div class="code-name">NOR</div><div class="place">P1 · Winner</div></div>
+        <div class="pchip p3" id="flag-p3"><svg class="tire" viewBox="0 0 120 120" role="img" aria-label="Hadjar, P3">
+            <defs>
+              <radialGradient id="rub-f-had" cx="42%" cy="36%" r="72%">
+                <stop offset="0%" stop-color="#2b2b30"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#060608"/>
+              </radialGradient>
+              <radialGradient id="rim-f-had" cx="38%" cy="30%" r="78%">
+                <stop offset="0%" stop-color="#639ae0"/><stop offset="55%" stop-color="#3671c6"/><stop offset="100%" stop-color="#1c4c88"/>
+              </radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#rub-f-had)"/>
+            <circle cx="60" cy="60" r="49" fill="none" stroke="#3a3a40" stroke-width="1.3" opacity="0.9"/>
+            <circle cx="60" cy="60" r="45.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="9" stroke-dasharray="6.4 8.2"/>
+            <circle cx="60" cy="60" r="38.5" fill="none" stroke="#3671c6" stroke-width="3" opacity="0.95"/>
+            <circle cx="60" cy="60" r="31" fill="url(#rim-f-had)"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="21" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.2"/>
+            <ellipse cx="45" cy="31" rx="24" ry="8" fill="#ffffff" opacity="0.20" transform="rotate(-22 45 31)"/>
+            <text x="60" y="68" text-anchor="middle" font-family="Anton, 'Archivo Black', sans-serif" font-weight="400" font-style="italic" font-size="24" letter-spacing="1.5" fill="#f2f7ff">HAD</text>
+          </svg><div class="code-name">HAD</div><div class="place">P3</div></div>
       </div>
 
       <div class="sub" id="flag-sub">Won from pole</div>
