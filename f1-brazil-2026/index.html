@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="./assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Anton"; src: url("./assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo Black"; src: url("./assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-800-italic.woff2") format("woff2"); font-weight: 800; font-style: italic; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Archivo"; src: url("./assets/fonts/archivo-latin-900-italic.woff2") format("woff2"); font-weight: 900; font-style: italic; font-display: swap; }
+      :root {
+        --asphalt: #0b0c0f;
+        --panel: #131419;
+        --panel-2: #1a1b22;
+        --line: rgba(255, 255, 255, 0.09);
+        --ink: #f4f4f0;
+        --muted: #9a9aa2;
+        --yellow: #ffdf00;
+        --green: #00a651;
+        --blue: #002776;
+        --papaya: #ff8000;
+        --redbull: #16224e;
+        --mercedes: #27f4d2;
+        --red: #ff3b3b;
+        --display: "Anton", "Archivo Black", sans-serif;
+        --body: "Archivo", "Liberation Sans", "DejaVu Sans", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--asphalt); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--asphalt); font-family: var(--body); color: var(--ink); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+
+      /* ---------- shared bits ---------- */
+      .kicker {
+        display: inline-flex; align-items: center; gap: 14px;
+        font-family: var(--body); font-weight: 800; font-size: 15px;
+        letter-spacing: 0.32em; color: var(--yellow); text-transform: uppercase;
+      }
+      .kicker::before { content: ""; display: block; width: 46px; height: 4px; background: var(--yellow); }
+      .checker {
+        height: 22px;
+        background: repeating-conic-gradient(#ededed 0% 25%, #0d0d10 0% 50%);
+        background-size: 28px 28px;
+      }
+      .checker.thin { height: 10px; background-size: 14px 14px; }
+      .chip {
+        display: inline-flex; align-items: center; gap: 10px;
+        border: 1px solid var(--line); background: rgba(10,10,14,0.62);
+        border-radius: 999px; padding: 10px 18px;
+        font-size: 15px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink);
+      }
+      .chip b { color: var(--yellow); font-weight: 800; }
+      .chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+      .team-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 10px; }
+      .outline-yellow { color: transparent; -webkit-text-stroke: 2.6px var(--yellow); }
+      .redbull-chip { border-color: rgba(120,150,255,0.35); }
+      .pen { color: #ff6d5a; font-weight: 800; }
+      .good { color: #38e08b; font-weight: 800; }
+      .muted { color: var(--muted); }
+
+      /* ---------- SCENE 1 : cold open ---------- */
+      #s1 .hero { position: absolute; inset: -40px; width: 2000px; height: 1130px; object-fit: cover; object-position: 50% 62%; }
+      #s1 .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,7,10,0.92) 0%, rgba(6,7,10,0.66) 34%, rgba(6,7,10,0.08) 62%, rgba(6,7,10,0.35) 100%); }
+      #s1 .shade-b { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,7,10,0.88) 0%, rgba(6,7,10,0.0) 34%); }
+      #s1 .content { position: absolute; left: 84px; bottom: 118px; width: 1180px; }
+      #s1 .kicker { margin-bottom: 26px; }
+      #s1 h1 {
+        font-family: var(--display); font-style: italic; font-weight: 900;
+        font-size: 164px; line-height: 0.94; letter-spacing: -0.035em; color: #fff;
+        text-transform: uppercase; text-shadow: 0 10px 60px rgba(0,0,0,0.55);
+      }
+      #s1 h1 .line { display: block; overflow: hidden; padding: 6px 0; }
+      #s1 h1 .line span { display: inline-block; will-change: transform; }
+      #s1 .date {
+        margin-top: 26px; display: flex; align-items: center; gap: 18px;
+        font-size: 19px; font-weight: 700; letter-spacing: 0.14em; color: #e8e8e2; text-transform: uppercase;
+      }
+      #s1 .date .pill { background: var(--yellow); color: #111; padding: 6px 14px; border-radius: 4px; font-weight: 900; }
+      #s1 .foot { position: absolute; left: 0; right: 0; bottom: 0; }
+      #s1 .foot .label {
+        display: flex; justify-content: space-between; align-items: center;
+        background: rgba(8,8,11,0.82); padding: 14px 84px;
+        font-size: 14px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: #cfd0c8;
+      }
+      #s1 .foot .label b { color: var(--yellow); }
+      .rain { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 30; }
+      .rain i { position: absolute; top: -180px; width: 3px; border-radius: 3px; background: linear-gradient(180deg, rgba(200,225,255,0) 0%, rgba(200,225,255,0.85) 55%, rgba(200,225,255,0) 100%); display: block; }
+
+      /* ---------- SCENE 2 : the grid ---------- */
+      #s2 { background: radial-gradient(1200px 700px at 78% 18%, #171a2b 0%, var(--asphalt) 60%); }
+      #s2 .grain { position:absolute; inset:0; background: repeating-linear-gradient(0deg, transparent 0 6px, rgba(255,255,255,0.012) 6px 7px); }
+      #s2 .head { position: absolute; left: 84px; top: 66px; }
+      #s2 .head h2 { font-family: var(--display); font-style: italic; font-size: 88px; letter-spacing: -0.03em; color: #fff; line-height: 0.95; margin-top: 14px; }
+      #s2 .head h2 em { font-style: italic; color: var(--yellow); }
+      #s2 .left {
+        position: absolute; left: 84px; top: 330px; width: 770px; height: 520px;
+        background: linear-gradient(135deg, #231303 0%, var(--panel) 46%);
+        border: 1px solid rgba(255,128,0,0.35); border-radius: 22px; overflow: hidden;
+      }
+      #s2 .left .tag { position: absolute; top: 34px; left: 44px; font-size: 14px; font-weight: 900; letter-spacing: 0.3em; color: var(--papaya); }
+      #s2 .left .p0 { position: absolute; right: 30px; top: -16px; font-family: var(--display); font-style: italic; font-size: 300px; color: rgba(255,128,0,0.16); letter-spacing: -0.05em; }
+      #s2 .left .name { position: absolute; left: 44px; bottom: 128px; font-family: var(--display); font-style: italic; font-size: 96px; letter-spacing: -0.03em; color: #fff; line-height: 0.95; }
+      #s2 .left .team { position: absolute; left: 44px; bottom: 82px; font-size: 19px; font-weight: 800; letter-spacing: 0.28em; color: var(--papaya); }
+      #s2 .left .note { position: absolute; left: 44px; bottom: 34px; font-size: 16px; color: var(--muted); letter-spacing: 0.04em; }
+      #s2 .left .note b { color: var(--ink); }
+      #s2 .right { position: absolute; right: 84px; top: 330px; width: 790px; height: 520px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 30px 36px; }
+      #s2 .right h3 { font-size: 15px; letter-spacing: 0.3em; color: var(--red); font-weight: 900; margin-bottom: 18px; }
+      .gridrow { display: flex; align-items: center; gap: 18px; padding: 15px 14px; border-radius: 14px; border: 1px solid transparent; border-bottom: 1px solid var(--line); }
+      .gridrow:last-child { border-bottom: none; }
+      .gridrow .from { width: 96px; font-family: var(--display); font-style: italic; font-size: 44px; color: #565661; text-align: center; }
+      .gridrow .arrow { color: #565661; width: 30px; height: 34px; flex: none; }
+      .gridrow .to { width: 70px; font-family: var(--display); font-style: italic; font-size: 44px; color: #fff; }
+      .gridrow .who { flex: 1; }
+      .gridrow .who .n { font-size: 24px; font-weight: 800; letter-spacing: 0.02em; }
+      .gridrow .who .t { font-size: 12px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+      .gridrow .why { width: 172px; text-align: right; font-size: 12.5px; line-height: 1.35; color: #ffb3a6; font-weight: 600; }
+      #s2 .ticker {
+        position: absolute; left: 0; right: 0; bottom: 0; height: 64px;
+        background: var(--yellow); color: #111; display: flex; align-items: center; gap: 26px;
+        padding: 0 84px; font-family: var(--display); font-style: italic; font-size: 22px; letter-spacing: 0.02em; text-transform: uppercase;
+      }
+      #s2 .ticker .x { background: #111; color: var(--yellow); padding: 4px 12px; font-size: 15px; letter-spacing: 0.2em; border-radius: 4px; }
+
+      /* ---------- SCENE 3 : lights out ---------- */
+      #s3 { background: radial-gradient(900px 620px at 22% 30%, #14161f 0%, var(--asphalt) 65%); }
+      #s3 .wrap { position: absolute; left: 84px; top: 120px; width: 1080px; }
+      #s3 .lights { display: flex; gap: 26px; margin: 34px 0 40px 6px; }
+      #s3 .light { width: 82px; height: 82px; border-radius: 50%; background: #232028; border: 3px solid #33313b; box-shadow: inset 0 -8px 18px rgba(0,0,0,0.6); }
+      #s3 .light.on { background: radial-gradient(circle at 38% 34%, #ff7a6b 0%, #ff2a1e 55%, #c20e05 100%); border-color: #ff4b3a; box-shadow: 0 0 42px rgba(255,45,32,0.55), inset 0 -8px 18px rgba(0,0,0,0.35); }
+      #s3 h2 { font-family: var(--display); font-style: italic; font-size: 96px; line-height: 0.96; letter-spacing: -0.03em; text-transform: uppercase; color: #fff; }
+      #s3 h2 .accent { color: var(--yellow); }
+      #s3 .chips { display: flex; gap: 16px; margin-top: 34px; }
+      #s3 .map { position: absolute; right: 84px; top: 150px; width: 560px; padding: 34px 36px 26px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; }
+      #s3 .map h4 { font-size: 13px; letter-spacing: 0.3em; color: var(--muted); font-weight: 800; margin-bottom: 8px; }
+      #s3 .map .t { font-family: var(--display); font-style: italic; font-size: 34px; color: var(--ink); letter-spacing: -0.01em; }
+      #s3 .map svg { width: 100%; height: 330px; margin-top: 10px; }
+      #s3 .track { fill: none; stroke: var(--yellow); stroke-width: 6.5; stroke-linejoin: round; stroke-linecap: round; filter: drop-shadow(0 0 14px rgba(255,223,0,0.35)); }
+      #s3 .track-bg { fill: none; stroke: rgba(255,255,255,0.07); stroke-width: 14; stroke-linejoin: round; stroke-linecap: round; }
+      #s3 .dot-start { fill: var(--green); }
+      #s3 .map .specs { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 6px; }
+      #s3 .map .specs div { text-align: center; }
+      #s3 .map .specs .v { font-family: var(--display); font-style: italic; font-size: 26px; color: #fff; }
+      #s3 .map .specs .k { font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+      #s3 .bottom { position: absolute; left: 0; right: 0; bottom: 0; }
+      #s3 .bottom .in { display: flex; justify-content: space-between; align-items: center; background: rgba(8,8,11,0.8); padding: 13px 84px; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #b9bab0; font-weight: 700; }
+
+      /* ---------- SCENE 4 : the charge ---------- */
+      #s4 { background: linear-gradient(115deg, #0d1330 0%, #0a0d1f 55%, var(--asphalt) 100%); }
+      #s4 .rb-glow { position: absolute; right: -260px; top: -260px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(40,70,180,0.4) 0%, transparent 70%); }
+      #s4 .head { position: absolute; left: 84px; top: 84px; }
+      #s4 .head h2 { font-family: var(--display); font-style: italic; font-size: 66px; letter-spacing: -0.02em; color: #fff; margin-top: 12px; text-transform: uppercase; }
+      #s4 .head h2 em { color: #6f86ff; font-style: italic; }
+      #s4 .bignum { position: absolute; left: 84px; top: 300px; display: flex; align-items: center; gap: 30px; }
+      #s4 .from-p, #s4 .to-p { font-family: var(--display); font-style: italic; line-height: 0.9; letter-spacing: -0.05em; }
+      #s4 .from-p { font-size: 210px; color: #3a3f66; }
+      #s4 .to-p { font-size: 330px; color: #fff; text-shadow: 0 0 90px rgba(111,134,255,0.45); }
+      #s4 .arrow { color: var(--yellow); width: 118px; height: 150px; flex: none; }
+      #s4 .gained { position: absolute; left: 84px; top: 690px; display: flex; align-items: baseline; gap: 22px; }
+      #s4 .gained .n { font-family: var(--display); font-style: italic; font-size: 108px; color: var(--yellow); }
+      #s4 .gained .k { font-size: 17px; font-weight: 800; letter-spacing: 0.26em; text-transform: uppercase; color: #c9cbdd; line-height: 1.5; }
+      #s4 .rows { position: absolute; right: 84px; top: 300px; width: 720px; display: flex; flex-direction: column; gap: 22px; }
+      .fact { background: rgba(16,20,44,0.72); border: 1px solid rgba(111,134,255,0.25); border-left: 6px solid #6f86ff; border-radius: 16px; padding: 22px 26px; }
+      .fact .h { font-size: 12px; letter-spacing: 0.3em; color: #8fa0ff; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+      .fact .p { font-size: 22px; line-height: 1.35; color: #eef; font-weight: 600; }
+      .fact .p b { color: #fff; }
+      #s4 .rb-badge { position: absolute; right: 84px; bottom: 84px; background: var(--redbull); border: 1px solid rgba(255,209,0,0.5); color: #ffd102; font-family: var(--display); font-style: italic; font-size: 20px; letter-spacing: 0.06em; padding: 14px 26px; border-radius: 10px; text-transform: uppercase; }
+
+      /* ---------- SCENE 5 : results ---------- */
+      #s5 { background: radial-gradient(1100px 640px at 50% 108%, #1c1408 0%, var(--asphalt) 62%); }
+      #s5 .head { position: absolute; left: 84px; top: 60px; right: 84px; display: flex; justify-content: space-between; align-items: flex-end; }
+      #s5 .head h2 { font-family: var(--display); font-style: italic; font-size: 64px; letter-spacing: -0.02em; color: #fff; margin-top: 12px; text-transform: uppercase; }
+      #s5 .head .laps { font-size: 14px; letter-spacing: 0.26em; color: var(--muted); font-weight: 800; text-align: right; text-transform: uppercase; line-height: 1.8; }
+      #s5 .podium { position: absolute; left: 84px; right: 84px; bottom: 178px; height: 560px; display: flex; align-items: flex-end; justify-content: center; gap: 34px; }
+      .col { width: 390px; border-radius: 20px 20px 0 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 26px; border: 1px solid var(--line); border-bottom: none; will-change: transform; }
+      .col .pos { font-family: var(--display); font-style: italic; font-size: 92px; color: rgba(255,255,255,0.92); line-height: 1; }
+      .col .nm { font-family: var(--display); font-style: italic; font-size: 42px; letter-spacing: -0.02em; color: #fff; margin-top: 8px; }
+      .col .tm { font-size: 12px; letter-spacing: 0.3em; color: var(--muted); font-weight: 800; text-transform: uppercase; margin-top: 6px; }
+      .col .gap { margin-top: 16px; font-family: var(--body); font-variant-numeric: tabular-nums; font-size: 22px; color: #d9d9d2; font-weight: 700; }
+      .col.p2 { height: 360px; background: linear-gradient(180deg, #1a2340 0%, #131728 100%); }
+      .col.p1 { height: 500px; background: linear-gradient(180deg, #3a2303 0%, #1d1303 100%); border-color: rgba(255,128,0,0.45); width: 430px; }
+      .col.p3 { height: 300px; background: linear-gradient(180deg, #1a2340 0%, #12172a 100%); }
+      .col.p1 .tm { color: var(--papaya); }
+      .col.p2 .tm, .col.p3 .tm { color: #8fa0ff; }
+      .col.p1 .gap { color: var(--yellow); font-size: 26px; }
+      .col .win-badge { position: absolute; top: -22px; left: 50%; transform: translateX(-50%) rotate(-3deg); background: var(--yellow); color: #111; font-family: var(--display); font-style: italic; font-size: 19px; letter-spacing: 0.14em; padding: 10px 26px; border-radius: 6px; box-shadow: 0 8px 30px rgba(255,223,0,0.35); }
+      .col .pos-stripe { position: absolute; bottom: 0; left: 0; right: 0; height: 14px; }
+      .p1 .pos-stripe { background: var(--papaya); }
+      .p2 .pos-stripe, .p3 .pos-stripe { background: #6f86ff; }
+      #s5 .rest { position: absolute; left: 84px; right: 84px; bottom: 74px; display: flex; gap: 14px; justify-content: center; }
+      #s5 .rest .chip { font-size: 14px; }
+      #s5 .foot { position: absolute; left: 0; right: 0; bottom: 0; }
+
+      /* ---------- SCENE 6 : outro ---------- */
+      #s6 .hero { position: absolute; inset: -40px; width: 2000px; height: 1130px; object-fit: cover; object-position: 50% 30%; }
+      #s6 .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,7,10,0.94) 0%, rgba(6,7,10,0.62) 45%, rgba(6,7,10,0.25) 100%); }
+      #s6 .shade-b { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,7,10,0.9) 0%, rgba(6,7,10,0) 40%); }
+      #s6 .content { position: absolute; left: 84px; top: 150px; width: 1250px; }
+      #s6 h2 { font-family: var(--display); font-style: italic; font-weight: 900; font-size: 132px; line-height: 0.94; letter-spacing: -0.03em; text-transform: uppercase; color: #fff; margin-top: 24px; }
+      #s6 .sub { margin-top: 26px; font-size: 21px; font-weight: 700; letter-spacing: 0.1em; color: #e6e6dd; text-transform: uppercase; }
+      #s6 .sub b { color: var(--yellow); }
+      #s6 .stats { display: flex; gap: 18px; margin-top: 34px; }
+      #s6 .stat { background: rgba(8,9,13,0.72); border: 1px solid var(--line); border-radius: 14px; padding: 14px 22px; }
+      #s6 .stat .v { font-family: var(--display); font-style: italic; font-size: 34px; color: var(--yellow); }
+      #s6 .stat .k { font-size: 11px; letter-spacing: 0.24em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+      #s6 .foot { position: absolute; left: 0; right: 0; bottom: 0; }
+      #s6 .foot .in { display: flex; justify-content: space-between; align-items: center; background: rgba(8,8,11,0.85); padding: 16px 84px; font-size: 12.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #b9bab0; font-weight: 700; }
+      #s6 .foot .in b { color: var(--yellow); }
+
+      /* ---------- flash + vignette ---------- */
+      #flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 60; pointer-events: none; }
+      #vignette { position: absolute; inset: 0; z-index: 40; pointer-events: none; background: radial-gradient(1500px 900px at 50% 45%, transparent 55%, rgba(0,0,0,0.42) 100%); }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- ══════════ SCENE 1 · COLD OPEN (0.00–5.10) ══════════ -->
+      <section id="s1" class="clip" data-start="0" data-duration="5.10" data-track-index="1">
+        <img class="hero" src="./assets/hero-interlagos.jpg" alt="F1 car in the rain at Interlagos" />
+        <div class="shade"></div>
+        <div class="shade-b"></div>
+        <div class="rain" id="rain-1"></div>
+        <div class="content">
+          <div class="kicker">Formula 1 · 2026 Season · Race Recap</div>
+          <h1>
+            <span class="line"><span class="l1">São Paulo</span></span>
+            <span class="line"><span class="l2"><span class="outline-yellow">Grand Prix</span></span></span>
+          </h1>
+          <div class="date"><span class="pill">Sun 08.11.2026</span> Autódromo José Carlos Pace · Brazil</div>
+        </div>
+        <div class="foot">
+          <div class="label"><span><b>RACE RECAP</b></span><span>71 Laps · Interlagos</span><span><b>2026</b> Formula 1</span></div>
+          <div class="checker"></div>
+        </div>
+      </section>
+
+      <!-- ══════════ SCENE 2 · THE GRID (5.10–10.80) ══════════ -->
+      <section id="s2" class="clip" data-start="5.10" data-duration="5.70" data-track-index="1">
+        <div class="grain"></div>
+        <div class="head">
+          <div class="kicker">Qualifying — Sat 07.11 · Rain, red flags</div>
+          <h2>The grid<br /><em>reshuffled</em></h2>
+        </div>
+
+        <div class="left" id="s2-pole">
+          <div class="team-bar" style="background: var(--papaya)"></div>
+          <div class="tag">POLE POSITION</div>
+          <div class="p0">P1</div>
+          <div class="name">Lando<br />Norris</div>
+          <div class="team">McLaren</div>
+          <div class="note"><b>3rd straight pole at Interlagos</b> — 0.204s clear of Russell in the wet</div>
+        </div>
+
+        <div class="right" id="s2-pen">
+          <h3>ENGINE PENALTIES HIT THE PECKING ORDER</h3>
+          <div class="gridrow">
+            <div class="from">P16</div><div class="arrow"><svg viewBox="0 0 32 32" width="100%" height="100%" aria-hidden="true"><path d="M9 4 L23 16 L9 28" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="to">P21</div>
+            <div class="who"><div class="n">Max Verstappen</div><div class="t">Red Bull Racing</div></div>
+            <div class="why">−30 places<br />new power unit</div>
+          </div>
+          <div class="gridrow">
+            <div class="from">P12</div><div class="arrow"><svg viewBox="0 0 32 32" width="100%" height="100%" aria-hidden="true"><path d="M9 4 L23 16 L9 28" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="to">P20</div>
+            <div class="who"><div class="n">Lewis Hamilton</div><div class="t">Ferrari</div></div>
+            <div class="why">−75 places<br />new power unit</div>
+          </div>
+          <div class="gridrow">
+            <div class="from">P2</div><div class="arrow"><svg viewBox="0 0 32 32" width="100%" height="100%" aria-hidden="true"><path d="M9 4 L23 16 L9 28" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="to">P7</div>
+            <div class="who"><div class="n">George Russell</div><div class="t">Mercedes</div></div>
+            <div class="why">−5 places<br />6th ice unit</div>
+          </div>
+          <div class="gridrow">
+            <div class="from">P4</div><div class="arrow"><svg viewBox="0 0 32 32" width="100%" height="100%" aria-hidden="true"><path d="M9 4 L23 16 L9 28" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="to">P13</div>
+            <div class="who"><div class="n">Charles Leclerc</div><div class="t">Ferrari</div></div>
+            <div class="why">−10 places<br />5th ice unit</div>
+          </div>
+        </div>
+
+        <div class="ticker" id="s2-ticker"><span class="x">NOTE</span><span><b>Kimi Antonelli</b> — the newly crowned world champion — starts P2</span></div>
+      </section>
+
+      <!-- ══════════ SCENE 3 · LIGHTS OUT (10.80–15.10) ══════════ -->
+      <section id="s3" class="clip" data-start="10.80" data-duration="4.30" data-track-index="1">
+        <div class="wrap">
+          <div class="kicker">Lights out — Lap 1</div>
+          <div class="lights" id="lights">
+            <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+          </div>
+          <h2>Norris loses<br />the lead<br /><span class="accent">at the start</span></h2>
+          <div class="chips">
+            <div class="chip"><span class="dot"></span><b>LAP 1</b> Lawson rockets to P2</div>
+            <div class="chip"><span class="dot"></span><b>RAIN</b> intensifies in the closing stages</div>
+          </div>
+        </div>
+
+        <div class="map" id="s3-map">
+          <h4>The circuit</h4>
+          <div class="t">Interlagos</div>
+          <svg viewBox="0 0 560 300" role="img" aria-label="Stylised Interlagos circuit outline">
+            <path class="track-bg" d="M 84 250 L 250 250 C 285 250 285 210 330 205 C 370 200 395 225 425 212 C 460 198 445 158 400 155 C 350 152 350 105 405 100 C 455 95 485 130 505 100 C 522 72 485 28 425 36 C 345 46 300 92 228 100 C 148 108 58 138 46 200 C 40 234 55 250 84 250 Z" fill="none"/>
+            <path class="track" id="track" d="M 84 250 L 250 250 C 285 250 285 210 330 205 C 370 200 395 225 425 212 C 460 198 445 158 400 155 C 350 152 350 105 405 100 C 455 95 485 130 505 100 C 522 72 485 28 425 36 C 345 46 300 92 228 100 C 148 108 58 138 46 200 C 40 234 55 250 84 250 Z" fill="none"/>
+            <circle class="dot-start" cx="84" cy="250" r="10"/>
+          </svg>
+          <div class="specs">
+            <div><div class="v">4.309</div><div class="k">km · lap</div></div>
+            <div><div class="v">15</div><div class="k">turns</div></div>
+            <div><div class="v">71</div><div class="k">laps</div></div>
+          </div>
+        </div>
+
+        <div class="bottom"><div class="in"><span>São Paulo Grand Prix · Race</span><span>Rain held off — until it didn't</span></div></div>
+      </section>
+
+      <!-- ══════════ SCENE 4 · THE CHARGE (15.10–19.20) ══════════ -->
+      <section id="s4" class="clip" data-start="15.10" data-duration="4.10" data-track-index="1">
+        <div class="rb-glow"></div>
+        <div class="head">
+          <div class="kicker">The recovery drive</div>
+          <h2>Verstappen,<br /><em>from the back</em></h2>
+        </div>
+
+        <div class="bignum">
+          <div class="from-p">P21</div>
+          <div class="arrow"><svg viewBox="0 0 32 32" width="100%" height="100%" aria-hidden="true"><path d="M9 4 L23 16 L9 28" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="to-p">P2</div>
+        </div>
+
+        <div class="gained">
+          <div class="n"><span id="gained-n">+0</span></div>
+          <div class="k">places<br />gained</div>
+        </div>
+
+        <div class="rows">
+          <div class="fact" id="fact-1">
+            <div class="h">The penalty</div>
+            <div class="p">A <b>30-place grid penalty</b> for a new power unit — fifth ICE, fifth turbo and fifth exhaust.</div>
+          </div>
+          <div class="fact" id="fact-2">
+            <div class="h">The charge</div>
+            <div class="p">Carved through the field to <b>finish P2</b> — <b>14.602s behind Norris</b>.</div>
+          </div>
+          <div class="fact" id="fact-3">
+            <div class="h">Team-mate's gift</div>
+            <div class="p"><b>Hadjar yields</b> as Verstappen passes… then <b>holds P3</b> to the flag.</div>
+          </div>
+        </div>
+
+        <div class="rb-badge" id="s4-badge">Red Bull — double podium</div>
+      </section>
+
+      <!-- ══════════ SCENE 5 · RESULTS (19.20–24.30) ══════════ -->
+      <section id="s5" class="clip" data-start="19.20" data-duration="5.10" data-track-index="1">
+        <div class="head">
+          <div>
+            <div class="kicker">Race result</div>
+            <h2>The podium</h2>
+          </div>
+          <div class="laps">71 Laps<br />Interlagos · Wet</div>
+        </div>
+
+        <div class="podium">
+          <div class="col p2" id="col-p2">
+            <div class="pos">2</div>
+            <div class="nm">VERSTAPPEN</div>
+            <div class="tm">Red Bull Racing</div>
+            <div class="gap">+14.602</div>
+            <div class="pos-stripe"></div>
+          </div>
+          <div class="col p1" id="col-p1">
+            <div class="win-badge">WINNER</div>
+            <div class="pos">1</div>
+            <div class="nm">NORRIS</div>
+            <div class="tm">McLaren</div>
+            <div class="gap">1:35:23.504</div>
+            <div class="pos-stripe"></div>
+          </div>
+          <div class="col p3" id="col-p3">
+            <div class="pos">3</div>
+            <div class="nm">HADJAR</div>
+            <div class="tm">Red Bull Racing</div>
+            <div class="gap">+24.485</div>
+            <div class="pos-stripe"></div>
+          </div>
+        </div>
+
+        <div class="rest" id="s5-rest">
+          <div class="chip"><b>P4</b> Russell +33.991</div>
+          <div class="chip"><b>P5</b> Antonelli +41.017 <span class="pen">(PEN)</span></div>
+          <div class="chip"><b>P6</b> Piastri +56.475</div>
+          <div class="chip"><b>P9</b> Hamilton +1 LAP</div>
+        </div>
+        <div class="foot"><div class="checker thin"></div></div>
+      </section>
+
+      <!-- ══════════ SCENE 6 · OUTRO (24.30–30.00) ══════════ -->
+      <section id="s6" class="clip" data-start="24.30" data-duration="5.70" data-track-index="1">
+        <img class="hero" src="./assets/podium-night.jpg" alt="Podium celebration in the rain at night" />
+        <div class="shade"></div>
+        <div class="shade-b"></div>
+        <div class="rain" id="rain-6"></div>
+        <div class="content">
+          <div class="kicker">Race recap · São Paulo Grand Prix 2026</div>
+          <h2><span class="l1">Norris wins</span><br /><span class="l2 outline-yellow">in São Paulo</span></h2>
+          <div class="sub">Pole to the flag, <b>in the rain</b> — a win wrestled back after losing the lead at the start</div>
+          <div class="stats">
+            <div class="stat"><div class="v">1:35:23.504</div><div class="k">Winning time</div></div>
+            <div class="stat"><div class="v">14.602s</div><div class="k">Margin to P2</div></div>
+            <div class="stat"><div class="v">71</div><div class="k">Laps</div></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="checker"></div>
+          <div class="in"><span><b>FORMULA 1</b></span><span>São Paulo Grand Prix · Interlagos</span><span><b>2026</b></span></div>
+        </div>
+      </section>
+
+      <div id="vignette"></div>
+      <div id="flash"></div>
+
+      <!-- ══════════ VOICEOVER ══════════ -->
+      <audio id="vo-1" data-start="0.15" data-duration="4.84" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/s1.mp3"></audio>
+      <audio id="vo-2" data-start="5.25" data-duration="5.34" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/s2.mp3"></audio>
+      <audio id="vo-3" data-start="10.95" data-duration="4.02" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/s3.mp3"></audio>
+      <audio id="vo-4" data-start="15.25" data-duration="3.75" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/s4.mp3"></audio>
+      <audio id="vo-5" data-start="19.35" data-duration="4.84" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/s5.mp3"></audio>
+      <audio id="vo-6" data-start="24.45" data-duration="3.45" data-track-index="9" data-playback-rate="1.15" src="./assets/voice/s6.mp3"></audio>
+    </div>
+
+    <script>
+      // Deterministic pseudo-random (seeded) for ambient rain streaks.
+      function mulberry32(seed) {
+        return function () {
+          let t = (seed += 0x6d2b79f5);
+          t = Math.imul(t ^ (t >>> 15), t | 1);
+          t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+
+      function buildRain(containerId, seed, count) {
+        const host = document.getElementById(containerId);
+        const rand = mulberry32(seed);
+        const streaks = [];
+        for (let i = 0; i < count; i++) {
+          const el = document.createElement("i");
+          const left = rand() * 100;
+          const height = 70 + rand() * 110;
+          const opacity = 0.18 + rand() * 0.4;
+          el.style.left = left.toFixed(2) + "%";
+          el.style.height = height.toFixed(0) + "px";
+          el.style.opacity = opacity.toFixed(2);
+          el.style.transform = "skewX(-14deg)";
+          host.appendChild(el);
+          streaks.push(el);
+        }
+        return streaks;
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const SHADE = 0.28; // scene fade-in
+
+      /* ───────── S1 · cold open ───────── */
+      buildRain("rain-1", 42, 26).forEach((el, i) => {
+        const r = mulberry32(1000 + i);
+        tl.fromTo(el, { y: -220 }, { y: 1300, duration: 1.15 + r() * 0.75, ease: "none", repeat: 22, delay: r() * 0.9 }, 0);
+      });
+      tl.fromTo("#s1 .hero", { scale: 1.14, x: -30 }, { scale: 1.0, x: 0, duration: 5.1, ease: "power2.out" }, 0);
+      tl.fromTo("#s1 .kicker", { opacity: 0, x: -36 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 0.35);
+      tl.fromTo("#s1 .l1", { yPercent: 110, rotate: 2 }, { yPercent: 0, rotate: 0, duration: 0.7, ease: "power4.out" }, 0.55);
+      tl.fromTo("#s1 .l2", { yPercent: 110, rotate: 2 }, { yPercent: 0, rotate: 0, duration: 0.7, ease: "power4.out" }, 0.72);
+      tl.fromTo("#s1 .date", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 1.05);
+      tl.fromTo("#s1 .foot .label", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.15);
+
+      /* ───────── S2 · the grid ───────── */
+      tl.fromTo("#s2 .head", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: SHADE, ease: "power2.out" }, 5.10);
+      tl.fromTo("#s2-pole", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 5.28);
+      tl.fromTo("#s2-pen", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 5.38);
+      tl.fromTo("#s2 .gridrow", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.13, ease: "power2.out" }, 5.62);
+      tl.fromTo("#s2-ticker", { xPercent: 100, opacity: 0.4 }, { xPercent: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 6.15);
+
+      /* ───────── S3 · lights out ───────── */
+      const lights = gsap.utils.toArray("#lights .light");
+      tl.fromTo("#s3 .wrap", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 10.80);
+      tl.fromTo("#s3 .kicker", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 10.90);
+      lights.forEach((light, i) => {
+        tl.set(light, { className: "light on" }, 11.05 + i * 0.22);
+      });
+      tl.set(lights, { className: "light" }, 12.35);
+      tl.fromTo("#s3 h2 .accent", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, 12.35);
+      tl.fromTo("#s3 h2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 11.10);
+      tl.fromTo("#s3 .chips .chip", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.18, ease: "power2.out" }, 12.55);
+      tl.fromTo("#s3-map", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 11.05);
+      tl.fromTo("#track", { strokeDasharray: 2200, strokeDashoffset: 2200 }, { strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut" }, 11.15);
+      tl.fromTo("#s3 .bottom .in", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 11.30);
+
+      /* ───────── S4 · the charge ───────── */
+      tl.fromTo("#s4 .head", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: SHADE, ease: "power2.out" }, 15.10);
+      tl.fromTo("#s4 .from-p", { opacity: 0, x: -50 }, { opacity: 0.9, x: 0, duration: 0.4, ease: "power2.out" }, 15.30);
+      tl.fromTo("#s4 .arrow", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, 15.45);
+      tl.fromTo("#s4 .to-p", { opacity: 0, scale: 0.55, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 15.55);
+      const counter = { v: 0 };
+      tl.to(counter, {
+        v: 19, duration: 1.5, ease: "power2.inOut",
+        onUpdate: () => { document.getElementById("gained-n").textContent = "+" + Math.round(counter.v); },
+      }, 15.45);
+      tl.fromTo("#s4 .gained", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 15.35);
+      tl.fromTo("#fact-1", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 15.40);
+      tl.fromTo("#fact-2", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 15.62);
+      tl.fromTo("#fact-3", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 15.84);
+      tl.fromTo("#s4-badge", { opacity: 0, y: 26, rotate: -2 }, { opacity: 1, y: 0, rotate: 0, duration: 0.45, ease: "back.out(1.8)" }, 16.60);
+      tl.fromTo(".rb-glow", { opacity: 0.5 }, { opacity: 1, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 3 }, 15.30);
+
+      /* ───────── S5 · results ───────── */
+      tl.fromTo("#s5 .head", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: SHADE, ease: "power2.out" }, 19.20);
+      tl.fromTo("#col-p2", { y: 160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 19.45);
+      tl.fromTo("#col-p3", { y: 140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 19.62);
+      tl.fromTo("#col-p1", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 19.80);
+      tl.fromTo("#s5-rest .chip", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.12, ease: "power2.out" }, 20.35);
+
+      /* ───────── S6 · outro ───────── */
+      buildRain("rain-6", 77, 22).forEach((el, i) => {
+        const r = mulberry32(2000 + i);
+        tl.fromTo(el, { y: -220 }, { y: 1300, duration: 1.1 + r() * 0.8, ease: "none", repeat: 4, delay: r() * 0.8 }, 24.30);
+      });
+      tl.fromTo("#s6 .hero", { scale: 1.12 }, { scale: 1.0, duration: 5.7, ease: "power2.out" }, 24.30);
+      tl.fromTo("#s6 .kicker", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 24.55);
+      tl.fromTo("#s6 .l1", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, 24.70);
+      tl.fromTo("#s6 .l2", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, 24.88);
+      tl.fromTo("#s6 .sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 25.25);
+      tl.fromTo("#s6 .stat", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.45, stagger: 0.14, ease: "power2.out" }, 25.50);
+      tl.fromTo("#s6 .foot .in", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 26.10);
+      tl.to("#s6", { opacity: 0, duration: 1.1, ease: "power2.in" }, 28.80);
+
+      /* ───────── broadcast flashes at scene cuts ───────── */
+      [5.10, 10.80, 15.10, 19.20, 24.30].forEach((t) => {
+        tl.fromTo("#flash", { opacity: 0 }, { opacity: 0.5, duration: 0.07, ease: "power1.in", immediateRender: false }, t - 0.02);
+        tl.to("#flash", { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.06);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
