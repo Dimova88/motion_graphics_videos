@@ -8,7 +8,7 @@ Tu café cuesta más. Tu gasolina cuesta más. Tu alquiler… ya sabes. Hoy te e
 ¿Por qué narices está todo más caro? Buena pregunta. Porque tocó lo que nadie quiere mirar de frente: el impuesto invisible.
 
 ## 03
-Respuesta corta: tu dinero compra cada día menos cosas. Respuesta larga: esta es la historia completa. Tres olas, ocho minutos. Vamos.
+Respuesta corta: tu dinero compra cada día menos cosas. Respuesta larga: esta es la historia completa. Tres olas, cero relleno. Vamos.
 
 ## 04
 Mira tu café: hace cinco años costaba dos con cincuenta. Hoy, cuatro con diez. Mismo café. Misma mesa. Ejemplo ilustrativo… pero lo conoces de sobra.
