@@ -1,0 +1,175 @@
+[Script Info]
+Title: El Precio de Todo — EP01
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Archivo,46,&H00D3E6ED,&H00D3E6ED,&H00000000,&H80000000,-1,0,0,0,100,100,0.5,0,1,3.2,0,2,80,80,64,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.15,0:00:01.29,Default,,0,0,0,,Tu café cuesta más.
+Dialogue: 0,0:00:01.29,0:00:02.67,Default,,0,0,0,,Tu gasolina cuesta más.
+Dialogue: 0,0:00:02.67,0:00:03.52,Default,,0,0,0,,Tu alquiler…
+Dialogue: 0,0:00:03.52,0:00:04.38,Default,,0,0,0,,ya sabes.
+Dialogue: 0,0:00:04.38,0:00:08.46,Default,,0,0,0,,Hoy te explico por qué — y no, no es\Nculpa del repartidor del súper.
+Dialogue: 0,0:00:08.91,0:00:11.21,Default,,0,0,0,,¿Por qué narices está todo más caro?
+Dialogue: 0,0:00:11.21,0:00:12.16,Default,,0,0,0,,Buena pregunta.
+Dialogue: 0,0:00:12.16,0:00:16.69,Default,,0,0,0,,Porque tocó lo que nadie quiere mirar de\Nfrente: el impuesto invisible.
+Dialogue: 0,0:00:17.14,0:00:20.35,Default,,0,0,0,,Respuesta corta: tu dinero compra cada\Ndía menos cosas.
+Dialogue: 0,0:00:20.35,0:00:23.03,Default,,0,0,0,,Respuesta larga: esta es la historia\Ncompleta.
+Dialogue: 0,0:00:23.03,0:00:24.42,Default,,0,0,0,,Tres olas, cero relleno.
+Dialogue: 0,0:00:24.42,0:00:25.27,Default,,0,0,0,,Vamos.
+Dialogue: 0,0:00:25.72,0:00:29.10,Default,,0,0,0,,Mira tu café: hace cinco años costaba\Ndos con cincuenta.
+Dialogue: 0,0:00:29.10,0:00:30.36,Default,,0,0,0,,Hoy, cuatro con diez.
+Dialogue: 0,0:00:30.36,0:00:31.23,Default,,0,0,0,,Mismo café.
+Dialogue: 0,0:00:31.23,0:00:32.09,Default,,0,0,0,,Misma mesa.
+Dialogue: 0,0:00:32.09,0:00:33.29,Default,,0,0,0,,Ejemplo ilustrativo…
+Dialogue: 0,0:00:33.29,0:00:34.80,Default,,0,0,0,,pero lo conoces de sobra.
+Dialogue: 0,0:00:35.25,0:00:38.97,Default,,0,0,0,,Inflación: la transferencia silenciosa\Nde poder adquisitivo.
+Dialogue: 0,0:00:38.97,0:00:41.39,Default,,0,0,0,,Traducido: a nadie le roban la cartera.
+Dialogue: 0,0:00:41.39,0:00:43.44,Default,,0,0,0,,Simplemente, la vida se encarece.
+Dialogue: 0,0:00:43.89,0:00:47.66,Default,,0,0,0,,Y tu carro del súper: el mismo carro, la\Nmisma lista.
+Dialogue: 0,0:00:47.66,0:00:48.94,Default,,0,0,0,,En Estados Unidos,
+Dialogue: 0,0:00:48.94,0:00:53.84,Default,,0,0,0,,la cesta media cuesta casi un 30 por\Nciento más que en enero de 2020.
+Dialogue: 0,0:00:54.29,0:00:58.94,Default,,0,0,0,,Esta línea lo cuenta todo: los precios\Nsubiendo sin permiso durante una
+Dialogue: 0,0:00:58.94,0:00:59.81,Default,,0,0,0,,década.
+Dialogue: 0,0:00:59.81,0:01:01.18,Default,,0,0,0,,Mira el pico de 2022…
+Dialogue: 0,0:01:01.18,0:01:03.94,Default,,0,0,0,,y mira lo que acaba de pasar a la\Nderecha.
+Dialogue: 0,0:01:03.94,0:01:05.64,Default,,0,0,0,,Ese rebote no es un error.
+Dialogue: 0,0:01:06.09,0:01:08.37,Default,,0,0,0,,Todo esto pasó en tres olas.
+Dialogue: 0,0:01:08.37,0:01:10.33,Default,,0,0,0,,La primera: 2021 y 2022.
+Dialogue: 0,0:01:10.33,0:01:12.53,Default,,0,0,0,,La segunda: de 2022 a 2025.
+Dialogue: 0,0:01:12.53,0:01:15.55,Default,,0,0,0,,La tercera: está pasando ahora mismo.
+Dialogue: 0,0:01:15.55,0:01:17.10,Default,,0,0,0,,Entiende esas tres…
+Dialogue: 0,0:01:17.10,0:01:18.97,Default,,0,0,0,,y entiendes tu cartera.
+Dialogue: 0,0:01:19.42,0:01:21.00,Default,,0,0,0,,Ola uno: 2021, 2022.
+Dialogue: 0,0:01:21.00,0:01:22.90,Default,,0,0,0,,Le decimos «la cerilla».
+Dialogue: 0,0:01:22.90,0:01:24.56,Default,,0,0,0,,Y no hubo un villano…
+Dialogue: 0,0:01:24.56,0:01:26.06,Default,,0,0,0,,hubo tres cerillas.
+Dialogue: 0,0:01:26.51,0:01:28.02,Default,,0,0,0,,Cerilla uno: los cheques.
+Dialogue: 0,0:01:28.02,0:01:31.81,Default,,0,0,0,,Los gobiernos repartieron dinero para\Nsobrevivir a la pandemia.
+Dialogue: 0,0:01:31.81,0:01:32.69,Default,,0,0,0,,Funcionó.
+Dialogue: 0,0:01:32.69,0:01:34.25,Default,,0,0,0,,Tanto, que sobraba dinero…
+Dialogue: 0,0:01:34.25,0:01:38.35,Default,,0,0,0,,persiguiendo las mismas pizzas, los\Nmismos coches, los mismos pisos.
+Dialogue: 0,0:01:38.80,0:01:40.21,Default,,0,0,0,,Cerilla dos: el atasco.
+Dialogue: 0,0:01:40.21,0:01:44.02,Default,,0,0,0,,Puertos parados, fábricas sin chips,\Nbarcos esperando semanas.
+Dialogue: 0,0:01:44.02,0:01:46.90,Default,,0,0,0,,La oferta se encogía mientras la demanda\Nrugía.
+Dialogue: 0,0:01:46.90,0:01:47.78,Default,,0,0,0,,¿Los precios?
+Dialogue: 0,0:01:47.78,0:01:48.66,Default,,0,0,0,,Para arriba.
+Dialogue: 0,0:01:49.11,0:01:50.68,Default,,0,0,0,,Cerilla tres: el misil.
+Dialogue: 0,0:01:50.68,0:01:53.26,Default,,0,0,0,,Febrero de 2022: Rusia invade Ucrania.
+Dialogue: 0,0:01:53.26,0:01:56.94,Default,,0,0,0,,El gas europeo se multiplica y el\Npetróleo se dispara.
+Dialogue: 0,0:01:56.94,0:01:58.85,Default,,0,0,0,,Cerilla directa al polvorín.
+Dialogue: 0,0:01:59.30,0:02:01.07,Default,,0,0,0,,Resultado: junio de 2022.
+Dialogue: 0,0:02:01.07,0:02:06.04,Default,,0,0,0,,Estados Unidos toca el 9,1 por ciento —\Nel peor dato en cuarenta años.
+Dialogue: 0,0:02:06.04,0:02:09.02,Default,,0,0,0,,Y en octubre, la zona euro cierra en\N10,6.
+Dialogue: 0,0:02:09.02,0:02:10.15,Default,,0,0,0,,Diez por ciento.
+Dialogue: 0,0:02:10.15,0:02:12.78,Default,,0,0,0,,La calculadora de la vida, en llamas.
+Dialogue: 0,0:02:13.23,0:02:15.10,Default,,0,0,0,,Ola dos: de 2022 a 2025.
+Dialogue: 0,0:02:15.10,0:02:16.19,Default,,0,0,0,,«La manguera».
+Dialogue: 0,0:02:16.19,0:02:18.92,Default,,0,0,0,,Porque el fuego había que apagarlo…
+Dialogue: 0,0:02:18.92,0:02:20.24,Default,,0,0,0,,y apagarlo dolió.
+Dialogue: 0,0:02:20.69,0:02:25.94,Default,,0,0,0,,Estados Unidos: la Reserva Federal soltó\Nla manguera más rápido que en
+Dialogue: 0,0:02:25.94,0:02:26.99,Default,,0,0,0,,cuarenta años.
+Dialogue: 0,0:02:26.99,0:02:30.90,Default,,0,0,0,,Del cero al 5,25 y 5,50 por ciento en\Njulio de 2023.
+Dialogue: 0,0:02:30.90,0:02:32.02,Default,,0,0,0,,Suena a locura.
+Dialogue: 0,0:02:32.02,0:02:33.45,Default,,0,0,0,,Pero era necesario.
+Dialogue: 0,0:02:33.90,0:02:38.63,Default,,0,0,0,,Europa no se quedó atrás: el BCE llegó\Nal 4 por ciento en septiembre de
+Dialogue: 0,0:02:38.63,0:02:39.48,Default,,0,0,0,,2023.
+Dialogue: 0,0:02:39.48,0:02:40.95,Default,,0,0,0,,Diez subidas seguidas.
+Dialogue: 0,0:02:40.95,0:02:43.61,Default,,0,0,0,,El Euríbor hizo el resto, lo sabes bien.
+Dialogue: 0,0:02:44.06,0:02:44.96,Default,,0,0,0,,Y se enfrió,
+Dialogue: 0,0:02:44.96,0:02:49.98,Default,,0,0,0,,sí: Estados Unidos cerró 2025 en torno\Nal 2,7 y Europa rozando el 2.
+Dialogue: 0,0:02:49.98,0:02:50.88,Default,,0,0,0,,Hubo fiesta.
+Dialogue: 0,0:02:50.88,0:02:53.32,Default,,0,0,0,,Pero la fiesta olvidó un detalle…
+Dialogue: 0,0:02:53.77,0:02:55.47,Default,,0,0,0,,Y si arrastras hipoteca…
+Dialogue: 0,0:02:55.47,0:02:58.51,Default,,0,0,0,,la variable pasó del uno y pico al 4 o\Nmás.
+Dialogue: 0,0:02:58.51,0:03:01.06,Default,,0,0,0,,La cuota pasó de 900 a 1.300 al mes.
+Dialogue: 0,0:03:01.06,0:03:01.95,Default,,0,0,0,,Misma casa.
+Dialogue: 0,0:03:01.95,0:03:02.94,Default,,0,0,0,,Mismos metros.
+Dialogue: 0,0:03:02.94,0:03:03.86,Default,,0,0,0,,Otra factura.
+Dialogue: 0,0:03:03.86,0:03:07.47,Default,,0,0,0,,Ejemplo ilustrativo — pero real como la\Nvida misma.
+Dialogue: 0,0:03:07.92,0:03:10.74,Default,,0,0,0,,La desinflación no es que los precios\Nbajen.
+Dialogue: 0,0:03:10.74,0:03:12.41,Default,,0,0,0,,Es que SUBEN MÁS DESPACIO.
+Dialogue: 0,0:03:12.86,0:03:14.75,Default,,0,0,0,,Y nadie te devolvió el dinero.
+Dialogue: 0,0:03:14.75,0:03:16.84,Default,,0,0,0,,Nadie te va a devolver el dinero.
+Dialogue: 0,0:03:16.84,0:03:20.06,Default,,0,0,0,,Los precios no volvieron atrás — y no\Nvan a volver.
+Dialogue: 0,0:03:20.51,0:03:22.21,Default,,0,0,0,,Y entonces llegó 2026.
+Dialogue: 0,0:03:22.21,0:03:24.60,Default,,0,0,0,,Ola tres: «la segunda cerilla».
+Dialogue: 0,0:03:24.60,0:03:29.69,Default,,0,0,0,,El 28 de febrero de 2026, Estados Unidos\Ne Israel atacaron a Irán.
+Dialogue: 0,0:03:30.14,0:03:33.65,Default,,0,0,0,,En ocho días, el petróleo pasó de 78 a\N131 dólares.
+Dialogue: 0,0:03:33.65,0:03:38.39,Default,,0,0,0,,Y el estrecho de Ormuz — por donde pasa\Nuna quinta parte del petróleo
+Dialogue: 0,0:03:38.39,0:03:42.93,Default,,0,0,0,,del mundo y una quinta parte del gas\Nlicuado — quedó semi-cerrado.
+Dialogue: 0,0:03:43.38,0:03:47.36,Default,,0,0,0,,El tráfico por Ormuz: de veinte millones\Nde barriles diarios…
+Dialogue: 0,0:03:47.36,0:03:48.59,Default,,0,0,0,,a 2,7 en primavera.
+Dialogue: 0,0:03:48.59,0:03:50.94,Default,,0,0,0,,Y sigue muy por debajo de lo normal.
+Dialogue: 0,0:03:50.94,0:03:53.09,Default,,0,0,0,,Esto no es un susto: es un peaje.
+Dialogue: 0,0:03:53.54,0:03:55.36,Default,,0,0,0,,¿Qué pasó con los precios?
+Dialogue: 0,0:03:55.36,0:03:58.86,Default,,0,0,0,,La zona euro cerró octubre en 4,0, según\NEurostat.
+Dialogue: 0,0:03:58.86,0:04:01.25,Default,,0,0,0,,Estados Unidos: 3,7 en septiembre…
+Dialogue: 0,0:04:01.25,0:04:02.79,Default,,0,0,0,,y subyacente solo 2,6.
+Dialogue: 0,0:04:02.79,0:04:04.68,Default,,0,0,0,,Es decir: la energía manda.
+Dialogue: 0,0:04:05.13,0:04:06.90,Default,,0,0,0,,¿Y por qué manda la energía?
+Dialogue: 0,0:04:06.90,0:04:09.55,Default,,0,0,0,,Porque si sube el gas, sube el\Ntransporte.
+Dialogue: 0,0:04:09.55,0:04:11.95,Default,,0,0,0,,Si sube el transporte, sube la comida.
+Dialogue: 0,0:04:11.95,0:04:13.79,Default,,0,0,0,,Si sube la comida, sube todo.
+Dialogue: 0,0:04:13.79,0:04:16.63,Default,,0,0,0,,La energía es el precio de los demás\Nprecios.
+Dialogue: 0,0:04:17.08,0:04:22.04,Default,,0,0,0,,Y en casa, en Países Bajos: 3,7 según el\NCBS — el dato más alto del año.
+Dialogue: 0,0:04:22.04,0:04:25.62,Default,,0,0,0,,Con el gas 52,5 por ciento más caro que\Nhace un año.
+Dialogue: 0,0:04:25.62,0:04:27.13,Default,,0,0,0,,Si tu factura te pesa…
+Dialogue: 0,0:04:27.13,0:04:28.58,Default,,0,0,0,,no es tu imaginación.
+Dialogue: 0,0:04:29.03,0:04:30.98,Default,,0,0,0,,¿Qué miramos a partir de ahora?
+Dialogue: 0,0:04:30.98,0:04:31.87,Default,,0,0,0,,Dos números.
+Dialogue: 0,0:04:31.87,0:04:33.88,Default,,0,0,0,,El primero: la prima de energía.
+Dialogue: 0,0:04:33.88,0:04:36.14,Default,,0,0,0,,Mientras Ormuz siga así, cada litro,
+Dialogue: 0,0:04:36.14,0:04:39.78,Default,,0,0,0,,cada factura de la luz y cada bolsa\Nlleva peaje de guerra.
+Dialogue: 0,0:04:40.23,0:04:42.15,Default,,0,0,0,,El segundo: las expectativas.
+Dialogue: 0,0:04:42.15,0:04:46.25,Default,,0,0,0,,Los consumidores ya esperan un 3,9 por\Nciento — antes era 3,6.
+Dialogue: 0,0:04:46.25,0:04:49.36,Default,,0,0,0,,Si tu jefe espera inflación, te sube el\Nsueldo.
+Dialogue: 0,0:04:49.36,0:04:52.34,Default,,0,0,0,,Si tu proveedor la espera, te sube la\Ntarifa.
+Dialogue: 0,0:04:52.79,0:04:54.23,Default,,0,0,0,,Tres futuros posibles.
+Dialogue: 0,0:04:54.23,0:04:56.46,Default,,0,0,0,,Aterrizaje suave: en torno al 2,5.
+Dialogue: 0,0:04:56.46,0:04:59.14,Default,,0,0,0,,Inflación alta y duradera: en torno al\N4.
+Dialogue: 0,0:04:59.14,0:05:01.89,Default,,0,0,0,,O la segunda descarga: camino del 5 o\Nmás.
+Dialogue: 0,0:05:01.89,0:05:02.81,Default,,0,0,0,,¿Quién decide?
+Dialogue: 0,0:05:02.81,0:05:04.31,Default,,0,0,0,,Cuánto dure la energía.
+Dialogue: 0,0:05:04.31,0:05:05.19,Default,,0,0,0,,Solo eso.
+Dialogue: 0,0:05:05.64,0:05:08.87,Default,,0,0,0,,Y cuidado con el círculo: sueldos que\Nsuben un 4,
+Dialogue: 0,0:05:08.87,0:05:11.97,Default,,0,0,0,,tarifas que suben un 4, precios que\Nsuben un 4.
+Dialogue: 0,0:05:11.97,0:05:14.01,Default,,0,0,0,,La serpiente se muerde la cola.
+Dialogue: 0,0:05:14.01,0:05:17.57,Default,,0,0,0,,Soltar ese nudo es el trabajo de los\Nbancos centrales.
+Dialogue: 0,0:05:18.02,0:05:21.26,Default,,0,0,0,,Regla uno: tu efectivo es un cubito de\Nhielo al sol.
+Dialogue: 0,0:05:21.26,0:05:23.01,Default,,0,0,0,,Quieto, cada mes vale menos.
+Dialogue: 0,0:05:23.01,0:05:27.00,Default,,0,0,0,,El depósito y la renta fija vuelven a\Nrendir — no te hacen rico,
+Dialogue: 0,0:05:27.00,0:05:28.06,Default,,0,0,0,,pero te protegen.
+Dialogue: 0,0:05:28.51,0:05:33.19,Default,,0,0,0,,Regla dos: la deuda a tipo fijo se\Ndevuelve con dinero barato.
+Dialogue: 0,0:05:33.19,0:05:37.27,Default,,0,0,0,,Lo que debes desde 2020 son euros de\N2020, no de 2026.
+Dialogue: 0,0:05:37.27,0:05:40.06,Default,,0,0,0,,El banco no celebra tu hipoteca fija.
+Dialogue: 0,0:05:40.06,0:05:41.42,Default,,0,0,0,,Tú, quizá un poco.
+Dialogue: 0,0:05:41.87,0:05:44.95,Default,,0,0,0,,Regla tres: pide tu subida con el IPC en\Nla mano.
+Dialogue: 0,0:05:44.95,0:05:48.86,Default,,0,0,0,,Un +4 con la inflación al 4 no es una\Nsubida: es estar quieto.
+Dialogue: 0,0:05:48.86,0:05:49.73,Default,,0,0,0,,Cada año.
+Dialogue: 0,0:05:49.73,0:05:50.61,Default,,0,0,0,,Sin vergüenza.
+Dialogue: 0,0:05:50.61,0:05:53.32,Default,,0,0,0,,Y esto es educación, no consejo\Nfinanciero.
+Dialogue: 0,0:05:53.77,0:05:57.21,Default,,0,0,0,,Tu tarea para esta semana: abre tu\Nextracto del banco.
+Dialogue: 0,0:05:57.21,0:06:00.46,Default,,0,0,0,,Marca tres gastos que han subido sin\Npedir permiso.
+Dialogue: 0,0:06:00.46,0:06:03.39,Default,,0,0,0,,Ese es tu termómetro personal de la\Ninflación.
+Dialogue: 0,0:06:03.39,0:06:04.66,Default,,0,0,0,,Y lo miras cada mes.
+Dialogue: 0,0:06:05.11,0:06:06.82,Default,,0,0,0,,Repaso en tres líneas.
+Dialogue: 0,0:06:06.82,0:06:08.99,Default,,0,0,0,,Uno: 2021-22, tres cerillas.
+Dialogue: 0,0:06:08.99,0:06:11.01,Default,,0,0,0,,Dos: 2022-25, la manguera.
+Dialogue: 0,0:06:11.01,0:06:13.41,Default,,0,0,0,,Tres: 2026, la segunda cerilla.
+Dialogue: 0,0:06:13.41,0:06:16.21,Default,,0,0,0,,El impuesto invisible ya lo conoces.
+Dialogue: 0,0:06:16.21,0:06:19.62,Default,,0,0,0,,Vígilalo como miras la previsión del\Ntiempo.
+Dialogue: 0,0:06:20.07,0:06:23.53,Default,,0,0,0,,El próximo episodio: ¿quién paga de\Nverdad los aranceles?
+Dialogue: 0,0:06:23.53,0:06:25.35,Default,,0,0,0,,¿El importador, el exportador…
+Dialogue: 0,0:06:25.35,0:06:26.21,Default,,0,0,0,,o tú?
+Dialogue: 0,0:06:26.21,0:06:28.09,Default,,0,0,0,,Suscríbete a El Precio de Todo.
+Dialogue: 0,0:06:28.09,0:06:29.36,Default,,0,0,0,,Todo tiene un precio…
+Dialogue: 0,0:06:29.36,0:06:30.22,Default,,0,0,0,,y su historia.
+Dialogue: 0,0:06:30.22,0:06:32.10,Default,,0,0,0,,Nos vemos en el próximo precio.
