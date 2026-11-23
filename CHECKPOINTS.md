@@ -105,3 +105,15 @@ EP01 rebuilt per owner's 5 post-render corrections of v1: (1) cero aire muerto �
 - Toolchain notes (sandbox): ffmpeg via imageio-ffmpeg n9.0.2 at pip path; ffprobe via npm `ffprobe-static`; browser via `@sparticuz/chromium` (bin → /tmp/chromium; libs al2023 tar.br extracted; FONTCONFIG_PATH=/tmp/fonts-x); Anton/Archivo TTFs converted woff2→ttf for libass
 - Runtime landed at 6:33 (voice-03 speaks faster than scripted est.) — owner rejected padding; script stands at 1.039 words
 - Next: owner review of the v3 MP4 (ritmo/subtítulos/VO) → `present_file` approval → upload EP01 con EP01-DESCRIPCION.md (chapters v3)
+
+## v11 — EP01 re-voice: voice-05 (es-ES) sustituye a voice-03/voice-04 (2026-11-09)
+
+Owner pidió otra narradora («se la entienda en todo lo que dice») y después un acento «más español». Audition es-ES (Battle "05") → owner picked **voice-05** (ES-ES female, entertainment).
+
+- Las 36 tomas regeneradas con voice-05 (lotes de 10; loudnorm two-pass −19.5 LUFS / TP −1.5), VO idéntico a v3 (guion sin tocar), timing recomputado con clip real (build_index.py): **runtime 8:17.6** (voice-05 más pausada que voice-03)
+- Subtítulos quemados regenerados (161 cues, ∝ caracteres, clip t=0.15) + sidecar SRT/ASS
+- Render delivery (hyperframes 0.9.26), **−16.8 LUFS / −3.0 dBTP** (audio copiado bit-idéntico); subtítulos quemados con libass
+- Gates: lint 0/0; frames verificados (0:03 hook · 2:40 picos · 7:35 tarea · 8:15 CTA)
+- Chapters de EP01-DESCRIPCION.md actualizados (v5, 8:18)
+- Voces anteriores: voice-03 (posts Battle "03", rechazada por owner), voice-04 (Battle "04", reemplazada antes de render), voice-05 = narradora de la casa
+- Lección (sandbox): resets borran pip/ /tmp y rebobinan HEAD — fetch + diff de árboles + `reset --hard origin/…`; commit por lote de VO
